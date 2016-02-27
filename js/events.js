@@ -26,5 +26,28 @@ var events = {
             return ret + 'Countly.sharedInstance().recordEvent("'+data.key+'", segmentation, '+data.count+', '+data.sum+');';
         }
     },
+    ios: function(data){
+        if(!data.sum && !data.segmentation){
+            return '[Countly.sharedInstance recordEvent:@"'+data.key+'" count:'+data.count+'];';
+        }
+        else if(!data.segmentation){
+            return '[Countly.sharedInstance recordEvent:@"'+data.key+'" count:'+data.count+' sum:'+data.sum+'];';
+        }
+        else if(!data.sum){
+            var ret = "NSDictionary* dict = @{";
+            for(var key in data.segmentation){
+                ret += '@"'+key+'":@"'+data.segmentation[key]+'", ';
+            }
+            ret = ret.slice(0, -2)+"};\n"
+            return ret + '[Countly.sharedInstance recordEvent:@"'+data.key+'" segmentation:dict count:'+data.count+'];';
+        }
+        else{
+            var ret = "NSDictionary* dict = @{";
+            for(var key in data.segmentation){
+                ret += '@"'+key+'":@"'+data.segmentation[key]+'", ';
+            }
+            ret = ret.slice(0, -2)+"};\n"
+            return ret + '[Countly.sharedInstance recordEvent:@"'+data.key+'" segmentation:dict count:'+data.count+' sum:'+data.sum+'];';
+        }
     }
 };
