@@ -172,6 +172,7 @@
     <script src="js/sdks.js"></script>
     <script src="js/common.js"></script>
     <script>
+    $( document ).ready(function() {
         var sdk = sdks.web;
         $("#buttons").append('<a href="'+sdk.docs+'" target="_blank" class="btn btn-default pull-right">Documentation</a>');
         $("#buttons").append('<a href="'+sdk.download+'" target="_blank" class="btn btn-default pull-right">Download</a>');
@@ -269,6 +270,7 @@
         $("#gotit").click(function(){
             $('#end-modal').modal('hide');
         });
+    });
     </script>
   </body>
 </html>
