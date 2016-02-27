@@ -154,7 +154,10 @@
             <div class="modal-body">
                 <p>Insert this snippet somewhere between &lt;head&gt;&lt;/head&gt; tags on your website</p>
                 <p><textarea id='end-code' readonly onclick="this.select();"></textarea></p>
-                <p class='text-center'><button type="button" class="btn btn-primary" id="gotit">Got it!</button></p>
+                <p class='text-center'>
+                    <button type="button" class="btn btn-primary" id="gotit">Got it!</button>
+                    <button type="button" class="btn btn-primary" id="download">Download</button>
+                </p>
             </div>
             </div>
         </div>
@@ -171,6 +174,8 @@
     <script src="js/ie10-viewport-bug-workaround.js"></script>
     <script src="js/sdks.js"></script>
     <script src="js/common.js"></script>
+    <script src="js/Blob.js"></script>
+    <script src="js/FileSaver.min.js"></script>
     <script>
     $( document ).ready(function() {
         var sdk = sdks.web;
@@ -269,6 +274,16 @@
         
         $("#gotit").click(function(){
             $('#end-modal').modal('hide');
+        });
+        
+        $("#download").click(function(){
+            var data = $("#end-code").val();
+            try {
+                var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
+                saveAs(blob, "web-sdk.txt");
+            } catch (e) {
+                alert(data);
+            }
         });
     });
     </script>

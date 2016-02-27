@@ -141,7 +141,10 @@
     <script src="js/sdks.js"></script>
     <script src="js/events.js"></script>
     <script src="js/common.js"></script>
+    <script src="js/Blob.js"></script>
+    <script src="js/FileSaver.min.js"></script>
     <script>
+    $( document ).ready(function() {
         var exampleSegments = [
             ["screen", "Main Screen"],
             ["difficulty", "Hard"],
@@ -151,6 +154,7 @@
             ["style", "Surrealism"],
             ["state", "Off"]
         ];
+        var sdk;
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
@@ -175,13 +179,13 @@
         $(".segments").on("click",".close-button", function(e){
             $(this).parent().remove();
         });
-        //var sdk = sdks.web;
         //$("#buttons").append('<a href="'+sdk.docs+'" target="_blank" class="btn btn-default pull-right">Documentation</a>');
         //$("#buttons").append('<a href="'+sdk.download+'" target="_blank" class="btn btn-default pull-right">Download</a>');
         //$("#buttons").append('<a href="'+sdk.repo+'" target="_blank" class="btn btn-default pull-right">Repository</a>');
             
         $(".dropdown-menu li a").click(function(){
             $( ".alert" ).remove();
+            sdk = this.id;
             var data = {};
             data.key = $("#event-key").val();
             
@@ -218,6 +222,16 @@
         
         $("#gotit").click(function(){
             $('#end-modal').modal('hide');
+        });
+        
+        $("#download").click(function(){
+            var data = $("#end-code").val();
+            try {
+                var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
+                saveAs(blob, sdk+"-event.txt");
+            } catch (e) {
+                alert(data);
+            }
         });
     });
     </script>
