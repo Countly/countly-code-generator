@@ -131,6 +131,18 @@
                     </label>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <p>&nbsp;</p>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <label>
+                        <input type="checkbox" id="allfeatures"> I want all features
+                    </label>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -270,6 +282,10 @@
                 .replace("[features]", data.features);
             $("#end-code").val(code);
             $('#end-modal').modal();
+        });
+        
+        $("#allfeatures").change(function(){
+            $(".feature").prop('checked', $(this).prop("checked"));
         });
         
         $("#gotit").click(function(){
