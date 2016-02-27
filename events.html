@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Count.ly Code Generator</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+            <p id="buttons">
+                <a href="integration.html" id="back" class="btn btn-default">&laquo; Back</a>
+            </p>
+            <h2 class="text-center">Create event</h2>
+        </div>
+      </div>
+        <div class='section'>
+            <span class='label'>Provide event values</span>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for='event-key'>Event name:</label>
+                        <input type="text" class="form-control" id='event-key' placeholder="MyEvent">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="event-count">How many times/actions event happened:</label>
+                        <input type="text" class="form-control" id="event-count" placeholder="1" value="1">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="event-sum">Provide sum, if it is a purchase event:</label>
+                        <input type="text" class="form-control" id="event-sum" placeholder="2.99">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="event-dur">Provide duration, if it took some time for event to happen:</label>
+                        <input type="text" class="form-control" id="event-dur" placeholder="100">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+        </div>
+        <div class='section segments'>
+            <span class='label'>Provide some optional segments</span>
+            <div class="row segment">
+                <a class="close close-button" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Segment Name:</label>
+                        <input type="text" class="form-control segment-key" placeholder="screen">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Segment Value:</label>
+                        <input type="text" class="form-control segment-val" placeholder="Main Screen">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div>
+            <p class='text-right'><button type="button" class="btn btn-default" id="add-segment">Add another segment</button></p>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class='text-center'>
+                    <div class="dropup">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Generate for
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu"></ul>
+                    </div>
+                </p>
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+      <hr>
+
+      <footer>
+        <p><a href='http://count.ly'>Count.ly</a></p>
+      </footer>
+    </div> <!-- /container -->
+    
+    <div class="modal fade" id="end-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Use this snipper to send an event to server</h4>
+            </div>
+            <div class="modal-body">
+                <p><textarea id='end-code' readonly onclick="this.select();"></textarea></p>
+                <p class='text-center'><button type="button" class="btn btn-primary" id="gotit">Got it!</button></p>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/sdks.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+        var exampleSegments = [
+            ["screen", "Main Screen"],
+            ["difficulty", "Hard"],
+            ["mode", "Arcade"],
+            ["template", "Default"],
+            ["theme", "Dark"],
+            ["style", "Surrealism"],
+            ["state", "Off"]
+        ];
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        function applyRandomSegmentExample(elem){
+            var example = exampleSegments[getRandomInt(0,exampleSegments.length)];
+            elem.find(".segment-key").attr("placeholder", example[0]);
+            elem.find(".segment-val").attr("placeholder", example[1]);
+        }
+        applyRandomSegmentExample($(".segment"));
+        $(".segments .segment:first .close-button").hide();
+        for(var slug in sdks){
+            $(".dropdown-menu").append('<li><a href="#" id="'+slug+'">'+sdks[slug].name+'</a></li>');
+        }
+        $("#add-segment").click(function(){
+            var segment = $(".segments .segment:first").clone();
+            segment.find(".segment-key").val("");
+            segment.find(".segment-val").val("");
+            segment.find(".close-button").show();
+            applyRandomSegmentExample(segment);
+            segment.insertBefore($("#add-segment").parent());
+        });
+        $(".segments").on("click",".close-button", function(e){
+            $(this).parent().remove();
+        });
+        //var sdk = sdks.web;
+        //$("#buttons").append('<a href="'+sdk.docs+'" target="_blank" class="btn btn-default pull-right">Documentation</a>');
+        //$("#buttons").append('<a href="'+sdk.download+'" target="_blank" class="btn btn-default pull-right">Download</a>');
+        //$("#buttons").append('<a href="'+sdk.repo+'" target="_blank" class="btn btn-default pull-right">Repository</a>');
+            
+        $(".dropdown-menu li a").click(function(){
+            $( ".alert" ).remove();
+            var data = {};
+            data.key = $("#event-key").val();
+            
+            if(data.key == ""){
+                $("#event-key").parent().prepend('<div class="alert alert-danger" role="alert">Please provide event name</div>');
+                return;
+            }
+      
+            data.count = parseInt($("#event-count").val()) || 1;
+            
+            if($("#event-sum").val() != ""){
+                data.sum = parseFloat($("#event-sum").val());
+            }
+            
+            if($("#event-dur").val() != ""){
+                data.dur = parseInt($("#event-dur").val());
+            }
+            
+            var hasSegments = false;
+            var segments = {};
+            $(".segment").each(function(){
+                if($(this).find(".segment-key").val() != "" && $(this).find(".segment-val").val() != ""){
+                    hasSegments = true;
+                    segments[$(this).find(".segment-key").val()] = $(this).find(".segment-val").val();
+                }
+            });
+            
+            if(hasSegments)
+                data.segmentation = segments;
+            
+            $("#end-code").val(events[this.id](data));
+            $('#end-modal').modal();
+        });
+        
+        $("#gotit").click(function(){
+            $('#end-modal').modal('hide');
+        });
+    </script>
+  </body>
+</html>
