@@ -54,6 +54,7 @@
     <script src="js/ie10-viewport-bug-workaround.js"></script>
     <script src="js/sdks.js"></script>
     <script>
+    $( document ).ready(function() {
         var container, sdk, i = 0;
         for(var slug in sdks){
             if(i % 4 == 0){
@@ -72,6 +73,7 @@
                 '</div>';
             container.append(sdk);
         }
+    });
     </script>
   </body>
 </html>
