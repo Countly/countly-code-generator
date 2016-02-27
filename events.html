@@ -121,8 +121,9 @@
             <div class="modal-body">
                 <p><textarea id='end-code' readonly onclick="this.select();"></textarea></p>
                 <p class='text-center'>
-                    <button type="button" class="btn btn-primary" id="gotit">Got it!</button>
-                    <button type="button" class="btn btn-primary" id="download">Download</button>
+                    <button type="button" class="btn btn-success" id="copy" data-clipboard-target="#end-code">Copy</button>&nbsp;
+                    <button type="button" class="btn btn-success" id="download">Download</button>&nbsp;
+                    <button type="button" class="btn btn-primary" id="gotit">Close</button>
                 </p>
             </div>
             </div>
@@ -143,8 +144,10 @@
     <script src="js/common.js"></script>
     <script src="js/Blob.js"></script>
     <script src="js/FileSaver.min.js"></script>
+    <script src="js/clipboard.min.js"></script>
     <script>
     $( document ).ready(function() {
+        new Clipboard('#copy');
         var exampleSegments = [
             ["screen", "Main Screen"],
             ["difficulty", "Hard"],

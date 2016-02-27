@@ -167,8 +167,9 @@
                 <p>Insert this snippet somewhere between &lt;head&gt;&lt;/head&gt; tags on your website</p>
                 <p><textarea id='end-code' readonly onclick="this.select();"></textarea></p>
                 <p class='text-center'>
-                    <button type="button" class="btn btn-primary" id="gotit">Got it!</button>
-                    <button type="button" class="btn btn-primary" id="download">Download</button>
+                    <button type="button" class="btn btn-success" id="copy" data-clipboard-target="#end-code">Copy</button>&nbsp;
+                    <button type="button" class="btn btn-success" id="download">Download</button>&nbsp;
+                    <button type="button" class="btn btn-primary" id="gotit">Close</button>
                 </p>
             </div>
             </div>
@@ -188,8 +189,10 @@
     <script src="js/common.js"></script>
     <script src="js/Blob.js"></script>
     <script src="js/FileSaver.min.js"></script>
+    <script src="js/clipboard.min.js"></script>
     <script>
     $( document ).ready(function() {
+        new Clipboard('#copy');
         var sdk = sdks.web;
         $("#buttons").append('<a href="'+sdk.docs+'" target="_blank" class="btn btn-default pull-right">Documentation</a>');
         $("#buttons").append('<a href="'+sdk.download+'" target="_blank" class="btn btn-default pull-right">Download</a>');
