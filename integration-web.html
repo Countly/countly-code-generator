@@ -68,7 +68,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <label>
-                        <input type="radio" name='source' value='https://cdnjs.cloudflare.com/ajax/libs/countly-sdk-web/16.2.0/countly.min.js'> Load from cdnjs
+                        <input type="radio" name='source' id="cdnjs" value='https://cdnjs.cloudflare.com/ajax/libs/countly-sdk-web/version/countly.min.js'> Load from cdnjs
                     </label>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
@@ -196,6 +196,7 @@
     $( document ).ready(function() {
         new Clipboard('#copy');
         var sdk = sdks.web;
+        $("#cdnjs").val($("#cdnjs").val().replace("/version/", "/"+sdk.version+"/"));
         $("#buttons").append('<a href="'+sdk.docs+'" target="_blank" class="btn btn-default pull-right">Documentation</a>');
         $("#buttons").append('<a href="'+sdk.download+'" target="_blank" class="btn btn-default pull-right">Download</a>');
         $("#buttons").append('<a href="'+sdk.repo+'" target="_blank" class="btn btn-default pull-right">Repository</a>');
