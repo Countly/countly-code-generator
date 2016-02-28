@@ -21,6 +21,36 @@ var users = {
         "});\n"+
         "</scri" + "pt>";
     },
+    android: function(data){
+        var script = "";
+        for(var i in data){
+            if(i != "custom"){
+                script += "userdata.put(\""+i+"\", \""+data[i]+"\");\n";
+            }
+        }
+        if(script != ""){
+            script = "HashMap<String, String> userdata = new HashMap<String, String>();\n"+script+"Countly.userData.setUserData(userdata);\n";
+        }
+        if(data.custom){
+            var map = {
+                set: "setProperty",
+                set_once: "setOnce",
+                increment: "increment",
+                multiply: "multiply",
+                max: "saveMax",
+                min: "saveMin",
+                push_unique: "pushUniqueValue",
+                pull: "pullValue"
+            };
+            for(var i in data.custom){
+                if(data.custom[i].action == "increment" || data.custom[i].action == "multiply" || data.custom[i].action == "min" || data.custom[i].action == "max")
+                    script += "Countly.userData."+map[data.custom[i].action]+"(\""+i+"\", "+data.custom[i].value+");\n";
+                else
+                    script += "Countly.userData."+map[data.custom[i].action]+"(\""+i+"\", \""+data.custom[i].value+"\");\n";
+            }
+        }
+        return script;
+    },
     ios: function(data){
         var script = "";
         for(var i in data){
@@ -40,7 +70,7 @@ var users = {
                 max: "max",
                 min: "min",
                 push_unique: "pushUnique",
-                pull: "pull",
+                pull: "pull"
             };
             for(var i in data.custom){
                 if(data.custom[i].action == "increment" || data.custom[i].action == "multiply" || data.custom[i].action == "min" || data.custom[i].action == "max")
