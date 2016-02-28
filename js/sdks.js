@@ -28,5 +28,14 @@ var sdks = {
         description: "Track users and user behavior in your mobile iOS and desktop OSX apps",
         version: "16.02",
         integration: true
+    },
+    windows: {
+        name: "Windows SDK",
+        image: "images/windows.png",
+        repo: "https://github.com/Countly/countly-sdk-windows-phone",
+        download: "https://github.com/Countly/countly-sdk-windows-phone/releases",
+        docs: "http://resources.count.ly/docs/countly-sdk-for-windows-phone",
+        description: "Track users and user behavior in your Windows Mobile, Windows Desktop or .NET app",
+        version: "15.08"
     }
 };
