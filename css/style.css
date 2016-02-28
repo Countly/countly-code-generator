@@ -74,7 +74,7 @@ body {
 
 #end-code{
     width: 100%;
-    height: 600px;
+    height: 500px;
 }
 .segment{
     position: relative;
@@ -84,4 +84,8 @@ body {
     top: 0px;
     right:0px;
     z-index: 100;
+}
+
+.modal-dialog{
+    width: 80%;
 }
