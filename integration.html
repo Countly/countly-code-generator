@@ -57,21 +57,23 @@
     $( document ).ready(function() {
         var container, sdk, i = 0;
         for(var slug in sdks){
-            if(i % 4 == 0){
-                var container = $('<div class="row"></div>');
-                $("#sdks").append(container);
+            if(sdks[slug].integration){
+                if(i % 4 == 0){
+                    var container = $('<div class="row"></div>');
+                    $("#sdks").append(container);
+                }
+                i++;
+                sdk = 
+                    '<div class="col-md-4">' +
+                    '<h2>'+sdks[slug].name+'</h2>' +
+                    '<p>';
+                if(sdks[slug].image && sdks[slug].image != "")
+                    sdk += '<img src="'+sdks[slug].image+'" class="iconstuff pull-left" width="80px"/>';
+                sdk += sdks[slug].description+'</p>' +
+                    '<p><a class="btn btn-default" href="integration-'+slug+'.html" role="button">Next Step &raquo;</a></p>' +
+                    '</div>';
+                container.append(sdk);
             }
-            i++;
-            sdk = 
-                '<div class="col-md-4">' +
-                '<h2>'+sdks[slug].name+'</h2>' +
-                '<p>';
-            if(sdks[slug].image && sdks[slug].image != "")
-                sdk += '<img src="'+sdks[slug].image+'" class="iconstuff pull-left" width="80px"/>';
-            sdk += sdks[slug].description+'</p>' +
-                '<p><a class="btn btn-default" href="integration-'+slug+'.html" role="button">Next Step &raquo;</a></p>' +
-                '</div>';
-            container.append(sdk);
         }
     });
     </script>
