@@ -116,7 +116,12 @@
             <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Use this snipper to send an event to server</h4>
+                <div class="btn-group" role="group">
+                    <a href="" class="btn btn-default" target='_blank' id="sdk-repo">SDK Repository</a>
+                    <a href="" class="btn btn-default" target='_blank' id="sdk-docs">SDK Documentation</a>
+                    <a href="" class="btn btn-default" target='_blank' id="sdk-download">Download SDK</a>
+                </div>
+                <h4 class="modal-title text-center">Use this snippet to send an event to server</h4>
             </div>
             <div class="modal-body">
                 <p><textarea id='end-code' readonly onclick="this.select();"></textarea></p>
@@ -185,13 +190,13 @@
         $(".segments").on("click",".close-button", function(e){
             $(this).parent().remove();
         });
-        //$("#buttons").append('<a href="'+sdk.docs+'" target="_blank" class="btn btn-default pull-right">Documentation</a>');
-        //$("#buttons").append('<a href="'+sdk.download+'" target="_blank" class="btn btn-default pull-right">Download</a>');
-        //$("#buttons").append('<a href="'+sdk.repo+'" target="_blank" class="btn btn-default pull-right">Repository</a>');
             
         $(".dropdown-menu li a").click(function(){
             $( ".alert" ).remove();
             sdk = this.id;
+            $("#sdk-repo").attr("href", sdks[sdk].repo);
+            $("#sdk-docs").attr("href", sdks[sdk].docs);
+            $("#sdk-download").attr("href", sdks[sdk].download);
             var data = {};
             data.key = $("#event-key").val();
             
