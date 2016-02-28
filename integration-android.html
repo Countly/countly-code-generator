@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Count.ly Code Generator</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+            <p id="buttons">
+                <a href="integration.html" id="back" class="btn btn-default">&laquo; Back</a>
+            </p>
+            <h2 class="text-center">Integrating Android SDK</h2>
+        </div>
+      </div>
+        <div class='section configuration'>
+            <span class='label'>Provide configuration settings</span>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for='server-url'>Server URL:</label>
+                        <input type="url" class="form-control" id='server-url' placeholder="https://cloud.count.ly">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="app_key">App Key:</label>
+                        <input type="text" class="form-control" id="app_key" placeholder="f399aa0a6305c2bd51d304ca666418ae8d93d9bc">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+        </div>
+        <div class='section ide radio'>
+            <span class='label'>Choose your environment/IDE</span>
+            <div class="row">
+                <div class="col-md-12">
+                    <label>
+                        <input type="radio" name='ide' value='studio'> Android Studio
+                    </label>
+                </div><!-- /.col-lg-6 -->
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label>
+                        <input type="radio" name='ide' value='eclipse'> Eclipse
+                    </label>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+        </div>
+        <div class='section device_id radio'>
+            <span class='label'>Choose the way to generate device Id</span>
+            <div class="row">
+                <div class="col-md-12">
+                    <label>
+                        <input type="radio" name='device_id' value='DeviceId.Type.ADVERTISING_ID'> use Advertising ID
+                    </label>
+                </div><!-- /.col-lg-6 -->
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label>
+                        <input type="radio" name='device_id' value='DeviceId.Type.OPEN_UDID'> use OpenUDID
+                    </label>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+        </div>
+      <div class='section features checkbox'>
+            <span class='label'>Choose features you want to use</span>
+            <div class="row">
+                <div class="col-md-12">
+                    <label>
+                        <input type="checkbox" class='feature' id='push_feature' value='push'> Send push notifications to your users
+                    </label>
+                </div><!-- /.col-lg-6 -->
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label>
+                        <input type="checkbox" class='feature' value='view'> Track views your users visit
+                    </label>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <label>
+                        <input type="checkbox" class='feature' value='crash'> Track app crashes
+                    </label>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <label>
+                        <input type="checkbox" class='feature' value='attribution'> Track campaigns and attribution
+                    </label>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <p>&nbsp;</p>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <label>
+                        <input type="checkbox" id="allfeatures"> I want all features
+                    </label>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+        </div>
+        <div class='section push-settings hidden'>
+            <span class='label'>Provide push specific settings</span>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="push_activity">Name of your main activity (the one specified in Android Manifest):</label>
+                        <input type="text" class="form-control" id="push_activity" placeholder="MainActivity">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="push_project">Project Number from Google Developers Console (<a href='http://resources.count.ly/docs/countly-sdk-for-android#section-registering-at-google' target='_blank'>More information</a>):</label>
+                        <input type="text" class="form-control" id="push_project" placeholder="640228892478">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row checkbox">
+                <div class="col-md-12">
+                    <label>
+                        <input type="checkbox" id='push_test' value='test'> Use push for test users
+                    </label>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class='text-center'><button type="button" class="btn btn-primary" id="generate">Generate code</button></p>
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+      <hr>
+
+      <footer>
+        <p><a href='http://count.ly'>Count.ly</a></p>
+      </footer>
+    </div> <!-- /container -->
+    
+    <div class="modal fade" id="end-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Integrate iOS SDK</h4>
+            </div>
+            <div class="modal-body">
+                <div class="tabbable"> <!-- Only required for left/right tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#adding" data-toggle="tab">Adding SDK files</a></li>
+                        <li><a href="#activity" data-toggle="tab">Main Activity</a></li>
+                        <li><a href="#manifest" data-toggle="tab">Android Manifest</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="adding">
+                            <div class='studio hidden'>
+                                <p>Add Maven repository and dependency to your app's level <strong>build.gradle</strong> file</p>
+                                <p><textarea id='gradle-code' class='code' readonly onclick="this.select();">
+buildscript {
+    repositories {
+        maven {
+            url  "http://dl.bintray.com/countly/maven"
+        }
+    }
+}
+
+dependencies {
+    compile 'ly.count.android:sdk:version'
+}
+                                </textarea></p>
+                                <p class='text-center'>
+                                    <button type="button" class="btn btn-success copy" data-clipboard-target="#gradle-code">Copy</button>&nbsp;
+                                    <button type="button" class="btn btn-success" id="download-gradle">Download</button>&nbsp;
+                                    <button type="button" class="btn btn-primary gotit">Close</button>
+                                </p>
+                            </div>
+                            <div class='eclipse hidden'>
+                                <div class='well'>
+                                    Eclipse users can download JARs (sdk.jar or sdk.jar & sdk-messaging.jar depending on whether you need Countly Push support or not) from <a href='https://github.com/Countly/countly-sdk-android/releases' target='_blank'>Github Releases</a> page.
+                                </div>
+                                <p>Another option for Eclipse users is to use sources instead of jars. To do that, just create packages and put sources from Github repository into corresponding packages:</p>
+                                <table class="table">
+                                    <tr>
+                                        <th>Component</th>
+                                        <th>Package name</th>
+                                        <th>Path at Github repo</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Countly SDK</td>
+                                        <td>ly.count.android.sdk</td>
+                                        <td>countly-sdk-android/sdk/src/main/java/ly/count/android/sdk</td>
+                                    </tr>
+                                    <tr class='openudid-package hidden'>
+                                        <td>OpenUDID</td>
+                                        <td>org.openudid</td>
+                                        <td>countly-sdk-android/sdk/src/main/java/org/openudid</td>
+                                    </tr>
+                                    <tr class='push-package hidden'>
+                                        <td>Countly Push SDK</td>
+                                        <td>ly.count.android.sdk.messaging</td>
+                                        <td>countly-sdk-android/sdk/src/main/java/ly/count/android/sdk/messaging</td>
+                                    </tr>
+                                </table>
+                                <p class='text-center'>
+                                    <button type="button" class="btn btn-primary gotit">Close</button>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="activity">
+                            <p>Insert this snippet (or modify it to include provided code in same methods) to your main activity, which is the first to launch and is specified in your Android manifest</p>
+                            <p id='push' class='well'><a href="http://resources.count.ly/docs/countly-sdk-for-android#setting-up-push-notifications" target="_blank">More information on setting up push notifications on server</a></p>
+                            <p><textarea id='end-code' class='code' readonly onclick="this.select();"></textarea></p>
+                            <p class='text-center'>
+                                <button type="button" class="btn btn-success copy" data-clipboard-target="#end-code">Copy</button>&nbsp;
+                                <button type="button" class="btn btn-success" id="download">Download</button>&nbsp;
+                                <button type="button" class="btn btn-primary gotit">Close</button>
+                            </p>
+                        </div>
+                        <div class="tab-pane" id="manifest">
+                            <p>Insert this snippet to in your <strong>AndroidManifest.xml</strong>, or modify it to include provided tags in same xmls structure</p>
+                            <p><textarea id='manifest-code' class='code' readonly onclick="this.select();"></textarea></p>
+                            <p class='text-center'>
+                                <button type="button" class="btn btn-success copy" data-clipboard-target="#manifest-code">Copy</button>&nbsp;
+                                <button type="button" class="btn btn-success" id="download-manifest">Download</button>&nbsp;
+                                <button type="button" class="btn btn-primary gotit">Close</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/sdks.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/Blob.js"></script>
+    <script src="js/FileSaver.min.js"></script>
+    <script src="js/clipboard.min.js"></script>
+    <script>
+    $( document ).ready(function() {
+        new Clipboard('.copy');
+        var sdk = sdks.android;
+        $("#gradle-code").val($("#gradle-code").val().replace(":version", ":"+sdk.version));
+        $("#buttons").append('<a href="'+sdk.docs+'" target="_blank" class="btn btn-default pull-right">Documentation</a>');
+        $("#buttons").append('<a href="'+sdk.download+'" target="_blank" class="btn btn-default pull-right">Download</a>');
+        $("#buttons").append('<a href="'+sdk.repo+'" target="_blank" class="btn btn-default pull-right">Repository</a>');
+        
+        var params = parseParams(location.search);
+        if(params.server){
+            $("#server-url").val(params.server);
+        }
+        
+        if(params.app_key){
+            $("#app_key").val(params.app_key);
+        }
+        
+        if(params.server && params.app_key){
+            $(".configuration").hide();
+        }
+        
+        $('#push_feature').change(function() {
+            if ($(this).is(':checked')) {
+                $(".push-settings").removeClass("hidden");
+            } else {
+                $(".push-settings").addClass("hidden");
+            }
+        });
+        
+        var template = "@Override\n"+
+            "public void onCreate(Bundle savedInstanceState) {\n"+
+            "   super.onCreate(savedInstanceState);\n"+
+            "   \n"+
+            "   Countly.sharedInstance().init(this, \"YOUR_SERVER\", \"YOUR_APP_KEY\", null, DeviceId);\n"+
+            "[features]\n"+
+            "}\n"+
+            "\n"+
+            "@Override\n"+
+            "public void onStart()\n"+
+            "{\n"+
+            "   super.onStart();\n"+
+            "   Countly.sharedInstance().onStart(this);\n"+
+            "}\n"+
+            "\n"+
+            "@Override\n"+
+            "public void onStop()\n"+
+            "{\n"+
+            "   Countly.sharedInstance().onStop();\n"+
+            "   super.onStop();\n"+
+            "}\n";
+            
+        $("#generate").click(function(){
+            var pushPermission = "<permission android:name=\"ly.count.android.demo.messaging.permission.C2D_MESSAGE\" android:protectionLevel=\"signature\" />\n"+
+            "<uses-permission android:name=\"ly.count.android.demo.messaging.permission.C2D_MESSAGE\" />\n";
+            
+            var attribution = 
+                "   <receiver android:name=\"ly.count.android.sdk.ReferrerReceiver\" android:exported=\"true\">\n"+
+                "       <intent-filter>\n"+
+                "           <action android:name=\"com.android.vending.INSTALL_REFERRER\" />\n"+
+                "       </intent-filter>\n"+
+                "   </receiver>\n";
+            
+            var openudid = 
+                "   <service android:name=\"org.openudid.OpenUDID_service\">\n"+
+                "       <intent-filter>\n"+
+                "           <action android:name=\"org.openudid.GETUDID\" />\n"+
+                "       </intent-filter>\n"+
+                "   </service>\n";
+                
+            var manifest = "<uses-permission android:name=\"android.permission.INTERNET\"/>\n"+
+                "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>\n"+
+                "\n";
+            
+            var manifestApplication = [];
+        
+            $( ".alert" ).remove();
+            var data = {};
+            data.url = $("#server-url").val();
+            
+            if(data.url == ""){
+                $("#server-url").parent().prepend('<div class="alert alert-danger" role="alert">Please provide server URL</div>');
+                return;
+            }
+            
+            if(data.url.indexOf("http") != 0){
+                $("#server-url").parent().prepend('<div class="alert alert-danger" role="alert">Your server URL should start with http:// or https://</div>');
+                return;
+            }
+                
+            data.app_key = $("#app_key").val();
+            
+            if(data.app_key == ""){
+                $("#app_key").parent().prepend('<div class="alert alert-danger" role="alert">Please provide App Key</div>');
+                return;
+            }
+            
+            data.ide = $("input:radio[name=ide]:checked").val();
+                
+            if(!data.ide || data.ide == ""){
+                $(".ide").prepend('<div class="alert alert-danger" role="alert">Please select one tool/IDE you will be using</div>');
+                return;
+            }
+            else{
+                if(data.ide == "studio"){
+                    $(".studio").removeClass("hidden");
+                    $(".eclipse").addClass("hidden");
+                }
+                else if(data.ide == "eclipse"){
+                    $(".studio").addClass("hidden");
+                    $(".eclipse").removeClass("hidden");
+                }
+            }
+            
+            data.device_id = $("input:radio[name=device_id]:checked").val();
+                
+            if(!data.device_id || data.device_id == ""){
+                $(".device_id").prepend('<div class="alert alert-danger" role="alert">Please select one way to generate device Id</div>');
+                return;
+            }
+            
+            if(data.device_id == "DeviceId.Type.OPEN_UDID"){
+                $(".studio").before('<div class="alert alert-danger" role="alert">If you are using Proguard, add this line to your <strong>proguard-rules.pro</strong><div calss="well">-keep class org.openudid.** { *; }</div></div>');
+                $(".openudid-package").removeClass("hidden");
+                manifestApplication.push(openudid);
+            }
+            
+            var features = $(".feature:checked").map(function(feature){
+                return this.value;
+            }).get();
+            
+            data.features = "";
+            
+            if(features.length){
+                for(var i = 0; i < features.length; i++){
+                    if(features[i] == "push"){
+                    
+                        manifest = pushPermission+manifest;
+                        
+                        var activity = $("#push_activity").val();
+                        if(activity == ""){
+                            $("#push_activity").parent().prepend('<div class="alert alert-danger" role="alert">Please provide name of the main activity. You can find it in your Android Manifest</div>');
+                            return;
+                        }
+                        
+                        var project = $("#push_project").val();
+                        if(project == ""){
+                            $("#push_project").parent().prepend('<div class="alert alert-danger" role="alert">Please provide project number. You can find it in your Google Console</div>');
+                            return;
+                        }
+                        
+                        pushFeature = "   Countly.sharedInstance().initMessaging(this, CountlyActivity.class, \"PROJECT_NUMBER\", Countly.CountlyMessagingMode.PRODUCTION);\n";
+                        
+                        pushFeature = pushFeature
+                            .replace("CountlyActivity", activity)
+                            .replace("PROJECT_NUMBER", project);
+                            
+                        if ($("#push_test").is(':checked')) {
+                            pushFeature = pushFeature.replace("Countly.CountlyMessagingMode.PRODUCTION", "Countly.CountlyMessagingMode.TEST");
+                        }
+                        
+                        data.features += pushFeature;
+                        $("#gradle-code").val($("#gradle-code").val().replace("ly.count.android:sdk:", "ly.count.android:sdk-messaging:"));
+                        $(".push-package").removeClass("hidden");
+                    }
+                    else if(features[i] == "view"){
+                        data.features += "   Countly.sharedInstance().setViewTracking(true);\n";
+                    }
+                    else if(features[i] == "crash"){
+                        data.features += "   Countly.sharedInstance().enableCrashReporting();\n";
+                    }
+                    else if(features[i] == "attribution"){
+                        manifestApplication.push(attribution);
+                    }
+                }
+                if(features.indexOf("push") == -1){
+                    $("push").hide();
+                }
+            }
+            
+            var code = template.replace("YOUR_SERVER", data.url)
+                .replace("YOUR_APP_KEY", data.app_key)
+                .replace("DeviceId", data.device_id)
+                .replace("[features]", data.features);
+            
+            if(features.indexOf("CLYMessaging") > -1){
+                code = code.replace("   // your code\n", pushHandling);
+                code += "\n"+pushMethods;
+            }
+            
+            if(manifestApplication.length){
+                var application = "<application>";
+                if(data.ide == "studio"){
+                    application = "<application tools:replace=\"android:label\">";
+                }
+                manifest = manifest + "\n"+application+"\n\n" + manifestApplication.join("\n") + "\n</application>\n";
+            }
+            
+            $("#end-code").val(code);
+            $("#manifest-code").val(manifest);
+            $('#end-modal').modal();
+        });
+        
+        $("#allfeatures").change(function(){
+            $(".feature").prop('checked', $(this).prop("checked"));
+            if ($(this).is(':checked')) {
+                $(".push-settings").removeClass("hidden");
+            } else {
+                $(".push-settings").addClass("hidden");
+            }
+        });
+        
+        $(".gotit").click(function(){
+            $('#end-modal').modal('hide');
+        });
+        
+        $("#download").click(function(){
+            var data = $("#end-code").val();
+            try {
+                var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
+                saveAs(blob, "android-sdk.txt");
+            } catch (e) {
+                alert(data);
+            }
+        });
+        
+        $("#download-graddle").click(function(){
+            var data = $("#gradle-code").val();
+            try {
+                var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
+                saveAs(blob, "build.gradle.txt");
+            } catch (e) {
+                alert(data);
+            }
+        });
+        
+        $("#download-manifest").click(function(){
+            var data = $("#manifest-code").val();
+            try {
+                var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
+                saveAs(blob, "AndroidManifest.txt");
+            } catch (e) {
+                alert(data);
+            }
+        });
+    });
+    </script>
+  </body>
+</html>
