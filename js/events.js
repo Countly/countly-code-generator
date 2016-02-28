@@ -49,5 +49,27 @@ var events = {
             ret = ret.slice(0, -2)+"};\n"
             return ret + '[Countly.sharedInstance recordEvent:@"'+data.key+'" segmentation:dict count:'+data.count+' sum:'+data.sum+'];';
         }
+    },
+    windows: function(data){
+        if(!data.sum && !data.segmentation){
+            return 'Countly.RecordEvent("'+data.key+'", '+data.count+');';
+        }
+        else if(!data.segmentation){
+            return 'Countly.RecordEvent("'+data.key+'", '+data.count+', '+data.sum+');';
+        }
+        else if(!data.sum){
+            var ret = "Segmentation segmentation = new Segmentation();\n";
+            for(var key in data.segmentation){
+                ret += 'segmentation.Add("'+key+'", "'+data.segmentation[key]+'");\n';
+            }
+            return ret + 'Countly.RecordEvent("'+data.key+'", '+data.count+', segmentation);';
+        }
+        else{
+            var ret = "Segmentation segmentation = new Segmentation();\n";
+            for(var key in data.segmentation){
+                ret += 'segmentation.Add("'+key+'", "'+data.segmentation[key]+'");\n';
+            }
+            return ret + 'Countly.RecordEvent("'+data.key+'", '+data.count+', '+data.sum+', segmentation);';
+        }
     }
 };
