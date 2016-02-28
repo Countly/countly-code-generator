@@ -169,7 +169,8 @@
         applyRandomSegmentExample($(".segment"));
         $(".segments .segment:first .close-button").hide();
         for(var slug in sdks){
-            $(".dropdown-menu").append('<li><a href="#" id="'+slug+'">'+sdks[slug].name+'</a></li>');
+            if(events[slug])
+                $(".dropdown-menu").append('<li><a href="#" id="'+slug+'">'+sdks[slug].name+'</a></li>');
         }
         $("#add-segment").click(function(){
             var segment = $(".segments .segment:first").clone();
