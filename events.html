@@ -91,7 +91,7 @@
             </div>
             <p class='text-right'><button type="button" class="btn btn-default" id="add-segment">Add another segment</button></p>
         </div>
-        <div class="row">
+        <div class="row" id='generate-code'>
             <div class="col-md-12">
                 <p class='text-center'>
                     <div class="dropup">
@@ -154,6 +154,13 @@
     <script src="js/clipboard.min.js"></script>
     <script>
     $( document ).ready(function() {
+        var params = parseParams(location.search);
+        if(params.sdk && sdks[params.sdk]){
+            $("#generate-code .dropup").addClass("hidden");
+            $("#generate-code").append('<p class="text-center"><button type="button" class="btn btn-primary" id="generate">Generate for '+sdks[params.sdk].name+'</button></p>');
+            $("#buttons").append('<a href="users.html?sdk='+params.sdk+'" id="next" class="btn btn-default">Next: Add user info &raquo;</a>');
+            $("#back").attr("href", "integration-"+params.sdk+".html");
+        }
         new Clipboard('#copy');
         var exampleSegments = [
             ["screen", "Main Screen"],
@@ -190,10 +197,9 @@
         $(".segments").on("click",".close-button", function(e){
             $(this).parent().remove();
         });
-            
-        $(".dropdown-menu li a").click(function(){
+        
+        function generate(sdk){
             $( ".alert" ).remove();
-            sdk = this.id;
             $("#sdk-repo").attr("href", sdks[sdk].repo);
             $("#sdk-docs").attr("href", sdks[sdk].docs);
             $("#sdk-download").attr("href", sdks[sdk].download);
@@ -227,8 +233,16 @@
             if(hasSegments)
                 data.segmentation = segments;
             
-            $("#end-code").val(events[this.id](data));
+            $("#end-code").val(events[sdk](data));
             $('#end-modal').modal();
+        }
+            
+        $(".dropdown-menu li a").click(function(){
+            generate(this.id);
+        });
+        
+        $("#generate").click(function(){
+            generate(params.sdk);
         });
         
         $("#gotit").click(function(){
