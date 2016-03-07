@@ -265,7 +265,7 @@
             }
             data.src = $("input:radio[name=source]:checked").val();
             if(data.src == "custom")
-                data.src = $("#custom-source");
+                data.src = $("#custom-source").val();
                 
             if(!data.src || data.src == ""){
                 $(".source").prepend('<div class="alert alert-danger" role="alert">Please select at least one source</div>');
