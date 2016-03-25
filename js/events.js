@@ -4,6 +4,9 @@ var events = {
         "Countly.q.push(['add_event',"+JSON.stringify(data, null, 3)+"]);\n"+
         "</scri" + "pt>";
     },
+    nodejs: function(data){
+        return "Countly.add_event("+JSON.stringify(data, null, 3)+");";
+    },
     android: function(data){
         if(!data.sum && !data.segmentation){
             return 'Countly.sharedInstance().recordEvent("'+data.key+'", '+data.count+');';

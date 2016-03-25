@@ -37,5 +37,15 @@ var sdks = {
         docs: "http://resources.count.ly/docs/countly-sdk-for-windows-phone",
         description: "Track users and user behavior in your Windows Mobile, Windows Desktop or .NET app",
         version: "15.08"
-    }
+    },
+    nodejs: {
+        name: "NodeJS SDK",
+        image: "images/nodejs.png",
+        repo: "https://github.com/Countly/countly-sdk-nodejs",
+        download: "https://github.com/Countly/countly-sdk-nodejs/releases",
+        docs: "http://resources.count.ly/docs/countly-sdk-for-nodejs",
+        description: "Track users and user behavior on platforms with nodejs environment",
+        version: "16.2.0",
+        integration: true
+    },
 };
