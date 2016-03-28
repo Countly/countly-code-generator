@@ -25,7 +25,7 @@ var sdks = {
         repo: "https://github.com/Countly/countly-sdk-ios",
         download: "https://github.com/Countly/countly-sdk-ios/releases",
         docs: "http://resources.count.ly/docs/countly-sdk-for-ios-and-os-x",
-        description: "Track users and user behavior in your mobile iOS and desktop OSX apps",
+        description: "Track users and user behavior in your iOS, watchOS, tvOSand & OSX apps",
         version: "16.02",
         integration: true
     },
