@@ -35,6 +35,7 @@
                 <div class="col-md-12">
                     <p id="buttons">
                         <a href="integration.html" id="back" class="btn btn-default">&laquo; Back</a>
+                        <a href="events.html?sdk=ios" id="next" class="btn btn-default">Next: Create Event &raquo;</a>
                     </p>
                     <h2 class="text-center">Integrating iOS SDK</h2>
                 </div>
@@ -43,7 +44,7 @@
 
 
             <div class='section configuration'>
-                <span class='label'>Provide Server URL and App Key</span>
+                <span class='label'>Provide configuration settings</span>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -164,6 +165,18 @@
                         </label>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>&nbsp;</p>
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>
+                            <input type="checkbox" id="allfeatures"> I want all features
+                        </label>
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
             </div>
 
 
@@ -331,7 +344,7 @@
                     return;
                 }
                 
-                var features = $(".feature:checked").map(function(feature)
+                var features = $(".feature:checked:visible").map(function(feature)
                 {
                     return this.value;
                 }).get();
@@ -386,7 +399,15 @@
                 $('#end-modal').modal();
             });
             
-
+            $("#allfeatures").change(function(){
+                $(".feature").prop('checked', $(this).prop("checked"));
+                if ($(this).is(':checked')) {
+                    $(".push-settings").removeClass("hidden");
+                } else {
+                    $(".push-settings").addClass("hidden");
+                }
+            });
+        
             $("#gotit").click(function()
             {
                 $('#end-modal').modal('hide');
@@ -446,8 +467,6 @@
 
             $('input:radio[name=device_id]').change( function()
             {
-                console.log("something");
-
                 device_id = $("input:radio[name=device_id]:checked").val();
 
                 if(device_id == 'CLYCustom')
