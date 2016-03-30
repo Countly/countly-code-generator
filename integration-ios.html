@@ -37,7 +37,7 @@
                         <a href="integration.html" id="back" class="btn btn-default">&laquo; Back</a>
                         <a href="events.html?sdk=ios" id="next" class="btn btn-default">Next: Create Event &raquo;</a>
                     </p>
-                    <h2 class="text-center">Integrating iOS SDK</h2>
+                    <h2 class="text-center">Apple sdk (iOS, OSX, tvOS, WatchOS)</h2>
                 </div>
             </div>
             
@@ -199,7 +199,7 @@
                 <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Integrate iOS SDK</h4>
+                    <h4 class="modal-title">Integrate <span class='integrate ios'>iOS</span><span class='integrate tvos'>tvOS</span><span class='integrate osx'>OSX</span><span class='integrate watchos'>WatchOS</span> SDK</h4>
                 </div>
                 <div class="modal-body">
                     <p>Insert this snippet to in your application delegate, or modify it to include provided code in same methods</p>
@@ -299,6 +299,7 @@
             $("#generate").click(function()
             {
                 $( ".alert" ).remove();
+                $(".integrate").hide();
                 var data = {};
                 data.url = $("#server-url").val();
                 
@@ -335,6 +336,7 @@
                     return;
                 }
 
+                $(".integrate."+data.platform.toLowerCase()).show();
 
                 data.device_id = $("input:radio[name=device_id]:checked").val();
                     
