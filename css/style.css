@@ -195,7 +195,7 @@ h2 {
 
 .cly-grid .cly-col:hover {
     cursor: pointer;
-    box-shadow: 0 0 10px 0 #DCDCDC;
+    box-shadow: 0 5px 10px rgba(0,0,0,.15);
 }
 
 .cly-grid .cly-col .icon {
@@ -222,6 +222,10 @@ h2 {
 footer p {
     text-align: center;
     margin: 30px 0 40px 0;
+}
+
+footer a {
+    color:#623882 !important;
 }
 
 #sdks {
