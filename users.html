@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Count.ly Code Generator</title>
+    <title>Countly Code Generator</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -154,7 +154,7 @@
             <div class="col-md-12">
                 <p class='text-center'>
                     <div class="dropup">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Generate for
                             <span class="caret"></span>
                         </button>
@@ -174,7 +174,7 @@
             <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <div class="btn-group" role="group">
+                <div class="btn-group" role="group" style="margin-bottom: 20px;">
                     <a href="" class="btn btn-default" target='_blank' id="sdk-repo">SDK Repository</a>
                     <a href="" class="btn btn-default" target='_blank' id="sdk-docs">SDK Documentation</a>
                     <a href="" class="btn btn-default" target='_blank' id="sdk-download">Download SDK</a>
@@ -215,7 +215,7 @@
         var params = parseParams(location.search);
         if(params.sdk && sdks[params.sdk]){
             $("#generate-code .dropup").addClass("hidden");
-            $("#generate-code").append('<p class="text-center"><button type="button" class="btn btn-primary" id="generate">Generate for '+sdks[params.sdk].name+'</button></p>');
+            $("#generate-code").append('<p class="text-center"><button type="button" class="btn btn-success" id="generate">Generate for '+sdks[params.sdk].name+'</button></p>');
             //$("#buttons").append('<a href="users.html?sdk='+params.sdk+' id="next" class="btn btn-default">Next: Add user info &rarr;</a>');
             $("#back").attr("href", "events.html?sdk="+params.sdk);
         }
