@@ -1,7 +1,7 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-  padding-top: 50px;
-  padding-bottom: 20px;
+    padding-bottom: 20px;
+    background-color: #F7FAFC;
 }
 
 .iconstuff
@@ -97,3 +97,175 @@ body {
 .tab-pane{
     padding-top: 20px;
 }
+
+.jumbotron {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3d284c+0,623882+100 */
+    background: #3d284c; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #3d284c 0%, #623882 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  #3d284c 0%,#623882 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  #3d284c 0%,#623882 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d284c', endColorstr='#623882',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        padding-top:70px;
+        padding-bottom: 70px;
+    }
+}
+
+.jumbotron p {
+    color:#DFD9E3;
+    font-size: 17px;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: 200;
+    max-width: 650px;
+    margin: 0 auto;
+    margin-top: 20px;
+    line-height: 27px;
+}
+
+.jumbotron.top { padding:20px; }
+.jumbotron.top #logo { text-align: left; }
+.jumbotron.top #logo .image { width: 165px; height: 45px; }
+.jumbotron.top #logo .text { font-size: 26px; }
+
+@media screen and (max-width: 500px) {
+    .jumbotron.top #logo .image { width: 145px; height: 40px; }
+    .jumbotron.top #logo .text { font-size: 20px; line-height: 43px; }
+    .jumbotron #logo .image { width: 160px; height: 45px; }
+    .jumbotron #logo .text { font-size: 24px; line-height: 47px; }
+}
+
+@media screen and (max-width: 580px) {
+    .col-md-12 .btn-group { margin-bottom: 20px; float: none !important; display: block; overflow: auto; }
+}
+
+#logo {
+    text-align: center;
+}
+
+#logo .image {
+    background-image: url('../images/countly-logo.svg');
+    width:190px;
+    height:50px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    vertical-align: text-bottom;
+}
+
+#logo .text {
+    font-size: 30px;
+    color:#EDEAF0;
+    vertical-align: text-bottom;
+    line-height: 50px;
+    font-weight: 100;
+}
+
+h2 {
+    color:#4D4F5F;
+    font-weight: 200;
+    margin: 40px 0 30px 0;
+}
+
+.cly-grid .cly-col {
+    border: 1px solid #EAEAEA;
+    background-color: #FFF;
+    padding:30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.cly-grid .cly-col h2 {
+    font-size: 25px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+.cly-grid .cly-col p {
+    font-size: 14px;
+    color:#7B7B7B;
+    line-height: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cly-grid .cly-col:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 #DCDCDC;
+}
+
+.cly-grid .cly-col .icon {
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+}
+
+.cly-grid a,
+.cly-grid a:hover {
+    text-decoration: none;
+    color: inherit !important;
+}
+
+
+.cly-grid .cly-col .next {
+    color:#2FA732;
+    margin-top: 30px;
+    font-size: 12px;
+}
+
+footer p {
+    text-align: center;
+    margin: 30px 0 40px 0;
+}
+
+#sdks {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cly-grid.sdks .header {
+    overflow: auto;
+    margin:0 0 20px 0;
+}
+
+.cly-grid.sdks .header .icon {
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+
+.cly-grid.sdks .header h2 {
+    margin: 0;
+    text-align: left;
+    margin-left: 60px;
+    padding-top: 5px;
+}
+
+.cly-grid.sdks p {
+    text-align: left;
+}
+
+@media screen and (min-width: 992px) {
+    .cly-grid.sdks p {
+        min-height: 60px;
+    }
+}
+
+.cly-grid.sdks .next {
+    text-align: left;
+    text-transform: uppercase;
+}
+
+#countly-link {
+    border-bottom: 2px solid #2FA732;
+    font:inherit !important;
+    color:inherit;
+}
+
+#countly-link:hover { text-decoration: none; }

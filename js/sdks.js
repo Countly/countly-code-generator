@@ -1,7 +1,7 @@
 var sdks = {
     web: {
         name: "Web SDK",
-        image: "images/web.jpg",
+        image: "images/sdks/web.svg",
         repo: "https://github.com/Countly/countly-sdk-web",
         download: "https://github.com/Countly/countly-sdk-web/releases",
         docs: "http://resources.count.ly/docs/countly-sdk-for-web",
@@ -11,7 +11,7 @@ var sdks = {
     },
     android: {
         name: "Android SDK",
-        image: "images/android.png",
+        image: "images/sdks/android.svg",
         repo: "https://github.com/Countly/countly-sdk-android",
         download: "https://github.com/Countly/countly-sdk-android/releases",
         docs: "http://resources.count.ly/docs/countly-sdk-for-android",
@@ -21,7 +21,7 @@ var sdks = {
     },
     ios: {
         name: "iOS SDK",
-        image: "images/ios.jpg",
+        image: "images/sdks/ios.svg",
         repo: "https://github.com/Countly/countly-sdk-ios",
         download: "https://github.com/Countly/countly-sdk-ios/releases",
         docs: "http://resources.count.ly/docs/countly-sdk-for-ios-and-os-x",
@@ -31,7 +31,7 @@ var sdks = {
     },
     windows: {
         name: "Windows SDK",
-        image: "images/windows.png",
+        image: "images/sdks/windows.svg",
         repo: "https://github.com/Countly/countly-sdk-windows-phone",
         download: "https://github.com/Countly/countly-sdk-windows-phone/releases",
         docs: "http://resources.count.ly/docs/countly-sdk-for-windows-phone",
@@ -40,12 +40,12 @@ var sdks = {
     },
     nodejs: {
         name: "NodeJS SDK",
-        image: "images/nodejs.png",
+        image: "images/sdks/nodejs.svg",
         repo: "https://github.com/Countly/countly-sdk-nodejs",
         download: "https://github.com/Countly/countly-sdk-nodejs/releases",
         docs: "http://resources.count.ly/docs/countly-sdk-for-nodejs",
         description: "Track users and user behavior on platforms with nodejs environment",
         version: "16.2.0",
         integration: true
-    },
+    }
 };

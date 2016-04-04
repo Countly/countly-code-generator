@@ -28,11 +28,19 @@
   </head>
 
   <body>
+    <div class="jumbotron top">
+      <div class="container">
+          <div id="logo">
+              <span class="image"></span>
+              <span class="text">Code Generator</span>
+          </div>
+      </div>
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-md-12">
             <p id="buttons">
-                <a href="index.html" id="back" class="btn btn-default">&laquo; Back</a>
+                <a href="index.html" id="back" class="btn btn-default">&larr; Back</a>
             </p>
             <h2 class="text-center">Add information about user</h2>
         </div>
@@ -155,7 +163,6 @@
                 </p>
             </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
-      <hr>
 
       <footer>
         <p><a href='http://count.ly'>Count.ly</a></p>
@@ -209,7 +216,7 @@
         if(params.sdk && sdks[params.sdk]){
             $("#generate-code .dropup").addClass("hidden");
             $("#generate-code").append('<p class="text-center"><button type="button" class="btn btn-primary" id="generate">Generate for '+sdks[params.sdk].name+'</button></p>');
-            //$("#buttons").append('<a href="users.html?sdk='+params.sdk+' id="next" class="btn btn-default">Next: Add user info &raquo;</a>');
+            //$("#buttons").append('<a href="users.html?sdk='+params.sdk+' id="next" class="btn btn-default">Next: Add user info &rarr;</a>');
             $("#back").attr("href", "events.html?sdk="+params.sdk);
         }
         new Clipboard('#copy');

@@ -28,15 +28,23 @@
   </head>
 
   <body>
+    <div class="jumbotron top">
+      <div class="container">
+          <div id="logo">
+              <span class="image"></span>
+              <span class="text">Code Generator</span>
+          </div>
+      </div>
+    </div>
+
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-            <p><a href="index.html" id="back" class="btn btn-default">&laquo; Back</a></p>
+            <p><a href="index.html" id="back" class="btn btn-default">&larr; Back</a></p>
             <h2 class="text-center">Which platform do you want to use?</h2>
         </div>
       </div>
       <div id="sdks"></div>
-      <hr>
 
       <footer>
         <p><a href='http://count.ly'>Count.ly</a></p>
@@ -60,19 +68,22 @@
         for(var slug in sdks){
             if(sdks[slug].integration){
                 if(i % 4 == 0){
-                    var container = $('<div class="row"></div>');
+                    var container = $('<div class="row cly-grid sdks"></div>');
                     $("#sdks").append(container);
                 }
                 i++;
                 sdk = 
-                    '<div class="col-md-4">' +
-                    '<h2>'+sdks[slug].name+'</h2>' +
-                    '<p>';
-                if(sdks[slug].image && sdks[slug].image != "")
-                    sdk += '<img src="'+sdks[slug].image+'" class="iconstuff pull-left" width="80px"/>';
-                sdk += sdks[slug].description+'</p>' +
-                    '<p><a class="btn btn-default" href="integration-'+slug+'.html" role="button">Next Step &raquo;</a></p>' +
-                    '</div>';
+                    '<div class="col-md-6"><a href="integration-'+slug+'.html"><div class="cly-col"><div class="header">';
+
+                if(sdks[slug].image && sdks[slug].image != "") {
+                    sdk += '<div style="background-image: url('+sdks[slug].image+')" class="icon"></div>';
+                }
+
+                sdk += '<h2>'+sdks[slug].name+'</h2></div>';
+
+                sdk += '<p>'+sdks[slug].description+'</p>' +
+                    '<div class="next">Next Step &rarr;</div>' +
+                    '</div></a></div>';
                 container.append(sdk);
             }
         }

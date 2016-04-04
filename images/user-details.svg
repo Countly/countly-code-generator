@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="54px" height="57px" viewBox="0 0 54 57" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#4980D1" offset="0%"></stop>
+            <stop stop-color="#52A4F2" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <path d="M33.2890053,25.3057982 C35.6082491,22.6288746 37.05,18.8776855 37.05,14.725 C37.05,6.59260706 34.675,1.45650544e-15 24.7,0 C14.725,-1.45650541e-15 12.35,6.59260706 12.35,14.725 C12.35,18.9151385 13.8178744,22.6965058 16.1739601,25.377965 C17.1019516,26.6813512 19,29.5653435 19,31.35 C19,32.4956751 17.5467002,33.681895 16.2478414,34.513278 C6.85587747,37.1766447 0,43.4548338 0,47.5 C0,52.7467051 11.0585667,57 24.7,57 C38.3414333,57 49.4,52.7467051 49.4,47.5 C49.4,43.3359768 42.7336974,36.8057791 33.1631577,34.2880196 C31.8615187,33.6083498 30.4,32.5729128 30.4,31.35 C30.4,29.6270886 32.3871092,26.5937979 33.2890053,25.3057982 Z" id="Combined-Shape" fill="url(#linearGradient-1)"></path>
+            <g id="Group-3" transform="translate(23.750000, 27.550000)">
+                <ellipse id="Oval-157" stroke="#979797" stroke-dasharray="3" fill="#FFFFFF" cx="14.725" cy="14.725" rx="14.725" ry="14.725"></ellipse>
+                <g id="Group-2" transform="translate(6.650000, 6.650000)" fill="#9CDE9B">
+                    <rect id="Rectangle-623" x="6.65" y="0" width="2.85" height="16.15" rx="100"></rect>
+                    <rect id="Rectangle-623" transform="translate(8.075000, 8.075000) rotate(-270.000000) translate(-8.075000, -8.075000) " x="6.65" y="0" width="2.85" height="16.15" rx="100"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

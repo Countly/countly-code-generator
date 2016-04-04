@@ -32,37 +32,54 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Code Generator</h1>
-        <p>Helps you generate personalized code snippets and customized SDK integration tutorials based your platforms and needs</p>
-        <p><a class="btn btn-primary btn-lg" href="https://count.ly" role="button">More about Count.ly &raquo;</a></p>
+        <div id="logo">
+            <span class="image"></span>
+            <span class="text">Code Generator</span>
+        </div>
+        <p>Helps you generate personalized code snippets and SDK integration tutorials based on your platforms and <a id="countly-link" target="_blank" href="https://count.ly">Countly</a> features you want to use</p>
       </div>
     </div>
 
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2 class="text-center">What do you want to do?</h2>
+          <h2 class="text-center">What can we help you with?</h2>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Integrate SDK</h2>
-          <p>Choose platform you want to integrate, then select platform and feature based settings and get personalized integration tutorial with ready to use code snippets</p>
-          <p><a class="btn btn-default" href="integration.html" role="button">Next Step &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Create Event</h2>
-          <p>Provide values for your custom event, including segments and choose platform for which to generate ready to use code snippet that will send your event to server</p>
-          <p><a class="btn btn-default" href="events.html" role="button">Next Step &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Add user information</h2>
-          <p>Provide information about your user, including any custom key/value pairs you want, to generate ready to use code snippet that will send information about user to server</p>
-          <p><a class="btn btn-default" href="users.html" role="button">Next Step &raquo;</a></p>
+      <div class="row cly-grid">
+        <div class="col-md-12">
+            <a href="integration.html">
+                <div class="cly-col">
+                    <div class="icon" style="background-image: url('images/integrate.svg')"></div>
+                    <h2>Integrating Countly SDKs</h2>
+                    <p>Choose a platform you want to integrate Countly SDK to, then select feature and platform based settings in order to get a personalized integration tutorial with ready to use code snippets</p>
+                    <div class="next">Next Step &rarr;</div>
+                </div>
+            </a>
         </div>
       </div>
-
-      <hr>
+      <div class="row cly-grid">
+        <div class="col-md-6">
+            <a href="events.html">
+                <div class="cly-col">
+                    <div class="icon" style="background-image: url('images/events.svg')"></div>
+                    <h2>Tracking a custom event</h2>
+                    <p>Provide values for your custom event, including segments, and choose a platform to generate a ready to use code snippet for</p>
+                    <div class="next">Next Step &rarr;</div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="users.html">
+                <div class="cly-col">
+                    <div class="icon" style="background-image: url('images/user-details.svg')"></div>
+                    <h2>Tracking user information</h2>
+                    <p>Provide information about your application user, including any custom key/value pairs, to generate a ready to use code snippet for your platform</p>
+                    <div class="next">Next Step &rarr;</div>
+                </div>
+            </a>
+        </div>
+      </div>
 
       <footer>
         <p><a href='http://count.ly'>Count.ly</a></p>

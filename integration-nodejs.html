@@ -28,13 +28,26 @@
   </head>
 
   <body>
+    <div class="jumbotron top">
+      <div class="container">
+          <div id="logo">
+              <span class="image"></span>
+              <span class="text">Code Generator</span>
+          </div>
+      </div>
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-            <p id="buttons">
-                <a href="integration.html" id="back" class="btn btn-default">&laquo; Back</a>
-                <a href="events.html?sdk=nodejs" id="next" class="btn btn-default">Next: Create Event &raquo;</a>
-            </p>
+            <div style="overflow: auto">
+                <div class="btn-group" style="float: left">
+                    <a href="integration.html" id="back" class="btn btn-default">&larr; Back</a>
+                    <a href="events.html?sdk=nodejs" id="next" class="btn btn-default">Next: Create Event &rarr;</a>
+                </div>
+                <div id="buttons" class="btn-group" role="group" style="float: right">
+
+                </div>
+            </div>
             <h2 class="text-center">Integrating NodeJS SDK</h2>
         </div>
       </div>
@@ -84,7 +97,6 @@
                 <p class='text-center'><button type="button" class="btn btn-primary" id="generate">Generate code</button></p>
             </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
-      <hr>
 
       <footer>
         <p><a href='http://count.ly'>Count.ly</a></p>
@@ -131,9 +143,9 @@
     $( document ).ready(function() {
         new Clipboard('#copy');
         var sdk = sdks.nodejs;
-        $("#buttons").append('<a href="'+sdk.docs+'" target="_blank" class="btn btn-default pull-right">Documentation</a>');
-        $("#buttons").append('<a href="'+sdk.download+'" target="_blank" class="btn btn-default pull-right">Download</a>');
-        $("#buttons").append('<a href="'+sdk.repo+'" target="_blank" class="btn btn-default pull-right">Repository</a>');
+        $("#buttons").append('<a href="'+sdk.docs+'" target="_blank" class="btn btn-default">Documentation</a>');
+        $("#buttons").append('<a href="'+sdk.download+'" target="_blank" class="btn btn-default">Download</a>');
+        $("#buttons").append('<a href="'+sdk.repo+'" target="_blank" class="btn btn-default">Repository</a>');
         
         var params = parseParams(location.search);
         if(params.server){

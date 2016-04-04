@@ -27,22 +27,29 @@
         <![endif]-->
     </head>
     <body>
-        <div class="container">
-        
-
-
-            <div class="row">
-                <div class="col-md-12">
-                    <p id="buttons">
-                        <a href="integration.html" id="back" class="btn btn-default">&laquo; Back</a>
-                        <a href="events.html?sdk=ios" id="next" class="btn btn-default">Next: Create Event &raquo;</a>
-                    </p>
-                    <h2 class="text-center">Apple sdk (iOS, OSX, tvOS, WatchOS)</h2>
+        <div class="jumbotron top">
+            <div class="container">
+                <div id="logo">
+                    <span class="image"></span>
+                    <span class="text">Code Generator</span>
                 </div>
             </div>
-            
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="overflow: auto">
+                        <div class="btn-group" style="float: left">
+                            <a href="integration.html" id="back" class="btn btn-default">&larr; Back</a>
+                            <a href="events.html?sdk=ios" id="next" class="btn btn-default">Next: Create Event &rarr;</a>
+                        </div>
+                        <div id="buttons" class="btn-group" role="group" style="float: right">
 
-
+                        </div>
+                    </div>
+                    <h2 class="text-center">Integrating Apple SDK (iOS, OSX, tvOS, WatchOS)</h2>
+                </div>
+            </div>
             <div class='section configuration'>
                 <span class='label'>Provide configuration settings</span>
                 <div class="row">
@@ -187,8 +194,6 @@
                 </div>
             </div>
 
-            <hr>
-
             <footer>
                 <p><a href='http://count.ly'>Count.ly</a></p>
             </footer>
@@ -233,9 +238,9 @@
         {
             new Clipboard('#copy');
             var sdk = sdks.ios;
-            $("#buttons").append('<a href="'+sdk.docs+'" target="_blank" class="btn btn-default pull-right">Documentation</a>');
-            $("#buttons").append('<a href="'+sdk.download+'" target="_blank" class="btn btn-default pull-right">Download</a>');
-            $("#buttons").append('<a href="'+sdk.repo+'" target="_blank" class="btn btn-default pull-right">Repository</a>');
+            $("#buttons").append('<a href="'+sdk.docs+'" target="_blank" class="btn btn-default">Documentation</a>');
+            $("#buttons").append('<a href="'+sdk.download+'" target="_blank" class="btn btn-default">Download</a>');
+            $("#buttons").append('<a href="'+sdk.repo+'" target="_blank" class="btn btn-default">Repository</a>');
             
             var params = parseParams(location.search);
             if(params.server)
