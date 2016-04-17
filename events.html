@@ -183,7 +183,7 @@
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
         function applyRandomSegmentExample(elem){
-            var example = exampleSegments[getRandomInt(0,exampleSegments.length)];
+            var example = exampleSegments[getRandomInt(0,exampleSegments.length-1)];
             elem.find(".segment-key").attr("placeholder", example[0]);
             elem.find(".segment-val").attr("placeholder", example[1]);
         }
