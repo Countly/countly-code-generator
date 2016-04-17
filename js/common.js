@@ -35,3 +35,13 @@ Countly.q.push(['track_forms']);
    cly.onload = function(){Countly.init()};
    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(cly, s);
 })();
+
+
+//Localize JS
+!function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","detectLanguage","getAvailableLanguages","untranslatePage","bootstrap","prefetch","on","off"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);
+Localize.initialize({
+    key: 'buFg7dnpzhfFJ',
+    rememberLanguage: true,
+    translateAlt:false,
+    blockedClasses: ["no-translate","code"]
+ });
