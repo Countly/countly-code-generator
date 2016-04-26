@@ -10,6 +10,12 @@ function parseParams(url){
    }
    return params;
 }
+function stripTrailingSlash(str) {
+	if(str.substr(str.length - 1) == '/') {
+		return str.substr(0, str.length - 1);
+	}
+	return str;
+}
 
 //some default pre init
 var Countly = Countly || {};

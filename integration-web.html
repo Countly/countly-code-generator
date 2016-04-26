@@ -219,7 +219,7 @@
         if(params.server){
             $(".server span").text(params.server);
             $("#server-url").val(params.server);
-            $("#source-server").val(params.server);
+            $("#source-server").val(stripTrailingSlash(params.server)+"/sdk/web/countly.min.js");
         }
         else{
             $(".server").hide();
