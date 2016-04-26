@@ -160,6 +160,14 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
+                        <label for="push_package">Name of your app package (the one specified in Android Manifest):</label>
+                        <input type="text" class="form-control" id="push_package" placeholder="ly.count.android.demo.messaging">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
                         <label for="push_project">Project Number from Google Developers Console (<a href='http://resources.count.ly/docs/countly-sdk-for-android#section-registering-at-google' target='_blank'>More information</a>):</label>
                         <input type="text" class="form-control" id="push_project" placeholder="640228892478">
                     </div>
@@ -430,12 +438,16 @@ dependencies {
             if(features.length){
                 for(var i = 0; i < features.length; i++){
                     if(features[i] == "push"){
-                    
-                        manifest = pushPermission+manifest;
                         
                         var activity = $("#push_activity").val();
                         if(activity == ""){
                             $("#push_activity").parent().prepend('<div class="alert alert-danger" role="alert">Please provide name of the main activity. You can find it in your Android Manifest</div>');
+                            return;
+                        }
+                        
+                        var pack = $("#push_package").val();
+                        if(pack == ""){
+                            $("#push_package").parent().prepend('<div class="alert alert-danger" role="alert">Please provide package name of your app. You can find it in your Android Manifest</div>');
                             return;
                         }
                         
@@ -444,6 +456,11 @@ dependencies {
                             $("#push_project").parent().prepend('<div class="alert alert-danger" role="alert">Please provide project number. You can find it in your Google Console</div>');
                             return;
                         }
+                        
+                        pushPermission = pushPermission
+                            .replace(new RegExp("ly.count.android.demo.messaging", 'g'), pack);
+                        
+                        manifest = pushPermission+manifest;
                         
                         pushFeature = "   Countly.sharedInstance().initMessaging(this, CountlyActivity.class, \"PROJECT_NUMBER\", Countly.CountlyMessagingMode.PRODUCTION);\n";
                         
