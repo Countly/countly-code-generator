@@ -1,12 +1,12 @@
 var sdks = {
-    web: {
-        name: "Web SDK",
-        image: "images/sdks/web.svg",
-        repo: "https://github.com/Countly/countly-sdk-web",
-        download: "https://github.com/Countly/countly-sdk-web/releases",
-        docs: "http://resources.count.ly/docs/countly-sdk-for-web",
-        description: "Track users and user behavior in your websites or native app webviews",
-        version: "16.2.0",
+    ios: {
+        name: "iOS SDK",
+        image: "images/sdks/ios.svg",
+        repo: "https://github.com/Countly/countly-sdk-ios",
+        download: "https://github.com/Countly/countly-sdk-ios/releases",
+        docs: "http://resources.count.ly/docs/countly-sdk-for-ios-and-os-x",
+        description: "Track users and user behavior in your iOS, watchOS, tvOSand & OSX apps",
+        version: "16.02",
         integration: true
     },
     android: {
@@ -19,14 +19,14 @@ var sdks = {
         version: "16.02",
         integration: true
     },
-    ios: {
-        name: "iOS SDK",
-        image: "images/sdks/ios.svg",
-        repo: "https://github.com/Countly/countly-sdk-ios",
-        download: "https://github.com/Countly/countly-sdk-ios/releases",
-        docs: "http://resources.count.ly/docs/countly-sdk-for-ios-and-os-x",
-        description: "Track users and user behavior in your iOS, watchOS, tvOSand & OSX apps",
-        version: "16.02",
+    web: {
+        name: "Web SDK",
+        image: "images/sdks/web.svg",
+        repo: "https://github.com/Countly/countly-sdk-web",
+        download: "https://github.com/Countly/countly-sdk-web/releases",
+        docs: "http://resources.count.ly/docs/countly-sdk-for-web",
+        description: "Track users and user behavior in your websites or native app webviews",
+        version: "16.2.0",
         integration: true
     },
     windows: {
