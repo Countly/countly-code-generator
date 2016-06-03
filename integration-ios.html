@@ -165,10 +165,10 @@
                         </label>
                     </div>
                 </div>-->
-                <div class="row" id="feature_CLYViewTracking">
+                <div class="row" id="feature_CLYAutoViewTracking">
                     <div class="col-md-12">
                         <label>
-                            <input type="checkbox" class='feature' value='CLYViewTracking'> Auto View Tracking
+                            <input type="checkbox" class='feature' value='CLYAutoViewTracking'> Auto View Tracking
                         </label>
                     </div>
                 </div>
@@ -442,7 +442,7 @@
 
                 $('#feature_CLYMessaging').hide();
                 $('#feature_CLYCrashReporting').hide();
-                $('#feature_CLYViewTracking').hide();
+                $('#feature_CLYAutoViewTracking').hide();
 
                 platform = $("input:radio[name=platform]:checked").val();                
                 if(platform == 'iOS')
@@ -453,7 +453,7 @@
 
                     $('#feature_CLYMessaging').show();
                     $('#feature_CLYCrashReporting').show();
-                    $('#feature_CLYViewTracking').show();
+                    $('#feature_CLYAutoViewTracking').show();
                 }
                 else if(platform == 'watchOS')
                 {
