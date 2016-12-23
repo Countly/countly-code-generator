@@ -72,6 +72,10 @@ body {
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
+textarea{
+    font-family:"Courier New", Courier, monospace;
+}
+
 #end-code{
     width: 100%;
     height: 500px;

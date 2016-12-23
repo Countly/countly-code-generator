@@ -56,7 +56,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for='server-url'>Server URL:</label>
-                            <input type="url" class="form-control" id='server-url' placeholder="https://cloud.count.ly">
+                            <input type="url" class="form-control" id='server-url' placeholder="https://try.count.ly">
                         </div>
                     </div>
                 </div>
@@ -111,21 +111,14 @@
                 <div class="row" id="device_id_CLYSDKDefault">
                     <div class="col-md-12">
                         <label>
-                            <input type="radio" name='device_id' value='CLYSDKDefault'><span id="device_id_sdk_default_text"> SDK Default (IDFA)</span>
+                            <input type="radio" name='device_id' value='CLYSDKDefault'><span id="device_id_sdk_default_text"> SDK Default (IDFV)</span>
                         </label>
                     </div>
                 </div>
                 <div class="row" id="device_id_CLYIDFV">
                     <div class="col-md-12">
                         <label>
-                            <input type="radio" name='device_id' value='CLYIDFV'> Identifier for Vendor (IDFV)
-                        </label>
-                    </div>
-                </div>
-                <div class="row" id="device_id_CLYOpenUDID">
-                    <div class="col-md-12">
-                        <label>
-                            <input type="radio" name='device_id' value='CLYOpenUDID'> OpenUDID
+                            <input type="radio" name='device_id' value='CLYIDFV'> Identifier for Advertising (IDFA)
                         </label>
                     </div>
                 </div>
@@ -144,10 +137,10 @@
 
             <div class='section features checkbox'>
                 <span class='label'>Choose optional features you want to use</span>
-                <div class="row" id="feature_CLYMessaging">
+                <div class="row" id="feature_CLYPushNotifications">
                     <div class="col-md-12">
                         <label>
-                            <input type="checkbox" class='feature' value='CLYMessaging'> Push Notifications
+                            <input type="checkbox" class='feature' value='CLYPushNotifications'> Push Notifications
                         </label>
                     </div>
                 </div>
@@ -185,7 +178,155 @@
                     </div><!-- /.col-lg-6 -->
                 </div><!-- /.row -->
             </div>
-
+            <div class='section advanced'>
+            <span class='label'>Advanced Configuration</span>
+            <div class='advanced-list'>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide country code of your user (will try to determine from IP address if not provided)</label>
+                        <input type="text" class="form-control" id='ISOCountryCode' placeholder="US" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide city of your user (will try to determine from IP address if not provided)</label>
+                        <input type="text" class="form-control" id='city' placeholder="San Francisco" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide secret salt same that is provided on server to prevent changing request data</label>
+                        <input type="text" class="form-control" id='secretSalt' placeholder="secret" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide maximum amount of queued requests to store if server is unresponsive</label>
+                        <input type="text" class="form-control" id='storedRequestsLimit' placeholder="1000" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Send events when reaching this limit without waiting for next sync</label>
+                        <input type="text" class="form-control" id='eventSendThreshold' placeholder="10" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide how often in seconds should session be extended</label>
+                        <input type="text" class="form-control" id='updateSessionPeriod' placeholder="60" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide message when displaying Star Rating dialog</label>
+                        <input type="text" class="form-control" id='starRatingMessage' placeholder="How would you rate the app?" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide title for dismiss button in Star Rating dialog</label>
+                        <input type="text" class="form-control" id='starRatingDismissButtonTitle' placeholder="Dismiss" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Show Star rating dialog after this amount of sessions</label>
+                        <input type="text" class="form-control" id='starRatingSessionCount' placeholder="10" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='starRatingDisableAskingForEachAppVersion' value='true'> Disable Asking Star rating for each version
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='enableDebug' value='true'> Enable Debug logging
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='isTestDevice' value='true'> Is this testing device?
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='sendPushTokenAlways' value='true'> Force sending tokens if user did not allow push notifications
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='doNotShowAlertForNotifications' value='true'> Disable automatically showing of message alerts for push notifications
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='forceDeviceIDInitialization' value='true'> Overwrite device id on initialization
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='alwaysUsePOST' value='true'> Force using POST only
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='enableAppleWatch' value='true'> Enable Apple Watch support
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            </div>
+        </div>
 
 
             <div class="row">
@@ -269,6 +410,7 @@
                 "   config.deviceID = CLYIDFA;\n"+
                 "   //You can specify optional features you want here\n"+
                 "   [features]\n"+
+                "   [options]\n"+
                 "   [Countly.sharedInstance startWithConfig:config];\n"+
                 "   \n"+
                 "   // your code\n"+
@@ -360,11 +502,7 @@
                 if(features.length)
                 {
                     data.features = "config.features = @["+features.join(", ")+"];\n";
-                    if(features.indexOf("CLYMessaging") > -1)
-                    {
-                        data.features += "   config.launchOptions = launchOptions;\n";
-                    }
-                    else
+                    if(features.indexOf("CLYPushNotifications") === -1)
                     {
                         $("#push").hide();
                     }
@@ -374,8 +512,20 @@
                     data.features = "";
                 }
                 
+                data.options = getAdvancedOptions().map(function(el){
+                    return "   config."+el.id+' = '+el.value+';';
+                });
+                
+                if(data.options.length){
+                    data.options = data.options.join("\n")+"\n";
+                }
+                else{
+                    data.options = "";
+                }
+                
                 var code = template.replace("https://YOUR_COUNTLY_SERVER", data.url)
                     .replace("YOUR_APP_KEY", data.app_key)
+                    .replace("   [options]\n", data.options)
                     .replace("[features]", data.features);
                 
 
@@ -397,7 +547,7 @@
                     code = code.replace("   //You can specify optional features you want here\n", "");
                 }
 
-                if(features.indexOf("CLYMessaging") > -1)
+                if(features.indexOf("CLYPushNotifications") > -1)
                 {
                     code = code.replace("   // your code\n", pushHandling);
                     code += "\n"+pushMethods;
@@ -440,7 +590,7 @@
                 $('#custom_devide_id').prop('disabled',true);
                 $('#custom_devide_id').val('');
 
-                $('#feature_CLYMessaging').hide();
+                $('#feature_CLYPushNotifications').hide();
                 $('#feature_CLYCrashReporting').hide();
                 $('#feature_CLYAutoViewTracking').hide();
 
@@ -451,7 +601,7 @@
                     $('#device_id_CLYOpenUDID').show();
                     $("#device_id_sdk_default_text").text("SDK Default (IDFA)");
 
-                    $('#feature_CLYMessaging').show();
+                    $('#feature_CLYPushNotifications').show();
                     $('#feature_CLYCrashReporting').show();
                     $('#feature_CLYAutoViewTracking').show();
                 }

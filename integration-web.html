@@ -196,7 +196,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Provide city of your user (will try to determine from IP address if not provided)</label>
-                        <input type="text" class="form-control" id='country_code' placeholder="San Francisco" />
+                        <input type="text" class="form-control" id='city' placeholder="San Francisco" />
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
@@ -243,6 +243,14 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
+                        <label>Maximum amount of events to send per one batch</label>
+                        <input type="text" class="form-control" id='max_events' placeholder="10" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
                         <label>Provide after how many minutes user should be counted as inactive, if there are no actions, as mouse move, scroll or keypress</label>
                         <input type="text" class="form-control" id='inactivity_time' placeholder="20" />
                     </div>
@@ -252,7 +260,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Provide comma separated list of referrers to ignore</label>
-                        <input type="text" class="form-control" id='ignore_referrers' placeholder="domain1.com, domain2.com" />
+                        <input type="text" class="form-control arr" id='ignore_referrers' placeholder="domain1.com, domain2.com" />
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
@@ -437,27 +445,7 @@
                 data.features = "";
             }
             
-            data.options = $(".advanced-list input").map(function(el){
-                if(this.type == "text"){
-                    if(this.id === "ignore_referrers" && this.value != ""){
-                        var arr = this.value.split(",");
-                        for(var i = 0; i < arr.length; i++){
-                            arr[i] = arr[i].replace(/^\s+|\s+$/gm,'');
-                        }
-                        return {id:this.id, value:JSON.stringify(arr)};
-                    }
-                    else
-                        return {id:this.id, value:'"'+this.value+'"'};
-                }
-                else if(this.type == "checkbox" && this.checked)
-                    return {id:this.id, value:this.value};
-                else
-                    return {id:this.id, value:""};
-            }).get().filter(function(el){
-                if(el.value.length && el.value != '""')
-                    return true;
-                return false;
-            }).map(function(el){
+            data.options = getAdvancedOptions().map(function(el){
                 return el.id+'= '+el.value+';';
             });
             
