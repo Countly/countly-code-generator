@@ -57,7 +57,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for='server-url'>Server URL:</label>
-                        <input type="url" class="form-control" id='server-url' placeholder="https://cloud.count.ly">
+                        <input type="url" class="form-control" id='server-url' placeholder="https://try.count.ly">
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div>
@@ -147,6 +147,13 @@
             </div><!-- /.row -->
             <div class="row">
                 <div class="col-md-12">
+                    <label>
+                        <input type="checkbox" class='feature' value='collect_from_forms'> Collect user information from forms
+                    </label>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
                     <p>&nbsp;</p>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
@@ -157,6 +164,135 @@
                     </label>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
+        </div>
+        <div class='section advanced'>
+            <span class='label'>Advanced Configuration</span>
+            <div class='advanced-list'>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide custom device id (will generate if not provided)</label>
+                        <input type="text" class="form-control" id='device_id' placeholder="someid"/>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide app version (will use 0.0 if not provided)</label>
+                        <input type="text" class="form-control" id='app_version' placeholder="0.0" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide country code of your user (will try to determine from IP address if not provided)</label>
+                        <input type="text" class="form-control" id='country_code' placeholder="US" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide city of your user (will try to determine from IP address if not provided)</label>
+                        <input type="text" class="form-control" id='country_code' placeholder="San Francisco" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide IP address of your user (will try to determine automatically, if not provided)</label>
+                        <input type="text" class="form-control" id='ip_address' placeholder="127.0.0.1" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide an interval how often to check if there is any data to report and report it in miliseconds</label>
+                        <input type="text" class="form-control" id='interval' placeholder="500" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide maximum amount of queued requests to store if server is unresponsive</label>
+                        <input type="text" class="form-control" id='queue_size' placeholder="1000" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide time in seconds to wait after failed connection to server in seconds</label>
+                        <input type="text" class="form-control" id='fail_timeout' placeholder="60" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide how often in seconds should session be extended</label>
+                        <input type="text" class="form-control" id='session_update' placeholder="60" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide after how many minutes user should be counted as inactive, if there are no actions, as mouse move, scroll or keypress</label>
+                        <input type="text" class="form-control" id='inactivity_time' placeholder="20" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide comma separated list of referrers to ignore</label>
+                        <input type="text" class="form-control" id='ignore_referrers' placeholder="domain1.com, domain2.com" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='debug' value='true'> Enable Debug logging
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='force_post' value='true'> Force using POST only
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='ignore_bots' value='false'> Do not ignore bots
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='ignore_prefetch' value='false'> Do not ignore prefetch/prerender requests
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            </div>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -179,6 +315,8 @@
             <div class="modal-body">
                 <p>Insert this snippet somewhere between &lt;head&gt;&lt;/head&gt; tags, make sure it appears on each page</p>
                 <p><textarea id='end-code' class="no-translate" readonly onclick="this.select();"></textarea></p>
+                <p>Insert this snippet somewhere between &lt;body&gt;&lt;/body&gt; tags, to track users with disabled Javascript</p>
+                <p><textarea id='pixel-code' class="no-translate" readonly onclick="this.select();"></textarea></p>
             </div>
             <div class="modal-footer">
                 <p class='text-center'>
@@ -240,7 +378,8 @@
             "\n"+
             "//provide countly initialization parameters\n"+
             "Countly.app_key = 'YOUR_APP_KEY';\n"+
-            "Countly.url = 'http://yourdomain.com'; //or none for default countly cloud\n"+
+            "Countly.url = 'http://yourdomain.com';\n"+
+            "[options]\n"+
             "\n"+
             "[features]\n"+
             "\n"+
@@ -254,6 +393,8 @@
             "   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(cly, s);\n"+
             "})();\n"+
             "</scri" + "pt>";
+            
+        var pixel_template = "<noscript><img src='http://domain.com/pixel.png?app_key=YOUR_APP_KEY&begin_session=1'/></noscript>";
             
         $("#generate").click(function(){
             $( ".alert" ).remove();
@@ -296,11 +437,47 @@
                 data.features = "";
             }
             
+            data.options = $(".advanced-list input").map(function(el){
+                if(this.type == "text"){
+                    if(this.id === "ignore_referrers" && this.value != ""){
+                        var arr = this.value.split(",");
+                        for(var i = 0; i < arr.length; i++){
+                            arr[i] = arr[i].replace(/^\s+|\s+$/gm,'');
+                        }
+                        return {id:this.id, value:JSON.stringify(arr)};
+                    }
+                    else
+                        return {id:this.id, value:'"'+this.value+'"'};
+                }
+                else if(this.type == "checkbox" && this.checked)
+                    return {id:this.id, value:this.value};
+                else
+                    return {id:this.id, value:""};
+            }).get().filter(function(el){
+                if(el.value.length && el.value != '""')
+                    return true;
+                return false;
+            }).map(function(el){
+                return el.id+'= '+el.value+';';
+            });
+            
+            if(data.options.length){
+                data.options = "Countly."+data.options.join("\nCountly.")+"\n";
+            }
+            else{
+                data.options = "";
+            }
+            
             var code = template.replace("http://yourdomain.com", data.url)
                 .replace("YOUR_APP_KEY", data.app_key)
                 .replace("/path/to/countly.min.js", data.src)
+                .replace("[options]\n", data.options)
                 .replace("[features]", data.features);
             $("#end-code").val(code);
+            
+            var pixel = pixel_template.replace("http://domain.com", data.url)
+                .replace("YOUR_APP_KEY", data.app_key);
+            $("#pixel-code").val(pixel);
             $('#end-modal').modal();
         });
         

@@ -92,7 +92,7 @@
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
         </div>
-                <div class='section advanced'>
+        <div class='section advanced'>
             <span class='label'>Advanced Configuration</span>
             <div class='advanced-list'>
             <div class="row">
@@ -303,16 +303,18 @@
             }
             
             data.options = $(".advanced-list input").map(function(el){
-                if(this.type == "text" || (this.type == "checkbox" && this.checked))
+                if(this.type == "text")
+                    return {id:this.id, value:'"'+this.value+'"'};
+                else if(this.type == "checkbox" && this.checked)
                     return {id:this.id, value:this.value};
                 else
                     return {id:this.id, value:""};
             }).get().filter(function(el){
-                if(el.value != "")
+                if(el.value.length && el.value != '""')
                     return true;
                 return false;
             }).map(function(el){
-                return el.id+': "'+el.value+'"';
+                return el.id+': '+el.value;
             });
             
             if(data.options.length){
