@@ -52,32 +52,6 @@ Localize.initialize({
     blockedClasses: ["no-translate","code"]
  });
  
- function getAdvancedOptions(){
-     return $(".advanced-list input").map(function(el){
-                if(this.type == "text"){
-                    if($(this).hasClass("arr") && this.value.replace(/^\s+|\s+$/gm,'') != ""){
-                        var arr = this.value.split(",");
-                        for(var i = 0; i < arr.length; i++){
-                            arr[i] = arr[i].replace(/^\s+|\s+$/gm,'');
-                        }
-                        return {id:this.id, value:JSON.stringify(arr)};
-                    }
-                    else if(isNaN(this.value))
-                        return {id:this.id, value:'"'+this.value+'"'};
-                    else
-                        return {id:this.id, value:this.value};
-                }
-                else if(this.type == "checkbox" && this.checked)
-                    return {id:this.id, value:this.value};
-                else
-                    return {id:this.id, value:""};
-            }).get().filter(function(el){
-                if(el.value.length && el.value != '""')
-                    return true;
-                return false;
-            });
- }
- 
 $( document ).ready(function() {
     $(".advanced span.label").click(function(){
        $(this).parent().find(".advanced-list").toggle(); 
