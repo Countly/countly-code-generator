@@ -51,3 +51,9 @@ Localize.initialize({
     translateAlt:false,
     blockedClasses: ["no-translate","code"]
  });
+ 
+$( document ).ready(function() {
+    $(".advanced span.label").click(function(){
+       $(this).parent().find(".advanced-list").toggle(); 
+    });
+});

@@ -273,3 +273,6 @@ footer a {
 }
 
 #countly-link:hover { text-decoration: none; }
+
+.advanced-list{display: none;}
+.advanced span.label {cursor:pointer;}
