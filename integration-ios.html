@@ -441,32 +441,9 @@
                 "}";
                 
              var pushHandling = 
-                "   if ([application respondsToSelector:@selector(registerUserNotificationSettings:)])\n"+
-                "   {\n"+
-                "       UIUserNotificationType userNotificationTypes = UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound;\n"+
-                "       UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:[Countly.sharedInstance countlyNotificationCategories]];\n"+
-                "       [UIApplication.sharedApplication registerUserNotificationSettings:notificationSettings];\n"+
-                "   }\n"+
-                "   else\n"+
-                "   {\n"+
-                "       [UIApplication.sharedApplication registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];\n"+
-                "   }\n";
-                
-            var pushMethods = "\n- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {\n"+
-                "   [application registerForRemoteNotifications];\n"+
-                "}\n"+
-                "\n"+
-                "- (void) application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {\n"+
-                "   [Countly.sharedInstance didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];\n"+
-                "}\n"+
-                "\n"+
-                "- (void) application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {\n"+
-                "   [Countly.sharedInstance didFailToRegisterForRemoteNotifications];\n"+
-                "}\n"+
-                "\n"+
-                "- (void) application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {\n"+
-                "   [Countly.sharedInstance handleRemoteNotification:userInfo];\n"+
-                "}\n";
+                "   //Ask for user's permission for Push Notifications (not necessarily here)\n"+
+                "   //You can do this later at anypoint in the app\n"+
+                "   [Countly.sharedInstance askForNotificationPermission];\n";
                 
             $("#generate").click(function()
             {
@@ -596,7 +573,6 @@
                 if(features.indexOf("CLYPushNotifications") > -1)
                 {
                     code = code.replace("   // your code\n", pushHandling);
-                    code += "\n"+pushMethods;
                 }
 
                 $("#end-code").val(code);
