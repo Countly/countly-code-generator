@@ -281,7 +281,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" id='starRatingDisableAskingForEachAppVersion' value='true'> Disable Asking Star rating for each version
+                            <input type="checkbox" id='starRatingDisableAskingForEachAppVersion' value='YES'> Disable Asking Star rating for each version
                         </label>
                     </div>
                 </div><!-- /.col-lg-6 -->
@@ -373,7 +373,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Insert this snippet to in your application delegate, or modify it to include provided code in same methods</p>
-                    <p id='push' class='well'><a href="http://resources.count.ly/docs/countly-sdk-for-ios-and-os-x#setting-up-push-notifications" target="_blank">More information on setting up push notifications on server</a></p>
+                    <p id='push' class='well hidden'><a href="http://resources.count.ly/docs/countly-sdk-for-ios-and-os-x#push-notifications" target="_blank">More information on setting up push notifications on server</a></p>
                     <p><textarea id='end-code' class="no-translate" readonly onclick="this.select();"></textarea></p>
                     <p class='text-center'>
                         <button type="button" class="btn btn-success" id="copy" data-clipboard-target="#end-code">Copy</button>&nbsp;
@@ -573,6 +573,7 @@
                 if(features.indexOf("CLYPushNotifications") > -1)
                 {
                     code = code.replace("   // your code\n", pushHandling);
+                    $("#push").removeClass("hidden");
                 }
 
                 $("#end-code").val(code);
