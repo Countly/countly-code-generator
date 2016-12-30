@@ -104,8 +104,6 @@
                 </div>
             </div>
 
-
-
             <div class='section device_id radio'>
                 <span class='label'>Choose the way to generate device ID</span>
                 <div class="row" id="device_id_CLYSDKDefault">
@@ -374,12 +372,30 @@
                 <div class="modal-body">
                     <p>Insert this snippet to in your application delegate, or modify it to include provided code in same methods</p>
                     <p id='push' class='well hidden'><a href="http://resources.count.ly/docs/countly-sdk-for-ios-and-os-x#push-notifications" target="_blank">More information on setting up push notifications on server</a></p>
-                    <p><textarea id='end-code' class="no-translate" readonly onclick="this.select();"></textarea></p>
-                    <p class='text-center'>
-                        <button type="button" class="btn btn-success" id="copy" data-clipboard-target="#end-code">Copy</button>&nbsp;
-                        <button type="button" class="btn btn-success" id="download">Download</button>&nbsp;
-                        <button type="button" class="btn btn-primary" id="gotit">Close</button>
-                    </p>
+                    <div class="tabbable"> <!-- Only required for left/right tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#objc" data-toggle="tab">Objective C</a></li>
+                            <li><a href="#swift" data-toggle="tab">Swift</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="objc">
+                                <p><textarea id='end-code-objc' class="no-translate code" readonly onclick="this.select();"></textarea></p>
+                                <p class='text-center'>
+                                    <button type="button" class="btn btn-success" id="copy" data-clipboard-target="#end-code-objc">Copy</button>&nbsp;
+                                    <button type="button" class="btn btn-success" id="download">Download</button>&nbsp;
+                                    <button type="button" class="btn btn-primary gotit">Close</button>
+                                </p>
+                            </div>
+                            <div class="tab-pane" id="swift">
+                                <p><textarea id='end-code-swift' class="no-translate code" readonly onclick="this.select();"></textarea></p>
+                                <p class='text-center'>
+                                    <button type="button" class="btn btn-success" id="copy" data-clipboard-target="#end-code-swift">Copy</button>&nbsp;
+                                    <button type="button" class="btn btn-success" id="download-swift">Download</button>&nbsp;
+                                    <button type="button" class="btn btn-primary gotit">Close</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 </div>
             </div>
@@ -440,10 +456,31 @@
                 "   // your code\n"+
                 "}";
                 
+                
+             var template_swift = "func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool\n"+
+                "{\n"+
+                "   let config: CountlyConfig = CountlyConfig()\n"+
+                "   config.appKey = \"YOUR_APP_KEY\"\n"+
+                "   config.host = \"https://YOUR_COUNTLY_SERVER\"\n"+
+                "   config.deviceID = CLYIDFA\n"+
+                "   //You can specify optional features you want here\n"+
+                "   [features]\n"+
+                "   [options]\n"+
+                "   Countly.sharedInstance().start(with: config)\n"+
+                "   \n"+
+                "   // your code\n"+
+                "   return true\n"+
+                "}";
+                
              var pushHandling = 
                 "   //Ask for user's permission for Push Notifications (not necessarily here)\n"+
                 "   //You can do this later at anypoint in the app\n"+
                 "   [Countly.sharedInstance askForNotificationPermission];\n";
+                
+            var pushHandlingSwift = 
+                "   //Ask for user's permission for Push Notifications (not necessarily here)\n"+
+                "   //You can do this later at anypoint in the app\n"+
+                "   Countly.sharedInstance().askForNotificationPermission();\n";
                 
             $("#generate").click(function()
             {
@@ -503,6 +540,7 @@
                 if(features.length)
                 {
                     data.features = "config.features = @["+features.join(", ")+"];\n";
+                    data.features_swift = "config.features = ["+features.join(", ")+"]\n";
                     if(features.indexOf("CLYPushNotifications") === -1)
                     {
                         $("#push").hide();
@@ -511,32 +549,61 @@
                 else
                 {
                     data.features = "";
+                    data.features_swift = "";
                 }
                 
                 data.options = $(".advanced-list input").map(function(el){
-                if(this.type == "text"){
-                    if($(this).hasClass("arr") && this.value.replace(/^\s+|\s+$/gm,'') != ""){
-                        var arr = this.value.split(",");
-                        for(var i = 0; i < arr.length; i++){
-                            arr[i] = '@"'+arr[i].replace(/^\s+|\s+$/gm,'')+'"';
+                    if(this.type == "text"){
+                        if($(this).hasClass("arr") && this.value.replace(/^\s+|\s+$/gm,'') != ""){
+                            var arr = this.value.split(",");
+                            for(var i = 0; i < arr.length; i++){
+                                arr[i] = '@"'+arr[i].replace(/^\s+|\s+$/gm,'')+'"';
+                            }
+                            return {id:this.id, value:'@['+arr.join(",")+']'};
                         }
-                        return {id:this.id, value:'@['+arr.join(",")+']'};
+                        else if(isNaN(this.value))
+                            return {id:this.id, value:'@"'+this.value+'"'};
+                        else
+                            return {id:this.id, value:this.value};
                     }
-                    else if(isNaN(this.value))
-                        return {id:this.id, value:'@"'+this.value+'"'};
-                    else
+                    else if(this.type == "checkbox" && this.checked)
                         return {id:this.id, value:this.value};
-                }
-                else if(this.type == "checkbox" && this.checked)
-                    return {id:this.id, value:this.value};
-                else
-                    return {id:this.id, value:""};
-            }).get().filter(function(el){
-                if(el.value.length && el.value != '""')
-                    return true;
-                return false;
-            }).map(function(el){
+                    else
+                        return {id:this.id, value:""};
+                }).get().filter(function(el){
+                    if(el.value.length && el.value != '""')
+                        return true;
+                    return false;
+                }).map(function(el){
                     return "   config."+el.id+' = '+el.value+';';
+                });
+                
+                var toBool = {YES:"true", NO:"false"};
+                
+                data.options_swift = $(".advanced-list input").map(function(el){
+                    if(this.type == "text"){
+                        if($(this).hasClass("arr") && this.value.replace(/^\s+|\s+$/gm,'') != ""){
+                            var arr = this.value.split(",");
+                            for(var i = 0; i < arr.length; i++){
+                                arr[i] = '"'+arr[i].replace(/^\s+|\s+$/gm,'')+'"';
+                            }
+                            return {id:this.id, value:'['+arr.join(",")+']'};
+                        }
+                        else if(isNaN(this.value))
+                            return {id:this.id, value:'"'+this.value+'"'};
+                        else
+                            return {id:this.id, value:this.value};
+                    }
+                    else if(this.type == "checkbox" && this.checked)
+                        return {id:this.id, value:toBool[this.value]};
+                    else
+                        return {id:this.id, value:""};
+                }).get().filter(function(el){
+                    if(el.value.length && el.value != '""')
+                        return true;
+                    return false;
+                }).map(function(el){
+                    return "   config."+el.id+' = '+el.value+'';
                 });
                 
                 if(data.options.length){
@@ -546,37 +613,55 @@
                     data.options = "";
                 }
                 
+                if(data.options_swift.length){
+                    data.options_swift = data.options_swift.join("\n")+"\n";
+                }
+                else{
+                    data.options_swift = "";
+                }
+                
                 var code = template.replace("https://YOUR_COUNTLY_SERVER", data.url)
                     .replace("YOUR_APP_KEY", data.app_key)
                     .replace("   [options]\n", data.options)
                     .replace("[features]", data.features);
+                    
+                var code_swift = template_swift.replace("https://YOUR_COUNTLY_SERVER", data.url)
+                    .replace("YOUR_APP_KEY", data.app_key)
+                    .replace("   [options]\n", data.options_swift)
+                    .replace("[features]", data.features_swift);
                 
 
                 if(data.device_id == "CLYSDKDefault")
                 {
                     code = code.replace("   config.deviceID = CLYIDFA;\n", "");
+                    code_swift = code_swift.replace("   config.deviceID = CLYIDFA\n", "");
                 }
                 else if (data.device_id == "CLYCustom")
                 {
-                    code = code.replace("CLYIDFA", $('#custom_devide_id').val());
+                    code = code.replace("CLYIDFA", '"'+$('#custom_devide_id').val()+'"');
+                    code_swift = code_swift.replace("CLYIDFA",'"'+$('#custom_devide_id').val()+'"');
                 }
                 else
                 {
-                    code = code.replace("CLYIDFA", data.device_id)
+                    code = code.replace("CLYIDFA", data.device_id);
+                    code_swift = code_swift.replace("CLYIDFA", data.device_id);
                 }
 
                 if(features.length == 0)
                 {
                     code = code.replace("   //You can specify optional features you want here\n", "");
+                    code_swift = code_swift.replace("   //You can specify optional features you want here\n", "");
                 }
 
                 if(features.indexOf("CLYPushNotifications") > -1)
                 {
                     code = code.replace("   // your code\n", pushHandling);
+                    code_swift = code_swift.replace("   // your code\n", pushHandlingSwift);
                     $("#push").removeClass("hidden");
                 }
 
-                $("#end-code").val(code);
+                $("#end-code-objc").val(code);
+                $("#end-code-swift").val(code_swift);
                 $('#end-modal').modal();
             });
             
@@ -589,17 +674,34 @@
                 }
             });
         
-            $("#gotit").click(function()
+            $(".gotit").click(function()
             {
                 $('#end-modal').modal('hide');
             });
             
             $("#download").click(function()
             {
-                var data = $("#end-code").val();
+                var platform = $("input:radio[name=platform]:checked").val();
+                if(platform == "")
+                    platform = "apple";
+                var data = $("#end-code-objc").val();
                 try {
                     var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
-                    saveAs(blob, "web-sdk.txt");
+                    saveAs(blob, platform+"-objc-sdk.txt");
+                } catch (e) {
+                    alert(data);
+                }
+            });
+            
+            $("#download-swift").click(function()
+            {
+                var platform = $("input:radio[name=platform]:checked").val();
+                if(platform == "")
+                    platform = "apple";
+                var data = $("#end-code-swift").val();
+                try {
+                    var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
+                    saveAs(blob, platform+"-swift-sdk.txt");
                 } catch (e) {
                     alert(data);
                 }
@@ -610,6 +712,7 @@
             {
                 $('input:radio[name=device_id]').removeAttr('checked');
                 $("#device_id_sdk_default_text").text("SDK Default");
+                $("#device_id_CLYSDKDefault input").prop("checked", "checked");
                 $('#custom_devide_id').prop('disabled',true);
                 $('#custom_devide_id').val('');
 
