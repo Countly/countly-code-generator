@@ -57,7 +57,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for='server-url'>Server URL:</label>
-                        <input type="url" class="form-control" id='server-url' placeholder="https://cloud.count.ly">
+                        <input type="url" class="form-control" id='server-url' placeholder="https://try.count.ly">
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div>
@@ -180,6 +180,119 @@
                     </label>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
+        </div>
+        <div class='section advanced'>
+            <span class='label'>Advanced Configuration</span>
+            <div class='advanced-list'>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide country code of your user (will try to determine from IP address if not provided)</label>
+                        <input type="text" class="form-control optinit" id='country' placeholder="US" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide city of your user (will try to determine from IP address if not provided)</label>
+                        <input type="text" class="form-control optinit" id='city' placeholder="San Francisco" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide geolocation of your user (will try to determine from IP address if not provided)</label>
+                        <input type="text" class="form-control optinit" id='location' placeholder="56.42345,123.45325" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide secret salt same that is provided on server to prevent changing request data</label>
+                        <input type="text" class="form-control" id='enableParameterTamperingProtection' placeholder="secret" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Send events when reaching this limit without waiting for next sync</label>
+                        <input type="text" class="form-control" id='setEventQueueSizeToSend' placeholder="10" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide message when displaying Star Rating dialog</label>
+                        <input type="text" class="form-control star" id='starRatingTitle' placeholder="App rating" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide message when displaying Star Rating dialog</label>
+                        <input type="text" class="form-control star" id='starRatingMessage' placeholder="Please rate this app" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Provide title for cancel button in Star Rating dialog</label>
+                        <input type="text" class="form-control star" id='starRatingDismissButtonTitle' placeholder="Cancel" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Show Star rating dialog after this amount of sessions</label>
+                        <input type="text" class="form-control" id='starRatingSessionCount' placeholder="10" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='setIfStarRatingShownAutomatically' value='false'> Disable Asking Star rating completely
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='setStarRatingDisableAskingForEachAppVersion' value='false'> Disable Asking Star rating for each version
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='setLoggingEnabled' value='true'> Enable Debug logging
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='setHttpPostForced' value='true'> Force using POST only
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            </div>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -337,6 +450,7 @@ dependencies {
             "   super.onCreate(savedInstanceState);\n"+
             "   \n"+
             "   Countly.sharedInstance().init(this, \"YOUR_SERVER\", \"YOUR_APP_KEY\", null, DeviceId);\n"+
+            "[options]\n"+
             "[features]\n"+
             "}\n"+
             "\n"+
@@ -491,9 +605,74 @@ dependencies {
                 }
             }
             
+            data.options = $(".advanced-list input").map(function(el){
+                if(this.type == "text"){
+                    if($(this).hasClass("arr") && this.value.replace(/^\s+|\s+$/gm,'') != ""){
+                        var arr = this.value.split(",");
+                        for(var i = 0; i < arr.length; i++){
+                            arr[i] = '"'+arr[i].replace(/^\s+|\s+$/gm,'')+'"';
+                        }
+                        return {id:this.id, value:'['+arr.join(",")+']'};
+                    }
+                    else if($(this).hasClass("optinit") || $(this).hasClass("star")){
+                        return {id:this.id, value:""};
+                    }
+                    else if(isNaN(this.value))
+                        return {id:this.id, value:'"'+(($(this).hasClass("context")) ? "context, " : "")+this.value+'"'};
+                    else
+                        return {id:this.id, value:(($(this).hasClass("context")) ? "context, " : "")+this.value};
+                }
+                else if(this.type == "checkbox" && this.checked)
+                    return {id:this.id, value:(($(this).hasClass("context")) ? "context, " : "")+this.value};
+                else
+                    return {id:this.id, value:""};
+            }).get().filter(function(el){
+                if(el.value.length && el.value != '""')
+                    return true;
+                return false;
+            }).map(function(el){
+                return "   Countly.sharedInstance()."+el.id+'('+el.value+');';
+            });
+            
+            //process star rating
+            var hasOptStar = false;
+            var optinit = $(".advanced-list input.star").map(function(el){
+                if(this.value != ""){
+                    hasOptStar = true;
+                    return '"'+this.value+'"';
+                }
+                return "null";
+            }).get().join(", ");
+            
+            if(hasOptStar){
+                data.options.unshift("   Countly.sharedInstance().setStarRatingDialogTexts("+optinit+")");
+            }
+            
+            //process optional init
+            var hasOptInit = false;
+            var optinit = $(".advanced-list input.optinit").map(function(el){
+                if(this.value != ""){
+                    hasOptInit = true;
+                    return '"'+this.value+'"';
+                }
+                return "null";
+            }).get().join(", ");
+            
+            if(hasOptInit){
+                data.options.unshift("   Countly.sharedInstance().setOptionalParametersForInitialization("+optinit+")");
+            }
+            
+            if(data.options.length){
+                    data.options = data.options.join("\n")+"\n";
+                }
+                else{
+                    data.options = "";
+                }
+            
             var code = template.replace("YOUR_SERVER", data.url)
                 .replace("YOUR_APP_KEY", data.app_key)
                 .replace("DeviceId", data.device_id)
+                .replace("[options]", data.options)
                 .replace("[features]", data.features);
             
             if(features.indexOf("CLYMessaging") > -1){
