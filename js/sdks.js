@@ -16,7 +16,7 @@ var sdks = {
         download: "https://github.com/Countly/countly-sdk-android/releases",
         docs: "http://resources.count.ly/docs/countly-sdk-for-android",
         description: "Track users and user behavior in your android based apps",
-        version: "16.12.02",
+        version: "16.12.2",
         integration: true
     },
     web: {
