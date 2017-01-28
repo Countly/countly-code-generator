@@ -1,0 +1,4 @@
+[submodule "sdk/web"]
+	path = sdk/web
+	url = https://github.com/Countly/countly-sdk-web
+	branch = gh-pages
