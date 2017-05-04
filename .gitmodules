@@ -6,3 +6,7 @@
 	path = sdk/nodejs
 	url = https://github.com/Countly/countly-sdk-nodejs
 	branch = gh-pages
+[submodule "server"]
+	path = server
+	url = https://github.com/Countly/countly-server
+	branch = gh-pages
