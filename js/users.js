@@ -61,10 +61,12 @@ var users = {
                 pull: "pullValue"
             };
             for(var i in data.custom){
-                if(data.custom[i].action == "increment" || data.custom[i].action == "multiply" || data.custom[i].action == "min" || data.custom[i].action == "max")
+                if(data.custom[i].action === "increment" || data.custom[i].action === "multiply" || data.custom[i].action === "min" || data.custom[i].action === "max"){
                     script += "Countly.userData."+map[data.custom[i].action]+"(\""+i+"\", "+data.custom[i].value+");\n";
-                else
+                }
+                else{
                     script += "Countly.userData."+map[data.custom[i].action]+"(\""+i+"\", \""+data.custom[i].value+"\");\n";
+                }
             }
         }
         return script;
@@ -73,10 +75,12 @@ var users = {
         var script = "";
         for(var i in data){
             if(i != "custom"){
-                if(i == "byear")
+                if(i === "byear"){
                     script += "CountlyUserDetails.sharedInstance.birthYear = "+data[i]+";\n";
-                else
+                }
+                else{
                     script += "CountlyUserDetails.sharedInstance."+i+" = @\""+data[i]+"\";\n";
+                }
             }
         }
         if(data.custom){
@@ -91,10 +95,12 @@ var users = {
                 pull: "pull"
             };
             for(var i in data.custom){
-                if(data.custom[i].action == "increment" || data.custom[i].action == "multiply" || data.custom[i].action == "min" || data.custom[i].action == "max")
+                if(data.custom[i].action === "increment" || data.custom[i].action === "multiply" || data.custom[i].action === "min" || data.custom[i].action === "max"){
                     script += "[CountlyUserDetails.sharedInstance "+map[data.custom[i].action]+":@\""+i+"\" value:"+data.custom[i].value+"];\n";
-                else
+                }
+                else{
                     script += "[CountlyUserDetails.sharedInstance "+map[data.custom[i].action]+":@\""+i+"\" value:@\""+data.custom[i].value+"\"];\n";
+                }
             }
         }
         return script;

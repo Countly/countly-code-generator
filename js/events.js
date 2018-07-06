@@ -41,7 +41,7 @@ var events = {
             for(var key in data.segmentation){
                 ret += '@"'+key+'":@"'+data.segmentation[key]+'", ';
             }
-            ret = ret.slice(0, -2)+"};\n"
+            ret = ret.slice(0, -2)+"};\n";
             return ret + '[Countly.sharedInstance recordEvent:@"'+data.key+'" segmentation:dict count:'+data.count+'];';
         }
         else{
@@ -49,7 +49,7 @@ var events = {
             for(var key in data.segmentation){
                 ret += '@"'+key+'":@"'+data.segmentation[key]+'", ';
             }
-            ret = ret.slice(0, -2)+"};\n"
+            ret = ret.slice(0, -2)+"};\n";
             return ret + '[Countly.sharedInstance recordEvent:@"'+data.key+'" segmentation:dict count:'+data.count+' sum:'+data.sum+'];';
         }
     },
