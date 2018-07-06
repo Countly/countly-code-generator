@@ -1,17 +1,18 @@
 var users = {
     web: function(data){
         var script = "";
-        for(var i in data){
-            if(i != "custom"){
+        var i;
+        for(i in data){
+            if(i !== "custom"){
                 script += "        "+i+": \""+data[i]+"\",\n";
             }
         }
-        if(script != ""){
+        if(script !== ""){
             script = "   Countly.user_details({\n"+script.slice(0,-2)+"\n    });\n";
         }
         
         if(data.custom){
-            for(var i in data.custom){
+            for(i in data.custom){
                 script += "    Countly.userData."+data.custom[i].action+"(\""+i+"\", \""+data.custom[i].value+"\");\n";
             }
         }
@@ -23,17 +24,18 @@ var users = {
     },
     nodejs: function(data){
         var script = "";
-        for(var i in data){
-            if(i != "custom"){
+        var i;
+        for(i in data){
+            if(i !== "custom"){
                 script += "   "+i+": \""+data[i]+"\",\n";
             }
         }
-        if(script != ""){
+        if(script !== ""){
             script = "Countly.user_details({\n"+script.slice(0,-2)+"\n});\n";
         }
         
         if(data.custom){
-            for(var i in data.custom){
+            for(i in data.custom){
                 script += "Countly.userData."+data.custom[i].action+"(\""+i+"\", \""+data.custom[i].value+"\");\n";
             }
         }
@@ -41,12 +43,13 @@ var users = {
     },
     android: function(data){
         var script = "";
-        for(var i in data){
-            if(i != "custom"){
+        var i;
+        for(i in data){
+            if(i !== "custom"){
                 script += "userdata.put(\""+i+"\", \""+data[i]+"\");\n";
             }
         }
-        if(script != ""){
+        if(script !== ""){
             script = "HashMap<String, String> userdata = new HashMap<String, String>();\n"+script+"Countly.userData.setUserData(userdata);\n";
         }
         if(data.custom){
@@ -60,7 +63,7 @@ var users = {
                 push_unique: "pushUniqueValue",
                 pull: "pullValue"
             };
-            for(var i in data.custom){
+            for(i in data.custom){
                 if(data.custom[i].action === "increment" || data.custom[i].action === "multiply" || data.custom[i].action === "min" || data.custom[i].action === "max"){
                     script += "Countly.userData."+map[data.custom[i].action]+"(\""+i+"\", "+data.custom[i].value+");\n";
                 }
@@ -73,8 +76,9 @@ var users = {
     },
     ios: function(data){
         var script = "";
-        for(var i in data){
-            if(i != "custom"){
+        var i;
+        for(i in data){
+            if(i !== "custom"){
                 if(i === "byear"){
                     script += "CountlyUserDetails.sharedInstance.birthYear = "+data[i]+";\n";
                 }
@@ -94,7 +98,7 @@ var users = {
                 push_unique: "pushUnique",
                 pull: "pull"
             };
-            for(var i in data.custom){
+            for(i in data.custom){
                 if(data.custom[i].action === "increment" || data.custom[i].action === "multiply" || data.custom[i].action === "min" || data.custom[i].action === "max"){
                     script += "[CountlyUserDetails.sharedInstance "+map[data.custom[i].action]+":@\""+i+"\" value:"+data.custom[i].value+"];\n";
                 }
