@@ -15,19 +15,17 @@ var events = {
         else if(!data.segmentation){
             return 'Countly.sharedInstance().recordEvent("'+data.key+'", '+data.count+', '+data.sum+');';
         }
-        else if(!data.sum){
-            ret = "HashMap<String, String> segmentation = new HashMap<String, String>();\n";
-            for(key in data.segmentation){
-                ret += 'segmentation.put("'+key+'", "'+data.segmentation[key]+'");\n';
-            }
-            return ret + 'Countly.sharedInstance().recordEvent("'+data.key+'", segmentation, '+data.count+');';
-        }
         else{
             ret = "HashMap<String, String> segmentation = new HashMap<String, String>();\n";
             for(key in data.segmentation){
                 ret += 'segmentation.put("'+key+'", "'+data.segmentation[key]+'");\n';
             }
-            return ret + 'Countly.sharedInstance().recordEvent("'+data.key+'", segmentation, '+data.count+', '+data.sum+');';
+            if(typeof data.sum !== "undefined"){
+                return ret + 'Countly.sharedInstance().recordEvent("'+data.key+'", segmentation, '+data.count+', '+data.sum+');';
+            }
+            else{
+                return ret + 'Countly.sharedInstance().recordEvent("'+data.key+'", segmentation, '+data.count+');';
+            }
         }
     },
     ios: function(data){
@@ -38,21 +36,18 @@ var events = {
         else if(!data.segmentation){
             return '[Countly.sharedInstance recordEvent:@"'+data.key+'" count:'+data.count+' sum:'+data.sum+'];';
         }
-        else if(!data.sum){
-            ret = "NSDictionary* dict = @{";
-            for(key in data.segmentation){
-                ret += '@"'+key+'":@"'+data.segmentation[key]+'", ';
-            }
-            ret = ret.slice(0, -2)+"};\n";
-            return ret + '[Countly.sharedInstance recordEvent:@"'+data.key+'" segmentation:dict count:'+data.count+'];';
-        }
         else{
             ret = "NSDictionary* dict = @{";
             for(key in data.segmentation){
                 ret += '@"'+key+'":@"'+data.segmentation[key]+'", ';
             }
             ret = ret.slice(0, -2)+"};\n";
-            return ret + '[Countly.sharedInstance recordEvent:@"'+data.key+'" segmentation:dict count:'+data.count+' sum:'+data.sum+'];';
+            if(typeof data.sum !== "undefined"){
+                return ret + '[Countly.sharedInstance recordEvent:@"'+data.key+'" segmentation:dict count:'+data.count+' sum:'+data.sum+'];';
+            }
+            else{
+                return ret + '[Countly.sharedInstance recordEvent:@"'+data.key+'" segmentation:dict count:'+data.count+'];';
+            }
         }
     },
     windows: function(data){
@@ -63,19 +58,17 @@ var events = {
         else if(!data.segmentation){
             return 'Countly.RecordEvent("'+data.key+'", '+data.count+', '+data.sum+');';
         }
-        else if(!data.sum){
-            ret = "Segmentation segmentation = new Segmentation();\n";
-            for(key in data.segmentation){
-                ret += 'segmentation.Add("'+key+'", "'+data.segmentation[key]+'");\n';
-            }
-            return ret + 'Countly.RecordEvent("'+data.key+'", '+data.count+', segmentation);';
-        }
         else{
             ret = "Segmentation segmentation = new Segmentation();\n";
             for(key in data.segmentation){
                 ret += 'segmentation.Add("'+key+'", "'+data.segmentation[key]+'");\n';
             }
-            return ret + 'Countly.RecordEvent("'+data.key+'", '+data.count+', '+data.sum+', segmentation);';
+            if(typeof data.sum !== "undefined"){
+                return ret + 'Countly.RecordEvent("'+data.key+'", '+data.count+', '+data.sum+', segmentation);';
+            }
+            else{
+                return ret + 'Countly.RecordEvent("'+data.key+'", '+data.count+', segmentation);';
+            }
         }
     }
 };
