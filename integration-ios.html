@@ -238,6 +238,14 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
+                        <label>Provide how many custom crash logs should be allowed</label>
+                        <input type="text" class="form-control" id='crashLogLimit' placeholder="100" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->                
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
                         <label>Provide a name of the custom HTTP header field to be sent with every request</label>
                         <input type="text" class="form-control" id='customHeaderFieldName' placeholder="X-My-Custom-Field" />
                     </div>
@@ -361,6 +369,24 @@
                     <div class="form-group">
                         <label>
                             <input type="checkbox" id='applyZeroIDFAFix' value='YES'> Apply Zero-IDFA fix
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='enableAttribution' value='YES'> Enable Attribution
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='requiresConsent' value='YES'> Requires consents (for GDPR)
                         </label>
                     </div>
                 </div><!-- /.col-lg-6 -->
