@@ -6,7 +6,7 @@ var sdks = {
         download: "https://github.com/Countly/countly-sdk-ios/releases",
         docs: "http://resources.count.ly/docs/countly-sdk-for-ios-and-os-x",
         description: "Track users and user behavior in your iOS, watchOS, tvOSand & OSX apps",
-        version: "18.01",
+        version: "18.08",
         integration: true
     },
     android: {
@@ -16,7 +16,7 @@ var sdks = {
         download: "https://github.com/Countly/countly-sdk-android/releases",
         docs: "http://resources.count.ly/docs/countly-sdk-for-android",
         description: "Track users and user behavior in your android based apps",
-        version: "18.01",
+        version: "18.08.1",
         integration: true
     },
     web: {
@@ -26,7 +26,7 @@ var sdks = {
         download: "https://github.com/Countly/countly-sdk-web/releases",
         docs: "http://resources.count.ly/docs/countly-sdk-for-web",
         description: "Track users and user behavior in your websites or native app webviews",
-        version: "18.1.0",
+        version: "18.8.2",
         integration: true
     },
     windows: {
@@ -45,7 +45,7 @@ var sdks = {
         download: "https://github.com/Countly/countly-sdk-nodejs/releases",
         docs: "http://resources.count.ly/docs/countly-sdk-for-nodejs",
         description: "Track users and user behavior on platforms with nodejs environment",
-        version: "17.9.0",
+        version: "18.8.1",
         integration: true
     }
 };

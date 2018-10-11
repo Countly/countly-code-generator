@@ -255,6 +255,14 @@
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
+             <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Maximum amount of breadcrum logs to store for crash reports</label>
+                        <input type="text" class="form-control" id='max_logs' placeholder="100" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
@@ -274,8 +282,34 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
+                        <label>Provide how long till cookie session should expire in minutes</label>
+                        <input type="text" class="form-control" id='session_cookie_timeout' placeholder="30" />
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
                         <label>
                             <input type="checkbox" id='debug' value='true'> Enable Debug logging
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='require_consent' value='true'> Require Consent
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='use_session_cookie' value='true'> Use session cookie to track session
                         </label>
                     </div>
                 </div><!-- /.col-lg-6 -->
@@ -303,6 +337,15 @@
                     <div class="form-group">
                         <label>
                             <input type="checkbox" id='ignore_prefetch' value='false'> Do not ignore prefetch/prerender requests
+                        </label>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id='ignore_visitor' value='false'> Ignore current visitor
                         </label>
                     </div>
                 </div><!-- /.col-lg-6 -->
