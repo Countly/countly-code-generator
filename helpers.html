@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <title>Countly Code Generator</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="jumbotron top">
+      <div class="container">
+          <div id="logo">
+              <span class="image"></span>
+              <span class="text">Helpers</span>
+          </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+            <p><a href="index.html" id="back" class="btn btn-default">&larr; Back</a></p>
+            <h2 class="text-center">Countly Helpers</h2>
+        </div>
+      </div>
+      <div class='section'>
+            <span class='label'>Calculate server specs</span>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for='dp'>Datapoints (millions per month):</label>
+                        <input type="url" class="form-control" id='dp' placeholder="10" value="10">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+                <div class="col-md-6">
+                    <label>You should have:</label>
+                    <ul>
+                        <li id="dp-node">1 core 2GB RAM for NodeJS</li>
+                        <li id="dp-mongo">1 core 4GB RAM for MongoDB</li>
+                        <li id="dp-disk">100Gb of disk space per month</li>
+                    </ul>
+                </div><!-- /.col-lg-6 -->
+            </div>
+        </div>
+       <div class='section'>
+            <span class='label'>Calculate database connections</span>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for='con-cores'>Cores:</label>
+                        <input type="url" class="form-control" id='con-cores' placeholder="1" value="1">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for='con-api'>API:</label>
+                        <input type="url" class="form-control" id='con-api' placeholder="100" value="100">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for='con-frontend'>Frontend:</label>
+                        <input type="url" class="form-control" id='con-frontend' placeholder="10" value="10">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for='con-server'>Servers:</label>
+                        <input type="url" class="form-control" id='con-server' placeholder="1" value="1">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+                <div class="col-md-4">
+                    <label>Maximum MongoDB connections:</label>
+                    <ul>
+                        <li id="con-db"></li>
+                    </ul>
+                </div><!-- /.col-lg-6 -->
+            </div>
+        </div>
+
+      <footer>
+        <p><a href='http://count.ly'>Count.ly</a></p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+    <script src="https://global.localizecdn.com/localize.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/sdks.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+    $( document ).ready(function() {
+        function validateNumber(val){
+            val = parseInt(val);
+            if(isNaN(val))
+                return 1;
+            return val;
+        }
+        function calculateDp(){
+            var dp = Math.max(Math.ceil(validateNumber($("#dp").val())/10), 1);
+            $("#dp-node").text(dp+" core(s) "+(2*dp)+"GB RAM for NodeJS");
+            $("#dp-mongo").text(dp+" core(s) "+(4*dp)+"GB RAM for MongoDB");
+            $("#dp-disk").text((100*dp) + "Gb of disk space per month");
+        }
+        
+        function calculateCon(){
+            var cores = Math.max(validateNumber($("#con-cores").val()), 1),
+            api = Math.max(validateNumber($("#con-api").val()), 1),
+            frontend = Math.max(validateNumber($("#con-frontend").val()), 1),
+            servers = Math.max(validateNumber($("#con-server").val()), 1);
+            $("#con-db").text(((3 * api + 1) * cores + (3 * frontend + 1) + 2 * frontend) * servers);
+        }
+        
+        if (location.search) {
+            var parts = location.search.substring(1).split("&");
+            for (i = 0; i < parts.length; i++) {
+                var nv = parts[i].split("=");
+                if($("#"+nv[0]).hasClass("form-control")){
+                    $("#"+nv[0]).val(nv[1]);
+                }
+                if (nv[0] === "dp") {
+                    calculateDp();
+                }
+            }
+        }
+        calculateCon();
+        
+        $("#dp").on("keyup paste", calculateDp); 
+        $("#con-cores").on("keyup paste", calculateCon);
+        $("#con-api").on("keyup paste", calculateCon);
+        $("#con-frontend").on("keyup paste", calculateCon);
+        $("#con-server").on("keyup paste", calculateCon);
+    });
+    </script>
+  </body>
+</html>
