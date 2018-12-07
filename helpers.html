@@ -47,18 +47,26 @@
       <div class='section'>
             <span class='label'>Calculate server specs</span>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label for='dp'>Datapoints (millions per month):</label>
                         <input type="url" class="form-control" id='dp' placeholder="10" value="10">
                     </div>
                 </div><!-- /.col-lg-6 -->
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <label>You should have:</label>
                     <ul>
-                        <li id="dp-node">1 core 2GB RAM for NodeJS</li>
-                        <li id="dp-mongo">1 core 4GB RAM for MongoDB</li>
-                        <li id="dp-disk">100Gb of disk space per month</li>
+                        <li id="dp-node"></li>
+                        <li id="dp-mongo"></li>
+                        <li id="dp-disk"></li>
+                    </ul>
+                </div><!-- /.col-lg-6 -->
+                <div class="col-md-4">
+                    <label>With evenly distributed:</label>
+                    <ul>
+                        <li id="dp-per-day"></li>
+                        <li id="dp-per-hour"></li>
+                        <li id="dp-per-min"></li>
                     </ul>
                 </div><!-- /.col-lg-6 -->
             </div>
@@ -129,6 +137,9 @@
             $("#dp-node").text(dp+" core(s) "+(2*dp)+"GB RAM for NodeJS");
             $("#dp-mongo").text(dp+" core(s) "+(4*dp)+"GB RAM for MongoDB");
             $("#dp-disk").text((100*dp) + "Gb of disk space per month");
+            $("#dp-per-day").text(Math.round((dp*10000000)/30) + " datapoints per day");
+            $("#dp-per-hour").text(Math.round((dp*10000000)/720) + " datapoints per hour");
+            $("#dp-per-min").text(Math.round((dp*10000000)/43200) + " datapoints per minute");
         }
         
         function calculateCon(){
@@ -146,12 +157,10 @@
                 if($("#"+nv[0]).hasClass("form-control")){
                     $("#"+nv[0]).val(nv[1]);
                 }
-                if (nv[0] === "dp") {
-                    calculateDp();
-                }
             }
         }
         calculateCon();
+        calculateDp();
         
         $("#dp").on("keyup paste", calculateDp); 
         $("#con-cores").on("keyup paste", calculateCon);
