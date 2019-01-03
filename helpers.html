@@ -136,7 +136,7 @@
             var dp = Math.max(Math.ceil(validateNumber($("#dp").val())/10), 1);
             $("#dp-node").text(dp+" core(s) "+(2*dp)+"GB RAM for NodeJS");
             $("#dp-mongo").text(dp+" core(s) "+(4*dp)+"GB RAM for MongoDB");
-            $("#dp-disk").text((100*dp) + "Gb of disk space per month");
+            $("#dp-disk").text((10*dp) + "Gb of disk space per month");
             $("#dp-per-day").text(Math.round((dp*10000000)/30) + " datapoints per day");
             $("#dp-per-hour").text(Math.round((dp*10000000)/720) + " datapoints per hour");
             $("#dp-per-min").text(Math.round((dp*10000000)/43200) + " datapoints per minute");
