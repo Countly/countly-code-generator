@@ -116,7 +116,17 @@
                         ob[data[i].m] += (data[i].e || 0) + (data[i].s || 0)
                     } 
                 }
-                $("#end-code").val(JSON.stringify(ob, null, 2));
+                var output = "";
+                var keys = Object.keys(ob);
+                keys = keys.sort(function(a,b) {
+                    a = a.split(":");
+                    b = b.split(":")
+                    return new Date(b[0], b[1], 1) - new Date(a[0], a[1], 1);
+                });
+                for (var i = 0; i < keys.length; i++) {
+                    output += keys[i] + " - " + ob[keys[i]] + "\n";
+                }
+                $("#end-code").val(output);
                 $('#end-modal').modal();
             }
             else {
