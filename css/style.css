@@ -283,5 +283,18 @@ footer a {
 
 #countly-link:hover { text-decoration: none; }
 
+fieldset {
+    border: 3px solid rgb(123, 110, 238);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 15px;
+}
+
+legend {
+    padding: 5px;
+    margin: 0px;
+    max-width: max-content;
+}
+
 .advanced-list{display: none;}
 .advanced span.label {cursor:pointer;}
