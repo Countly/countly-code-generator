@@ -106,13 +106,13 @@ textarea{
 
 .jumbotron {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3d284c+0,623882+100 */
-    background: #3d284c; /* Old browsers */
-    background: -moz-linear-gradient(-45deg,  #3d284c 0%, #623882 100%); /* FF3.6-15 */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#3d284c), color-stop(100%,#623882)); /* Chrome4-9,Safari4-5 */
-    background: -webkit-linear-gradient(-45deg,  #3d284c 0%,#623882 100%); /* Chrome10-25,Safari5.1-6 */
-    background: -ms-linear-gradient(-45deg,  #3d284c 0%, #623882 100%); /* Internet Explorer 10+ */
-    background: -o-linear-gradient(-45deg,  #3d284c 0%, #623882 100%); /* Opera 11.10+ */
-    background: linear-gradient(135deg,  #3d284c 0%,#623882 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: #191C20; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #191C20 0%, #191C20 100%); /* FF3.6-15 */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#191C20), color-stop(100%,#191C20)); /* Chrome4-9,Safari4-5 */
+    background: -webkit-linear-gradient(-45deg,  #191C20 0%,#191C20 100%); /* Chrome10-25,Safari5.1-6 */
+    background: -ms-linear-gradient(-45deg,  #191C20 0%, #191C20 100%); /* Internet Explorer 10+ */
+    background: -o-linear-gradient(-45deg,  #191C20 0%, #191C20 100%); /* Opera 11.10+ */
+    background: linear-gradient(135deg,  #191C20 0%,#191C20 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d284c', endColorstr='#623882',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
 }
