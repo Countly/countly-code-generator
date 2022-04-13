@@ -284,7 +284,7 @@ footer a {
 #countly-link:hover { text-decoration: none; }
 
 fieldset {
-    border: 3px solid rgb(123, 110, 238);
+    border: 3px solid #191C20 ;
     border-radius: 5px;
     padding: 10px;
     margin: 15px;
