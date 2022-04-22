@@ -173,24 +173,32 @@
             </div><!-- /.row -->
         </div>
         <div class='section advanced'>
-            <span class='label'>Advanced Configuration</span>
+            <span class='label'>
+            <span id="dropdown-icon" style="display: inline-block;"></span>
+            <span id="dropdown-icon-2" style="display: none;"></span>
+                Advanced Configuration</span>
             <div class='advanced-list'>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide custom device id (will generate if not provided)</label>
-                        <input type="text" class="form-control" id='device_id' placeholder="someid"/>
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide app version (will use 0.0 if not provided)</label>
-                        <input type="text" class="form-control" id='app_version' placeholder="0.0" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
+                <fieldset>
+                    <legend>General</legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide custom device id (will generate if not provided)</label>
+                                <input type="text" class="form-control" id='device_id' placeholder="someid"/>
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide app version (will use 0.0 if not provided)</label>
+                                <input type="text" class="form-control" id='app_version' placeholder="0.0" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                </fieldset>
+                <fieldset>
+                    <legend>Location</legend>
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
@@ -215,6 +223,9 @@
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
+                    </fieldset>
+                    <fieldset>
+                        <legend>Limits</legend>
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
@@ -271,6 +282,9 @@
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
+                    </fieldset>
+                    <fieldset>
+                        <legend>Other</legend>
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
@@ -279,6 +293,9 @@
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
+                    </fieldset>
+                    <fieldset>
+                        <legend>Cookies</legend>
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
@@ -287,6 +304,9 @@
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
+                     </fieldset>
+                     <fieldset>
+                        <legend>Optionals</legend>
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
@@ -352,6 +372,7 @@
             </div><!-- /.row -->
             </div>
         </div>
+                       </fieldset>
         <div class="row">
             <div class="col-md-12">
                 <p class='text-center'><button type="button" class="btn btn-success" id="generate">Generate code</button></p>
@@ -546,6 +567,17 @@
         
         $("#allfeatures").change(function(){
             $(".feature").prop('checked', $(this).prop("checked"));
+        });
+
+        $(".advanced span.label").on('click',function(){
+            var downArrow = document.getElementById('dropdown-icon').style.display; 
+            if (downArrow === 'inline-block') {
+                $(this).parent().find("#dropdown-icon-2").attr('style', 'display: inline-block');
+            }
+            else {
+                $(this).parent().find("#dropdown-icon-2").attr('style', 'display: none');
+            }
+            $(this).parent().find("#dropdown-icon").toggle();
         });
         
         $("#gotit").click(function(){

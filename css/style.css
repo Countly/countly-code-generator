@@ -228,6 +228,24 @@ h2 {
     font-size: 12px;
 }
 
+#dropdown-icon {
+    background-image: url('../images/angles-down-solid.svg');
+    width:12px;
+    height:12px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    vertical-align: text-bottom;
+}
+
+#dropdown-icon-2 {
+    background-image: url('../images/angles-up-solid.svg');
+    width:12px;
+    height:12px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    vertical-align: text-bottom;
+}
+
 footer p {
     text-align: center;
     margin: 30px 0 40px 0;
@@ -282,6 +300,19 @@ footer a {
 }
 
 #countly-link:hover { text-decoration: none; }
+
+fieldset {
+    border: 3px solid #191C20 ;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 15px;
+}
+
+legend {
+    padding: 5px;
+    margin: 0px;
+    max-width: max-content;
+}
 
 .advanced-list{display: none;}
 .advanced span.label {cursor:pointer;}
