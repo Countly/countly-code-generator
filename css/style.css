@@ -138,8 +138,8 @@ textarea{
 
 .jumbotron.top { padding:20px; }
 .jumbotron.top #logo { text-align: left; }
-.jumbotron.top #logo .image { width: 165px; height: 45px; }
-.jumbotron.top #logo .text { font-size: 26px; }
+.jumbotron.top #logo .image { width: 155px; height: 45px; }
+.jumbotron.top #logo .text { font-size: 26px; line-height: 45px;}
 
 @media screen and (max-width: 500px) {
     .jumbotron.top #logo .image { width: 145px; height: 40px; }
