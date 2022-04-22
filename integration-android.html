@@ -182,7 +182,10 @@
             </div><!-- /.row -->
         </div>
         <div class='section advanced'>
-            <span class='label'>Advanced Configuration</span>
+            <span class='label'>
+            <span id="dropdown-icon" style="display: inline-block;"></span>
+            <span id="dropdown-icon-2" style="display: none;"></span>
+                Advanced Configuration</span>
             <div class='advanced-list'>
         <fieldset>
             <legend>Location</legend>
@@ -733,6 +736,17 @@ dependencies {
             } catch (e) {
                 alert(data);
             }
+        });
+        
+        $(".advanced span.label").on('click',function(){
+            var downArrow = document.getElementById('dropdown-icon').style.display; 
+            if (downArrow === 'inline-block') {
+                $(this).parent().find("#dropdown-icon-2").attr('style', 'display: inline-block');
+            }
+            else {
+                $(this).parent().find("#dropdown-icon-2").attr('style', 'display: none');
+            }
+            $(this).parent().find("#dropdown-icon").toggle();
         });
         
         $("#download-manifest").click(function(){
