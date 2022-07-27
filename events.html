@@ -154,6 +154,7 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src="js/purify.min.js"></script>
     <script src="js/sdks.js"></script>
     <script src="js/events.js"></script>
     <script src="js/common.js"></script>
@@ -162,7 +163,9 @@
     <script src="js/clipboard.min.js"></script>
     <script>
     $( document ).ready(function() {
-        var params = parseParams(location.search);
+        // Purify the location.search to prevent possible xss attacks using DOMPurify version 2.3.10 (https://github.com/cure53/DOMPurify)
+        var paramsDirty = DOMPurify.sanitize(location.search);
+        var params = parseParams(paramsDirty);
         if(params.sdk && sdks[params.sdk]){
             $("#generate-code .dropup").addClass("hidden");
             $("#generate-code").append('<p class="text-center"><button type="button" class="btn btn-success" id="generate">Generate for '+sdks[params.sdk].name+'</button></p>');
