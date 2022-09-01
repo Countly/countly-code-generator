@@ -105,7 +105,7 @@
             </div>
 
             <div class='section device_id radio'>
-                <span class='label'>Choose the way to generate device ID</span>
+                <span class='label'>Choose a way to generate device ID</span>
                 <div class="row" id="device_id_CLYSDKDefault">
                     <div class="col-md-12">
                         <label>
@@ -211,7 +211,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Provide secret salt same that is provided on server to prevent changing request data</label>
+                        <label>Provide the secret salt. Must be same with the one provided on server to prevent changing request data</label>
                         <input type="text" class="form-control" id='secretSalt' placeholder="secret" />
                     </div>
                 </div><!-- /.col-lg-6 -->
@@ -230,7 +230,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Send events when reaching this limit without waiting for next sync</label>
+                        <label>Send events when you reach this limit without waiting for next sync</label>
                         <input type="text" class="form-control" id='eventSendThreshold' placeholder="10" />
                     </div>
                 </div><!-- /.col-lg-6 -->
@@ -238,7 +238,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Provide how often in seconds should session be extended</label>
+                        <label>Provide how often, in seconds, should a session be extended</label>
                         <input type="text" class="form-control" id='updateSessionPeriod' placeholder="60" />
                     </div>
                 </div><!-- /.col-lg-6 -->
@@ -257,7 +257,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Provide a name of the custom HTTP header field to be sent with every request</label>
+                        <label>Provide a name for the custom HTTP header field to be sent with every request</label>
                         <input type="text" class="form-control" id='customHeaderFieldName' placeholder="X-My-Custom-Field" />
                     </div>
                 </div><!-- /.col-lg-6 -->
@@ -265,7 +265,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Provide a value of the custom HTTP header field to be sent with every request</label>
+                        <label>Provide a value for the custom HTTP header field to be sent with every request</label>
                         <input type="text" class="form-control" id='customHeaderFieldValue' placeholder="my_custom_value" />
                     </div>
                 </div><!-- /.col-lg-6 -->
@@ -281,7 +281,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Provide message when displaying Star Rating dialog</label>
+                        <label>Provide the Star Rating dialog message</label>
                         <input type="text" class="form-control" id='starRatingMessage' placeholder="How would you rate the app?" />
                     </div>
                 </div><!-- /.col-lg-6 -->
@@ -319,7 +319,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" id='isTestDevice' value='YES'> Is this testing device?
+                            <input type="checkbox" id='isTestDevice' value='YES'> Enable test mode
                         </label>
                     </div>
                 </div><!-- /.col-lg-6 -->
@@ -400,7 +400,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" id='requiresConsent' value='YES'> Requires consents (for GDPR)
+                            <input type="checkbox" id='requiresConsent' value='YES'> Require consents (for GDPR)
                         </label>
                     </div>
                 </div><!-- /.col-lg-6 -->
