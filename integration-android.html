@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,7 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-    
+
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
 
@@ -25,32 +25,33 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="jumbotron top">
-      <div class="container">
-          <div id="logo">
-              <span class="image"></span>
-              <span class="text">Code Generator</span>
-          </div>
-      </div>
+        <div class="container">
+            <div id="logo">
+                <span class="image"></span>
+                <span class="text">Code Generator</span>
+            </div>
+        </div>
     </div>
     <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-            <div style="overflow: auto">
-                <div class="btn-group" style="float: left">
-                    <a href="integration.html" id="back" class="btn btn-default">&larr; Back</a>
-                    <a href="events.html?sdk=android" id="next" class="btn btn-default">Next: Create Event &rarr;</a>
-                </div>
-                <div id="buttons" class="btn-group" role="group" style="float: right">
+        <div class="row">
+            <div class="col-md-12">
+                <div style="overflow: auto">
+                    <div class="btn-group" style="float: left">
+                        <a href="integration.html" id="back" class="btn btn-default">&larr; Back</a>
+                        <a href="events.html?sdk=android" id="next" class="btn btn-default">Next: Create Event
+                            &rarr;</a>
+                    </div>
+                    <div id="buttons" class="btn-group" role="group" style="float: right">
 
+                    </div>
                 </div>
+                <h2 class="text-center">Integrating Android SDK</h2>
             </div>
-            <h2 class="text-center">Integrating Android SDK</h2>
         </div>
-      </div>
         <div class='section configuration'>
             <span class='label'>Provide configuration settings</span>
             <div class="row">
@@ -65,7 +66,8 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="app_key">App Key:</label>
-                        <input type="text" class="form-control" id="app_key" placeholder="f399aa0a6305c2bd51d304ca666418ae8d93d9bc">
+                        <input type="text" class="form-control" id="app_key"
+                            placeholder="f399aa0a6305c2bd51d304ca666418ae8d93d9bc">
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
@@ -104,12 +106,13 @@
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
         </div>
-      <div class='section features checkbox'>
+        <div class='section features checkbox'>
             <span class='label'>Choose features you want to use</span>
             <div class="row">
                 <div class="col-md-12">
                     <label>
-                        <input type="checkbox" class='feature' id='push_feature' value='push'> Send push notifications to your users
+                        <input type="checkbox" class='feature' id='push_feature' value='push'> Send push notifications
+                        to your users
                     </label>
                 </div><!-- /.col-lg-6 -->
             </div>
@@ -152,7 +155,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="push_activity">Name of your main activity (the one specified in Android Manifest):</label>
+                        <label for="push_activity">Name of your main activity (the one specified in Android
+                            Manifest):</label>
                         <input type="text" class="form-control" id="push_activity" placeholder="MainActivity">
                     </div>
                 </div><!-- /.col-lg-6 -->
@@ -160,15 +164,19 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="push_package">Name of your app package (the one specified in Android Manifest):</label>
-                        <input type="text" class="form-control" id="push_package" placeholder="ly.count.android.demo.messaging">
+                        <label for="push_package">Name of your app package (the one specified in Android
+                            Manifest):</label>
+                        <input type="text" class="form-control" id="push_package"
+                            placeholder="ly.count.android.demo.messaging">
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="push_project">Project Number from Google Developers Console (<a href='http://resources.count.ly/docs/countly-sdk-for-android#section-registering-at-google' target='_blank'>More information</a>):</label>
+                        <label for="push_project">Project Number from Google Developers Console (<a
+                                href='http://resources.count.ly/docs/countly-sdk-for-android#section-registering-at-google'
+                                target='_blank'>More information</a>):</label>
                         <input type="text" class="form-control" id="push_project" placeholder="640228892478">
                     </div>
                 </div><!-- /.col-lg-6 -->
@@ -183,159 +191,175 @@
         </div>
         <div class='section advanced'>
             <span class='label'>
-            <span id="dropdown-icon" style="display: inline-block;"></span>
-            <span id="dropdown-icon-2" style="display: none;"></span>
+                <span id="dropdown-icon" style="display: inline-block;"></span>
+                <span id="dropdown-icon-2" style="display: none;"></span>
                 Advanced Configuration</span>
             <div class='advanced-list'>
-        <fieldset>
-            <legend>Location</legend>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide country code of your user (will try to determine from IP address if not provided)</label>
-                        <input type="text" class="form-control optinit" id='country' placeholder="US" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide city of your user (will try to determine from IP address if not provided)</label>
-                        <input type="text" class="form-control optinit" id='city' placeholder="San Francisco" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide geolocation of your user (will try to determine from IP address if not provided)</label>
-                        <input type="text" class="form-control optinit" id='location' placeholder="56.42345,123.45325" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide the secret salt. Must be same with the one provided on server to prevent changing request data</label>
-                        <input type="text" class="form-control" id='enableParameterTamperingProtection' placeholder="secret" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-        </fieldset>
-        <fieldset>
-            <legend>Limits</legend>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Send events when you reach this limit without waiting for next sync</label>
-                        <input type="text" class="form-control" id='setEventQueueSizeToSend' placeholder="10" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide the Star Rating dialog title</label>
-                        <input type="text" class="form-control star" id='starRatingTitle' placeholder="App rating" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide the Star Rating dialog message</label>
-                        <input type="text" class="form-control star" id='starRatingMessage' placeholder="Please rate this app" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide title for cancel button in Star Rating dialog</label>
-                        <input type="text" class="form-control star" id='starRatingDismissButtonTitle' placeholder="Cancel" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Show Star rating dialog after this amount of sessions</label>
-                        <input type="text" class="form-control" id='setAutomaticStarRatingSessionLimit' placeholder="10" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-        </fieldset>
-        <fieldset>
-            <legend>Optional</legend>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" id='setIfStarRatingShownAutomatically' value='false'> Disable Asking Star rating completely
-                        </label>
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" id='setStarRatingDisableAskingForEachAppVersion' value='false'> Disable Asking Star rating for each version
-                        </label>
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" id='setLoggingEnabled' value='true'> Enable Debug logging
-                        </label>
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" id='setHttpPostForced' value='true'> Force using POST only
-                        </label>
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-        </fieldset>
+                <fieldset>
+                    <legend>Location</legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide country code of your user (will try to determine from IP address if not
+                                    provided)</label>
+                                <input type="text" class="form-control optinit" id='country' placeholder="US" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide city of your user (will try to determine from IP address if not
+                                    provided)</label>
+                                <input type="text" class="form-control optinit" id='city' placeholder="San Francisco" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide geolocation of your user (will try to determine from IP address if not
+                                    provided)</label>
+                                <input type="text" class="form-control optinit" id='location'
+                                    placeholder="56.42345,123.45325" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide the secret salt. Must be same with the one provided on server to prevent
+                                    changing request data</label>
+                                <input type="text" class="form-control" id='enableParameterTamperingProtection'
+                                    placeholder="secret" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                </fieldset>
+                <fieldset>
+                    <legend>Limits</legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Send events when you reach this limit without waiting for next sync</label>
+                                <input type="text" class="form-control" id='setEventQueueSizeToSend' placeholder="10" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide the Star Rating dialog title</label>
+                                <input type="text" class="form-control star" id='starRatingTitle'
+                                    placeholder="App rating" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide the Star Rating dialog message</label>
+                                <input type="text" class="form-control star" id='starRatingMessage'
+                                    placeholder="Please rate this app" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide title for cancel button in Star Rating dialog</label>
+                                <input type="text" class="form-control star" id='starRatingDismissButtonTitle'
+                                    placeholder="Cancel" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Show Star rating dialog after this amount of sessions</label>
+                                <input type="text" class="form-control" id='setAutomaticStarRatingSessionLimit'
+                                    placeholder="10" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                </fieldset>
+                <fieldset>
+                    <legend>Optional</legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id='setIfStarRatingShownAutomatically' value='false'> Disable
+                                    Asking Star rating completely
+                                </label>
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id='setStarRatingDisableAskingForEachAppVersion'
+                                        value='false'> Disable Asking Star rating for each version
+                                </label>
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id='setLoggingEnabled' value='true'> Enable Debug logging
+                                </label>
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id='setHttpPostForced' value='true'> Force using POST only
+                                </label>
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                </fieldset>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <p class='text-center'><button type="button" class="btn btn-success" id="generate">Generate code</button></p>
+                <p class='text-center'><button type="button" class="btn btn-success" id="generate">Generate
+                        code</button></p>
             </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
 
-      <footer>
-        <p><a href='http://count.ly'>Count.ly</a></p>
-      </footer>
+        <footer>
+            <p><a href='http://count.ly'>Count.ly</a></p>
+        </footer>
     </div> <!-- /container -->
-    
+
     <div class="modal fade" id="end-modal" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Integrate Android SDK</h4>
-            </div>
-            <div class="modal-body">
-                <div class="tabbable"> <!-- Only required for left/right tabs -->
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#adding" data-toggle="tab">Adding SDK files</a></li>
-                        <li><a href="#activity" data-toggle="tab">Main Activity</a></li>
-                        <li><a href="#manifest" data-toggle="tab">Android Manifest</a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="adding">
-                            <div class='studio hidden'>
-                                <p>Add Maven repository and dependency to your app's level <strong>build.gradle</strong> file</p>
-                                <p><textarea id='gradle-code' class='code' readonly onclick="this.select();">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Integrate Android SDK</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="tabbable"> <!-- Only required for left/right tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#adding" data-toggle="tab">Adding SDK files</a></li>
+                            <li><a href="#activity" data-toggle="tab">Main Activity</a></li>
+                            <li><a href="#manifest" data-toggle="tab">Android Manifest</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="adding">
+                                <div class='studio hidden'>
+                                    <p>Add Maven repository and dependency to your app's level
+                                        <strong>build.gradle</strong> file
+                                    </p>
+                                    <p><textarea id='gradle-code' class='code' readonly onclick="this.select();">
 buildscript {
     repositories {
         maven {
@@ -348,66 +372,85 @@ dependencies {
     compile 'ly.count.android:sdk:version'
 }
                                 </textarea></p>
-                                <p class='text-center'>
-                                    <button type="button" class="btn btn-success copy" data-clipboard-target="#gradle-code">Copy</button>&nbsp;
-                                    <button type="button" class="btn btn-success" id="download-gradle">Download</button>&nbsp;
-                                    <button type="button" class="btn btn-primary gotit">Close</button>
-                                </p>
-                            </div>
-                            <div class='eclipse hidden'>
-                                <div class='well'>
-                                    Eclipse users can download JARs (sdk.jar or sdk.jar & sdk-messaging.jar depending on whether you need Countly Push support or not) from <a href='https://github.com/Countly/countly-sdk-android/releases' target='_blank'>Github Releases</a> page.
+                                    <p class='text-center'>
+                                        <button type="button" class="btn btn-success copy"
+                                            data-clipboard-target="#gradle-code">Copy</button>&nbsp;
+                                        <button type="button" class="btn btn-success"
+                                            id="download-gradle">Download</button>&nbsp;
+                                        <button type="button" class="btn btn-primary gotit">Close</button>
+                                    </p>
                                 </div>
-                                <p>Another option for Eclipse users is to use sources instead of jars. To do that, just create packages and put sources from Github repository into corresponding packages:</p>
-                                <table class="table">
-                                    <tr>
-                                        <th>Component</th>
-                                        <th>Package name</th>
-                                        <th>Path at Github repo</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Countly SDK</td>
-                                        <td>ly.count.android.sdk</td>
-                                        <td>countly-sdk-android/sdk/src/main/java/ly/count/android/sdk</td>
-                                    </tr>
-                                    <tr class='openudid-package hidden'>
-                                        <td>OpenUDID</td>
-                                        <td>org.openudid</td>
-                                        <td>countly-sdk-android/sdk/src/main/java/org/openudid</td>
-                                    </tr>
-                                    <tr class='push-package hidden'>
-                                        <td>Countly Push SDK</td>
-                                        <td>ly.count.android.sdk.messaging</td>
-                                        <td>countly-sdk-android/sdk/src/main/java/ly/count/android/sdk/messaging</td>
-                                    </tr>
-                                </table>
+                                <div class='eclipse hidden'>
+                                    <div class='well'>
+                                        Eclipse users can download JARs (sdk.jar or sdk.jar & sdk-messaging.jar
+                                        depending on whether you need Countly Push support or not) from <a
+                                            href='https://github.com/Countly/countly-sdk-android/releases'
+                                            target='_blank'>Github Releases</a> page.
+                                    </div>
+                                    <p>Another option for Eclipse users is to use sources instead of jars. To do that,
+                                        just create packages and put sources from Github repository into corresponding
+                                        packages:</p>
+                                    <table class="table">
+                                        <tr>
+                                            <th>Component</th>
+                                            <th>Package name</th>
+                                            <th>Path at Github repo</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Countly SDK</td>
+                                            <td>ly.count.android.sdk</td>
+                                            <td>countly-sdk-android/sdk/src/main/java/ly/count/android/sdk</td>
+                                        </tr>
+                                        <tr class='openudid-package hidden'>
+                                            <td>OpenUDID</td>
+                                            <td>org.openudid</td>
+                                            <td>countly-sdk-android/sdk/src/main/java/org/openudid</td>
+                                        </tr>
+                                        <tr class='push-package hidden'>
+                                            <td>Countly Push SDK</td>
+                                            <td>ly.count.android.sdk.messaging</td>
+                                            <td>countly-sdk-android/sdk/src/main/java/ly/count/android/sdk/messaging
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <p class='text-center'>
+                                        <button type="button" class="btn btn-primary gotit">Close</button>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="activity">
+                                <p>Insert this snippet (or modify it to include provided code in same methods) to your
+                                    main activity, which is the first to launch and is specified in your Android
+                                    manifest</p>
+                                <p id='push' class='well'><a
+                                        href="http://resources.count.ly/docs/countly-sdk-for-android#setting-up-push-notifications"
+                                        target="_blank">More information on setting up push notifications on server</a>
+                                </p>
+                                <p><textarea id='end-code' class='code' readonly onclick="this.select();"></textarea>
+                                </p>
                                 <p class='text-center'>
+                                    <button type="button" class="btn btn-success copy"
+                                        data-clipboard-target="#end-code">Copy</button>&nbsp;
+                                    <button type="button" class="btn btn-success" id="download">Download</button>&nbsp;
                                     <button type="button" class="btn btn-primary gotit">Close</button>
                                 </p>
                             </div>
-                        </div>
-                        <div class="tab-pane" id="activity">
-                            <p>Insert this snippet (or modify it to include provided code in same methods) to your main activity, which is the first to launch and is specified in your Android manifest</p>
-                            <p id='push' class='well'><a href="http://resources.count.ly/docs/countly-sdk-for-android#setting-up-push-notifications" target="_blank">More information on setting up push notifications on server</a></p>
-                            <p><textarea id='end-code' class='code' readonly onclick="this.select();"></textarea></p>
-                            <p class='text-center'>
-                                <button type="button" class="btn btn-success copy" data-clipboard-target="#end-code">Copy</button>&nbsp;
-                                <button type="button" class="btn btn-success" id="download">Download</button>&nbsp;
-                                <button type="button" class="btn btn-primary gotit">Close</button>
-                            </p>
-                        </div>
-                        <div class="tab-pane" id="manifest">
-                            <p>Insert this snippet to in your <strong>AndroidManifest.xml</strong>, or modify it to include provided tags in same xmls structure</p>
-                            <p><textarea id='manifest-code' class='code' readonly onclick="this.select();"></textarea></p>
-                            <p class='text-center'>
-                                <button type="button" class="btn btn-success copy" data-clipboard-target="#manifest-code">Copy</button>&nbsp;
-                                <button type="button" class="btn btn-success" id="download-manifest">Download</button>&nbsp;
-                                <button type="button" class="btn btn-primary gotit">Close</button>
-                            </p>
+                            <div class="tab-pane" id="manifest">
+                                <p>Insert this snippet to in your <strong>AndroidManifest.xml</strong>, or modify it to
+                                    include provided tags in same xmls structure</p>
+                                <p><textarea id='manifest-code' class='code' readonly
+                                        onclick="this.select();"></textarea></p>
+                                <p class='text-center'>
+                                    <button type="button" class="btn btn-success copy"
+                                        data-clipboard-target="#manifest-code">Copy</button>&nbsp;
+                                    <button type="button" class="btn btn-success"
+                                        id="download-manifest">Download</button>&nbsp;
+                                    <button type="button" class="btn btn-primary gotit">Close</button>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>
@@ -416,7 +459,7 @@ dependencies {
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
     <script src="https://global.localizecdn.com/localize.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -428,337 +471,337 @@ dependencies {
     <script src="js/FileSaver.min.js"></script>
     <script src="js/clipboard.min.js"></script>
     <script>
-    $( document ).ready(function() {
-        new Clipboard('.copy');
-        var sdk = sdks.android;
-        $("#gradle-code").val($("#gradle-code").val().replace(":version", ":"+sdk.version));
-        $("#buttons").append('<a href="'+sdk.docs+'" target="_blank" class="btn btn-default">Documentation</a>');
-        $("#buttons").append('<a href="'+sdk.download+'" target="_blank" class="btn btn-default">Download</a>');
-        $("#buttons").append('<a href="'+sdk.repo+'" target="_blank" class="btn btn-default">Repository</a>');
-        
-        var params = parseParams(location.search);
-        if(params.server){
-            $("#server-url").val(params.server);
-        }
-        
-        if(params.app_key){
-            $("#app_key").val(params.app_key);
-        }
-        
-        if(params.server && params.app_key){
-            $(".configuration").hide();
-        }
-        
-        $('#push_feature').change(function() {
-            if ($(this).is(':checked')) {
-                $(".push-settings").removeClass("hidden");
-            } else {
-                $(".push-settings").addClass("hidden");
+        $(document).ready(function () {
+            new Clipboard('.copy');
+            var sdk = sdks.android;
+            $("#gradle-code").val($("#gradle-code").val().replace(":version", ":" + sdk.version));
+            $("#buttons").append('<a href="' + sdk.docs + '" target="_blank" class="btn btn-default">Documentation</a>');
+            $("#buttons").append('<a href="' + sdk.download + '" target="_blank" class="btn btn-default">Download</a>');
+            $("#buttons").append('<a href="' + sdk.repo + '" target="_blank" class="btn btn-default">Repository</a>');
+
+            var params = parseParams(location.search);
+            if (params.server) {
+                $("#server-url").val(params.server);
             }
-        });
-        
-        var template = "@Override\n"+
-            "public void onCreate(Bundle savedInstanceState) {\n"+
-            "   super.onCreate(savedInstanceState);\n"+
-            "   \n"+
-            "   Countly.sharedInstance().init(this, \"YOUR_SERVER\", \"YOUR_APP_KEY\", null, DeviceId);\n"+
-            "[options]\n"+
-            "[features]\n"+
-            "}\n"+
-            "\n"+
-            "@Override\n"+
-            "public void onStart()\n"+
-            "{\n"+
-            "   super.onStart();\n"+
-            "   Countly.sharedInstance().onStart(this);\n"+
-            "}\n"+
-            "\n"+
-            "@Override\n"+
-            "public void onStop()\n"+
-            "{\n"+
-            "   Countly.sharedInstance().onStop();\n"+
-            "   super.onStop();\n"+
-            "}\n";
-            
-        $("#generate").click(function(){
-            var pushPermission = "<permission android:name=\"ly.count.android.demo.messaging.permission.C2D_MESSAGE\" android:protectionLevel=\"signature\" />\n"+
-            "<uses-permission android:name=\"ly.count.android.demo.messaging.permission.C2D_MESSAGE\" />\n";
-            
-            var attribution = 
-                "   <receiver android:name=\"ly.count.android.sdk.ReferrerReceiver\" android:exported=\"true\">\n"+
-                "       <intent-filter>\n"+
-                "           <action android:name=\"com.android.vending.INSTALL_REFERRER\" />\n"+
-                "       </intent-filter>\n"+
-                "   </receiver>\n";
-            
-            var openudid = 
-                "   <service android:name=\"org.openudid.OpenUDID_service\">\n"+
-                "       <intent-filter>\n"+
-                "           <action android:name=\"org.openudid.GETUDID\" />\n"+
-                "       </intent-filter>\n"+
-                "   </service>\n";
-                
-            var manifest = "<uses-permission android:name=\"android.permission.INTERNET\"/>\n"+
-                "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>\n"+
-                "\n";
-            
-            var manifestApplication = [];
-        
-            $( ".alert" ).remove();
-            var data = {};
-            data.url = $("#server-url").val();
-            
-            if(data.url == ""){
-                $("#server-url").parent().prepend('<div class="alert alert-danger" role="alert">Please provide server URL</div>');
-                return;
+
+            if (params.app_key) {
+                $("#app_key").val(params.app_key);
             }
-            
-            if(data.url.indexOf("http") != 0){
-                $("#server-url").parent().prepend('<div class="alert alert-danger" role="alert">Your server URL should start with http:// or https://</div>');
-                return;
+
+            if (params.server && params.app_key) {
+                $(".configuration").hide();
             }
-                
-            data.app_key = $("#app_key").val();
-            
-            if(data.app_key == ""){
-                $("#app_key").parent().prepend('<div class="alert alert-danger" role="alert">Please provide App Key</div>');
-                return;
-            }
-            
-            data.ide = $("input:radio[name=ide]:checked").val();
-                
-            if(!data.ide || data.ide == ""){
-                $(".ide").prepend('<div class="alert alert-danger" role="alert">Please select one tool/IDE you will be using</div>');
-                return;
-            }
-            else{
-                if(data.ide == "studio"){
-                    $(".studio").removeClass("hidden");
-                    $(".eclipse").addClass("hidden");
+
+            $('#push_feature').change(function () {
+                if ($(this).is(':checked')) {
+                    $(".push-settings").removeClass("hidden");
+                } else {
+                    $(".push-settings").addClass("hidden");
                 }
-                else if(data.ide == "eclipse"){
-                    $(".studio").addClass("hidden");
-                    $(".eclipse").removeClass("hidden");
-                }
-            }
-            
-            data.device_id = $("input:radio[name=device_id]:checked").val();
-                
-            if(!data.device_id || data.device_id == ""){
-                $(".device_id").prepend('<div class="alert alert-danger" role="alert">Please select one way to generate device Id</div>');
-                return;
-            }
-            
-            if(data.device_id == "DeviceId.Type.OPEN_UDID"){
-                $(".studio").before('<div class="alert alert-danger" role="alert">If you are using Proguard, add this line to your <strong>proguard-rules.pro</strong><div calss="well">-keep class org.openudid.** { *; }</div></div>');
-                $(".openudid-package").removeClass("hidden");
-                manifestApplication.push(openudid);
-            }
-            
-            var features = $(".feature:checked").map(function(feature){
-                return this.value;
-            }).get();
-            
-            data.features = "";
-            
-            if(features.length){
-                for(var i = 0; i < features.length; i++){
-                    if(features[i] == "push"){
-                        
-                        var activity = $("#push_activity").val();
-                        if(activity == ""){
-                            $("#push_activity").parent().prepend('<div class="alert alert-danger" role="alert">Please provide name of the main activity. You can find it in your Android Manifest</div>');
-                            return;
-                        }
-                        
-                        var pack = $("#push_package").val();
-                        if(pack == ""){
-                            $("#push_package").parent().prepend('<div class="alert alert-danger" role="alert">Please provide package name of your app. You can find it in your Android Manifest</div>');
-                            return;
-                        }
-                        
-                        var project = $("#push_project").val();
-                        if(project == ""){
-                            $("#push_project").parent().prepend('<div class="alert alert-danger" role="alert">Please provide project number. You can find it in your Google Console</div>');
-                            return;
-                        }
-                        
-                        pushPermission = pushPermission
-                            .replace(new RegExp("ly.count.android.demo.messaging", 'g'), pack);
-                        
-                        manifest = pushPermission+manifest;
-                        
-                        pushFeature = "   Countly.sharedInstance().initMessaging(this, CountlyActivity.class, \"PROJECT_NUMBER\", Countly.CountlyMessagingMode.PRODUCTION);\n";
-                        
-                        pushFeature = pushFeature
-                            .replace("CountlyActivity", activity)
-                            .replace("PROJECT_NUMBER", project);
-                            
-                        if ($("#push_test").is(':checked')) {
-                            pushFeature = pushFeature.replace("Countly.CountlyMessagingMode.PRODUCTION", "Countly.CountlyMessagingMode.TEST");
-                        }
-                        
-                        data.features += pushFeature;
-                        $("#gradle-code").val($("#gradle-code").val().replace("ly.count.android:sdk:", "ly.count.android:sdk-messaging:"));
-                        $(".push-package").removeClass("hidden");
-                    }
-                    else if(features[i] == "view"){
-                        data.features += "   Countly.sharedInstance().setViewTracking(true);\n";
-                    }
-                    else if(features[i] == "crash"){
-                        data.features += "   Countly.sharedInstance().enableCrashReporting();\n";
-                    }
-                    else if(features[i] == "attribution"){
-                        manifestApplication.push(attribution);
-                    }
-                }
-                if(features.indexOf("push") == -1){
-                    $("push").hide();
-                }
-            }
-            
-            data.options = $(".advanced-list input").map(function(el){
-                if(this.type == "text"){
-                    if($(this).hasClass("arr") && this.value.replace(/^\s+|\s+$/gm,'') != ""){
-                        var arr = this.value.split(",");
-                        for(var i = 0; i < arr.length; i++){
-                            arr[i] = '"'+arr[i].replace(/^\s+|\s+$/gm,'')+'"';
-                        }
-                        return {id:this.id, value:'['+arr.join(",")+']'};
-                    }
-                    else if($(this).hasClass("optinit") || $(this).hasClass("star")){
-                        return {id:this.id, value:""};
-                    }
-                    else if(isNaN(this.value))
-                        return {id:this.id, value:'"'+(($(this).hasClass("context")) ? "context, " : "")+this.value+'"'};
-                    else
-                        return {id:this.id, value:(($(this).hasClass("context")) ? "context, " : "")+this.value};
-                }
-                else if(this.type == "checkbox" && this.checked)
-                    return {id:this.id, value:(($(this).hasClass("context")) ? "context, " : "")+this.value};
-                else
-                    return {id:this.id, value:""};
-            }).get().filter(function(el){
-                if(el.value.length && el.value != '""')
-                    return true;
-                return false;
-            }).map(function(el){
-                return "   Countly.sharedInstance()."+el.id+'('+el.value+');';
             });
-            
-            //process star rating
-            var hasOptStar = false;
-            var optinit = $(".advanced-list input.star").map(function(el){
-                if(this.value != ""){
-                    hasOptStar = true;
-                    return '"'+this.value+'"';
+
+            var template = "@Override\n" +
+                "public void onCreate(Bundle savedInstanceState) {\n" +
+                "   super.onCreate(savedInstanceState);\n" +
+                "   \n" +
+                "   Countly.sharedInstance().init(this, \"YOUR_SERVER\", \"YOUR_APP_KEY\", null, DeviceId);\n" +
+                "[options]\n" +
+                "[features]\n" +
+                "}\n" +
+                "\n" +
+                "@Override\n" +
+                "public void onStart()\n" +
+                "{\n" +
+                "   super.onStart();\n" +
+                "   Countly.sharedInstance().onStart(this);\n" +
+                "}\n" +
+                "\n" +
+                "@Override\n" +
+                "public void onStop()\n" +
+                "{\n" +
+                "   Countly.sharedInstance().onStop();\n" +
+                "   super.onStop();\n" +
+                "}\n";
+
+            $("#generate").click(function () {
+                var pushPermission = "<permission android:name=\"ly.count.android.demo.messaging.permission.C2D_MESSAGE\" android:protectionLevel=\"signature\" />\n" +
+                    "<uses-permission android:name=\"ly.count.android.demo.messaging.permission.C2D_MESSAGE\" />\n";
+
+                var attribution =
+                    "   <receiver android:name=\"ly.count.android.sdk.ReferrerReceiver\" android:exported=\"true\">\n" +
+                    "       <intent-filter>\n" +
+                    "           <action android:name=\"com.android.vending.INSTALL_REFERRER\" />\n" +
+                    "       </intent-filter>\n" +
+                    "   </receiver>\n";
+
+                var openudid =
+                    "   <service android:name=\"org.openudid.OpenUDID_service\">\n" +
+                    "       <intent-filter>\n" +
+                    "           <action android:name=\"org.openudid.GETUDID\" />\n" +
+                    "       </intent-filter>\n" +
+                    "   </service>\n";
+
+                var manifest = "<uses-permission android:name=\"android.permission.INTERNET\"/>\n" +
+                    "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>\n" +
+                    "\n";
+
+                var manifestApplication = [];
+
+                $(".alert").remove();
+                var data = {};
+                data.url = $("#server-url").val();
+
+                if (data.url == "") {
+                    $("#server-url").parent().prepend('<div class="alert alert-danger" role="alert">Please provide server URL</div>');
+                    return;
                 }
-                return "null";
-            }).get().join(", ");
-            
-            if(hasOptStar){
-                data.options.unshift("   Countly.sharedInstance().setStarRatingDialogTexts("+optinit+")");
-            }
-            
-            //process optional init
-            var hasOptInit = false;
-            var optinit = $(".advanced-list input.optinit").map(function(el){
-                if(this.value != ""){
-                    hasOptInit = true;
-                    return '"'+this.value+'"';
+
+                if (data.url.indexOf("http") != 0) {
+                    $("#server-url").parent().prepend('<div class="alert alert-danger" role="alert">Your server URL should start with http:// or https://</div>');
+                    return;
                 }
-                return "null";
-            }).get().join(", ");
-            
-            if(hasOptInit){
-                data.options.unshift("   Countly.sharedInstance().setOptionalParametersForInitialization("+optinit+")");
-            }
-            
-            if(data.options.length){
-                    data.options = data.options.join("\n")+"\n";
+
+                data.app_key = $("#app_key").val();
+
+                if (data.app_key == "") {
+                    $("#app_key").parent().prepend('<div class="alert alert-danger" role="alert">Please provide App Key</div>');
+                    return;
                 }
-                else{
+
+                data.ide = $("input:radio[name=ide]:checked").val();
+
+                if (!data.ide || data.ide == "") {
+                    $(".ide").prepend('<div class="alert alert-danger" role="alert">Please select one tool/IDE you will be using</div>');
+                    return;
+                }
+                else {
+                    if (data.ide == "studio") {
+                        $(".studio").removeClass("hidden");
+                        $(".eclipse").addClass("hidden");
+                    }
+                    else if (data.ide == "eclipse") {
+                        $(".studio").addClass("hidden");
+                        $(".eclipse").removeClass("hidden");
+                    }
+                }
+
+                data.device_id = $("input:radio[name=device_id]:checked").val();
+
+                if (!data.device_id || data.device_id == "") {
+                    $(".device_id").prepend('<div class="alert alert-danger" role="alert">Please select one way to generate device Id</div>');
+                    return;
+                }
+
+                if (data.device_id == "DeviceId.Type.OPEN_UDID") {
+                    $(".studio").before('<div class="alert alert-danger" role="alert">If you are using Proguard, add this line to your <strong>proguard-rules.pro</strong><div calss="well">-keep class org.openudid.** { *; }</div></div>');
+                    $(".openudid-package").removeClass("hidden");
+                    manifestApplication.push(openudid);
+                }
+
+                var features = $(".feature:checked").map(function (feature) {
+                    return this.value;
+                }).get();
+
+                data.features = "";
+
+                if (features.length) {
+                    for (var i = 0; i < features.length; i++) {
+                        if (features[i] == "push") {
+
+                            var activity = $("#push_activity").val();
+                            if (activity == "") {
+                                $("#push_activity").parent().prepend('<div class="alert alert-danger" role="alert">Please provide name of the main activity. You can find it in your Android Manifest</div>');
+                                return;
+                            }
+
+                            var pack = $("#push_package").val();
+                            if (pack == "") {
+                                $("#push_package").parent().prepend('<div class="alert alert-danger" role="alert">Please provide package name of your app. You can find it in your Android Manifest</div>');
+                                return;
+                            }
+
+                            var project = $("#push_project").val();
+                            if (project == "") {
+                                $("#push_project").parent().prepend('<div class="alert alert-danger" role="alert">Please provide project number. You can find it in your Google Console</div>');
+                                return;
+                            }
+
+                            pushPermission = pushPermission
+                                .replace(new RegExp("ly.count.android.demo.messaging", 'g'), pack);
+
+                            manifest = pushPermission + manifest;
+
+                            pushFeature = "   Countly.sharedInstance().initMessaging(this, CountlyActivity.class, \"PROJECT_NUMBER\", Countly.CountlyMessagingMode.PRODUCTION);\n";
+
+                            pushFeature = pushFeature
+                                .replace("CountlyActivity", activity)
+                                .replace("PROJECT_NUMBER", project);
+
+                            if ($("#push_test").is(':checked')) {
+                                pushFeature = pushFeature.replace("Countly.CountlyMessagingMode.PRODUCTION", "Countly.CountlyMessagingMode.TEST");
+                            }
+
+                            data.features += pushFeature;
+                            $("#gradle-code").val($("#gradle-code").val().replace("ly.count.android:sdk:", "ly.count.android:sdk-messaging:"));
+                            $(".push-package").removeClass("hidden");
+                        }
+                        else if (features[i] == "view") {
+                            data.features += "   Countly.sharedInstance().setViewTracking(true);\n";
+                        }
+                        else if (features[i] == "crash") {
+                            data.features += "   Countly.sharedInstance().enableCrashReporting();\n";
+                        }
+                        else if (features[i] == "attribution") {
+                            manifestApplication.push(attribution);
+                        }
+                    }
+                    if (features.indexOf("push") == -1) {
+                        $("push").hide();
+                    }
+                }
+
+                data.options = $(".advanced-list input").map(function (el) {
+                    if (this.type == "text") {
+                        if ($(this).hasClass("arr") && this.value.replace(/^\s+|\s+$/gm, '') != "") {
+                            var arr = this.value.split(",");
+                            for (var i = 0; i < arr.length; i++) {
+                                arr[i] = '"' + arr[i].replace(/^\s+|\s+$/gm, '') + '"';
+                            }
+                            return { id: this.id, value: '[' + arr.join(",") + ']' };
+                        }
+                        else if ($(this).hasClass("optinit") || $(this).hasClass("star")) {
+                            return { id: this.id, value: "" };
+                        }
+                        else if (isNaN(this.value))
+                            return { id: this.id, value: '"' + (($(this).hasClass("context")) ? "context, " : "") + this.value + '"' };
+                        else
+                            return { id: this.id, value: (($(this).hasClass("context")) ? "context, " : "") + this.value };
+                    }
+                    else if (this.type == "checkbox" && this.checked)
+                        return { id: this.id, value: (($(this).hasClass("context")) ? "context, " : "") + this.value };
+                    else
+                        return { id: this.id, value: "" };
+                }).get().filter(function (el) {
+                    if (el.value.length && el.value != '""')
+                        return true;
+                    return false;
+                }).map(function (el) {
+                    return "   Countly.sharedInstance()." + el.id + '(' + el.value + ');';
+                });
+
+                //process star rating
+                var hasOptStar = false;
+                var optinit = $(".advanced-list input.star").map(function (el) {
+                    if (this.value != "") {
+                        hasOptStar = true;
+                        return '"' + this.value + '"';
+                    }
+                    return "null";
+                }).get().join(", ");
+
+                if (hasOptStar) {
+                    data.options.unshift("   Countly.sharedInstance().setStarRatingDialogTexts(" + optinit + ")");
+                }
+
+                //process optional init
+                var hasOptInit = false;
+                var optinit = $(".advanced-list input.optinit").map(function (el) {
+                    if (this.value != "") {
+                        hasOptInit = true;
+                        return '"' + this.value + '"';
+                    }
+                    return "null";
+                }).get().join(", ");
+
+                if (hasOptInit) {
+                    data.options.unshift("   Countly.sharedInstance().setOptionalParametersForInitialization(" + optinit + ")");
+                }
+
+                if (data.options.length) {
+                    data.options = data.options.join("\n") + "\n";
+                }
+                else {
                     data.options = "";
                 }
-            
-            var code = template.replace("YOUR_SERVER", data.url)
-                .replace("YOUR_APP_KEY", data.app_key)
-                .replace("DeviceId", data.device_id)
-                .replace("[options]", data.options)
-                .replace("[features]", data.features);
-            
-            if(features.indexOf("CLYMessaging") > -1){
-                code = code.replace("   // your code\n", pushHandling);
-                code += "\n"+pushMethods;
-            }
-            
-            if(manifestApplication.length){
-                var application = "<application>";
-                if(data.ide == "studio"){
-                    application = "<application tools:replace=\"android:label\">";
+
+                var code = template.replace("YOUR_SERVER", data.url)
+                    .replace("YOUR_APP_KEY", data.app_key)
+                    .replace("DeviceId", data.device_id)
+                    .replace("[options]", data.options)
+                    .replace("[features]", data.features);
+
+                if (features.indexOf("CLYMessaging") > -1) {
+                    code = code.replace("   // your code\n", pushHandling);
+                    code += "\n" + pushMethods;
                 }
-                manifest = manifest + "\n"+application+"\n\n" + manifestApplication.join("\n") + "\n</application>\n";
-            }
-            
-            $("#end-code").val(code);
-            $("#manifest-code").val(manifest);
-            $('#end-modal').modal();
+
+                if (manifestApplication.length) {
+                    var application = "<application>";
+                    if (data.ide == "studio") {
+                        application = "<application tools:replace=\"android:label\">";
+                    }
+                    manifest = manifest + "\n" + application + "\n\n" + manifestApplication.join("\n") + "\n</application>\n";
+                }
+
+                $("#end-code").val(code);
+                $("#manifest-code").val(manifest);
+                $('#end-modal').modal();
+            });
+
+            $("#allfeatures").change(function () {
+                $(".feature").prop('checked', $(this).prop("checked"));
+                if ($(this).is(':checked')) {
+                    $(".push-settings").removeClass("hidden");
+                } else {
+                    $(".push-settings").addClass("hidden");
+                }
+            });
+
+            $(".gotit").click(function () {
+                $('#end-modal').modal('hide');
+            });
+
+            $("#download").click(function () {
+                var data = $("#end-code").val();
+                try {
+                    var blob = new Blob([data], { type: "text/plain;charset=utf-8" });
+                    saveAs(blob, "android-sdk.txt");
+                } catch (e) {
+                    alert(data);
+                }
+            });
+
+            $("#download-graddle").click(function () {
+                var data = $("#gradle-code").val();
+                try {
+                    var blob = new Blob([data], { type: "text/plain;charset=utf-8" });
+                    saveAs(blob, "build.gradle.txt");
+                } catch (e) {
+                    alert(data);
+                }
+            });
+
+            $(".advanced span.label").on('click', function () {
+                var downArrow = document.getElementById('dropdown-icon').style.display;
+                if (downArrow === 'inline-block') {
+                    $(this).parent().find("#dropdown-icon-2").attr('style', 'display: inline-block');
+                }
+                else {
+                    $(this).parent().find("#dropdown-icon-2").attr('style', 'display: none');
+                }
+                $(this).parent().find("#dropdown-icon").toggle();
+            });
+
+            $("#download-manifest").click(function () {
+                var data = $("#manifest-code").val();
+                try {
+                    var blob = new Blob([data], { type: "text/plain;charset=utf-8" });
+                    saveAs(blob, "AndroidManifest.txt");
+                } catch (e) {
+                    alert(data);
+                }
+            });
         });
-        
-        $("#allfeatures").change(function(){
-            $(".feature").prop('checked', $(this).prop("checked"));
-            if ($(this).is(':checked')) {
-                $(".push-settings").removeClass("hidden");
-            } else {
-                $(".push-settings").addClass("hidden");
-            }
-        });
-        
-        $(".gotit").click(function(){
-            $('#end-modal').modal('hide');
-        });
-        
-        $("#download").click(function(){
-            var data = $("#end-code").val();
-            try {
-                var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
-                saveAs(blob, "android-sdk.txt");
-            } catch (e) {
-                alert(data);
-            }
-        });
-        
-        $("#download-graddle").click(function(){
-            var data = $("#gradle-code").val();
-            try {
-                var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
-                saveAs(blob, "build.gradle.txt");
-            } catch (e) {
-                alert(data);
-            }
-        });
-        
-        $(".advanced span.label").on('click',function(){
-            var downArrow = document.getElementById('dropdown-icon').style.display; 
-            if (downArrow === 'inline-block') {
-                $(this).parent().find("#dropdown-icon-2").attr('style', 'display: inline-block');
-            }
-            else {
-                $(this).parent().find("#dropdown-icon-2").attr('style', 'display: none');
-            }
-            $(this).parent().find("#dropdown-icon").toggle();
-        });
-        
-        $("#download-manifest").click(function(){
-            var data = $("#manifest-code").val();
-            try {
-                var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
-                saveAs(blob, "AndroidManifest.txt");
-            } catch (e) {
-                alert(data);
-            }
-        });
-    });
     </script>
-  </body>
+</body>
 </html>

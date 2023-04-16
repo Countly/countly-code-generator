@@ -1,101 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="images/favicon.png">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
 
-    <title>Countly Code Generator</title>
+  <title>Countly Code Generator</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-    
-    <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <div id="logo">
-            <span class="image"></span>
-            <span class="text">Code Generator</span>
-        </div>
-        <p>Helps you generate personalized code snippets and SDK integration tutorials based on your platforms and <a id="countly-link" target="_blank" href="https://count.ly">Countly</a> features you want to use</p>
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <div id="logo">
+        <span class="image"></span>
+        <span class="text">Code Generator</span>
+      </div>
+      <p>Helps you generate personalized code snippets and SDK integration tutorials based on your platforms and <a
+          id="countly-link" target="_blank" href="https://count.ly">Countly</a> features you want to use</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-center">What can we help you with?</h2>
+      </div>
+    </div>
+    <div class="row cly-grid">
+      <div class="col-md-12">
+        <a href="integration.html">
+          <div class="cly-col">
+            <div class="icon" style="background-image: url('images/integrate.svg')"></div>
+            <h2>Integrating Countly SDKs</h2>
+            <p>Choose a platform you want to integrate Countly SDK to, then select feature and platform based settings
+              in order to get a personalized integration tutorial with ready to use code snippets</p>
+            <div class="next">Next Step &rarr;</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="row cly-grid">
+      <div class="col-md-6">
+        <a href="events.html">
+          <div class="cly-col">
+            <div class="icon" style="background-image: url('images/events.svg')"></div>
+            <h2>Tracking an event</h2>
+            <p>Provide values for your event, including segments, and choose a platform to generate a ready to use code
+              snippet for</p>
+            <div class="next">Next Step &rarr;</div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-6">
+        <a href="users.html">
+          <div class="cly-col">
+            <div class="icon" style="background-image: url('images/user-details.svg')"></div>
+            <h2>Tracking user information</h2>
+            <p>Provide information about your users, including any custom key/value pairs, to generate a ready to use
+              code snippet for your platform</p>
+            <div class="next">Next Step &rarr;</div>
+          </div>
+        </a>
       </div>
     </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="text-center">What can we help you with?</h2>
-        </div>
-      </div>
-      <div class="row cly-grid">
-        <div class="col-md-12">
-            <a href="integration.html">
-                <div class="cly-col">
-                    <div class="icon" style="background-image: url('images/integrate.svg')"></div>
-                    <h2>Integrating Countly SDKs</h2>
-                    <p>Choose a platform you want to integrate Countly SDK to, then select feature and platform based settings in order to get a personalized integration tutorial with ready to use code snippets</p>
-                    <div class="next">Next Step &rarr;</div>
-                </div>
-            </a>
-        </div>
-      </div>
-      <div class="row cly-grid">
-        <div class="col-md-6">
-            <a href="events.html">
-                <div class="cly-col">
-                    <div class="icon" style="background-image: url('images/events.svg')"></div>
-                    <h2>Tracking an event</h2>
-                    <p>Provide values for your event, including segments, and choose a platform to generate a ready to use code snippet for</p>
-                    <div class="next">Next Step &rarr;</div>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-6">
-            <a href="users.html">
-                <div class="cly-col">
-                    <div class="icon" style="background-image: url('images/user-details.svg')"></div>
-                    <h2>Tracking user information</h2>
-                    <p>Provide information about your users, including any custom key/value pairs, to generate a ready to use code snippet for your platform</p>
-                    <div class="next">Next Step &rarr;</div>
-                </div>
-            </a>
-        </div>
-      </div>
-
-      <footer>
-        <p><a href='http://count.ly'>Count.ly</a></p>
-      </footer>
-    </div> <!-- /container -->
+    <footer>
+      <p><a href='http://count.ly'>Count.ly</a></p>
+    </footer>
+  </div> <!-- /container -->
 
 
-    <!-- Bootstrap core JavaScript
+  <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
-    <script src="https://global.localizecdn.com/localize.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
-    <script src="js/common.js"></script>
-  </body>
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+  <script src="https://global.localizecdn.com/localize.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="js/ie10-viewport-bug-workaround.js"></script>
+  <script src="js/common.js"></script>
+</body>
 </html>
