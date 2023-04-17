@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,7 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-    
+
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
 
@@ -25,26 +25,26 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="jumbotron top">
-      <div class="container">
-          <div id="logo">
-              <span class="image"></span>
-              <span class="text">Code Generator</span>
-          </div>
-      </div>
+        <div class="container">
+            <div id="logo">
+                <span class="image"></span>
+                <span class="text">Code Generator</span>
+            </div>
+        </div>
     </div>
     <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-            <p id="buttons">
-                <a href="index.html" id="back" class="btn btn-default">&larr; Back</a>
-            </p>
-            <h2 class="text-center">Add information about user</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <p id="buttons">
+                    <a href="index.html" id="back" class="btn btn-default">&larr; Back</a>
+                </p>
+                <h2 class="text-center">Add information about user</h2>
+            </div>
         </div>
-      </div>
         <div class='section'>
             <span class='label'>Provide information about user</span>
             <div class="row">
@@ -67,7 +67,8 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" class="form-control property" id="email" placeholder="john.smith@domain.com">
+                        <input type="email" class="form-control property" id="email"
+                            placeholder="john.smith@domain.com">
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
@@ -91,7 +92,8 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="picture">Picture URL:</label>
-                        <input type="url" class="form-control property" id="picture" placeholder="https://s.gravatar.com/avatar/a1e5582704a2ec5791bf0fde12737152">
+                        <input type="url" class="form-control property" id="picture"
+                            placeholder="https://s.gravatar.com/avatar/a1e5582704a2ec5791bf0fde12737152">
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
@@ -148,49 +150,53 @@
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div>
-            <p class='text-right'><button type="button" class="btn btn-default" id="add-segment">Add another property</button></p>
+            <p class='text-right'><button type="button" class="btn btn-default" id="add-segment">Add another
+                    property</button></p>
         </div>
         <div class="row" id='generate-code'>
             <div class="col-md-12">
                 <p class='text-center'>
-                    <div class="dropup">
-                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Generate for
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu"></ul>
-                    </div>
+                <div class="dropup">
+                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Generate for
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu"></ul>
+                </div>
                 </p>
             </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
 
-      <footer>
-        <p><a href='http://count.ly'>Count.ly</a></p>
-      </footer>
+        <footer>
+            <p><a href='http://count.ly'>Count.ly</a></p>
+        </footer>
     </div> <!-- /container -->
-    
+
     <div class="modal fade" id="end-modal" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <div class="btn-group" role="group" style="margin-bottom: 20px;">
-                    <a href="" class="btn btn-default" target='_blank' id="sdk-repo">SDK Repository</a>
-                    <a href="" class="btn btn-default" target='_blank' id="sdk-docs">SDK Documentation</a>
-                    <a href="" class="btn btn-default" target='_blank' id="sdk-download">Download SDK</a>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <div class="btn-group" role="group" style="margin-bottom: 20px;">
+                        <a href="" class="btn btn-default" target='_blank' id="sdk-repo">SDK Repository</a>
+                        <a href="" class="btn btn-default" target='_blank' id="sdk-docs">SDK Documentation</a>
+                        <a href="" class="btn btn-default" target='_blank' id="sdk-download">Download SDK</a>
+                    </div>
+                    <h4 class="modal-title text-center">Use this snippet to add information about user</h4>
                 </div>
-                <h4 class="modal-title text-center">Use this snippet to add information about user</h4>
-            </div>
-            <div class="modal-body">
-                <p><textarea id='end-code' class="no-translate" readonly onclick="this.select();"></textarea></p>
-            </div>
-            <div class="modal-footer">
-                <p class='text-center'>
-                    <button type="button" class="btn btn-success" id="copy" data-clipboard-target="#end-code">Copy</button>&nbsp;
-                    <button type="button" class="btn btn-success" id="download">Download</button>&nbsp;
-                    <button type="button" class="btn btn-primary" id="gotit">Close</button>
-                </p>
-            </div>
+                <div class="modal-body">
+                    <p><textarea id='end-code' class="no-translate" readonly onclick="this.select();"></textarea></p>
+                </div>
+                <div class="modal-footer">
+                    <p class='text-center'>
+                        <button type="button" class="btn btn-success" id="copy"
+                            data-clipboard-target="#end-code">Copy</button>&nbsp;
+                        <button type="button" class="btn btn-success" id="download">Download</button>&nbsp;
+                        <button type="button" class="btn btn-primary" id="gotit">Close</button>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -199,7 +205,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
     <script src="https://global.localizecdn.com/localize.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -212,133 +218,133 @@
     <script src="js/FileSaver.min.js"></script>
     <script src="js/clipboard.min.js"></script>
     <script>
-    $( document ).ready(function() {
-        var params = parseParams(location.search);
-        if(params.sdk && sdks[params.sdk]){
-            $("#generate-code .dropup").addClass("hidden");
-            $("#generate-code").append('<p class="text-center"><button type="button" class="btn btn-success" id="generate">Generate for '+sdks[params.sdk].name+'</button></p>');
-            //$("#buttons").append('<a href="users.html?sdk='+params.sdk+' id="next" class="btn btn-default">Next: Add user info &rarr;</a>');
-            $("#back").attr("href", "events.html?sdk="+params.sdk);
-        }
-        new Clipboard('#copy');
-        var exampleStringSegments = [
-            ["twitter", "@johnsmith"],
-            ["selected_theme", "Dark"],
-            ["html_in_emails", "yes"],
-            ["registered", "yes"],
-            ["interests", "hockey"]
-        ];
-        var exampleNumberSegments = [
-            ["highest_score", "100"],
-            ["level", "1"],
-            ["experience", "50"],
-            ["battery", "-10"]
-        ];
-        var sdk;
-        function getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-        function applyStringSegmentExample(elem){
-            var example = exampleStringSegments[getRandomInt(0,exampleStringSegments.length-1)];
-            elem.find(".segment-key").attr("placeholder", example[0]);
-            elem.find(".segment-val").attr("placeholder", example[1]);
-        }
-        function applyNumberSegmentExample(elem){
-            var example = exampleNumberSegments[getRandomInt(0,exampleNumberSegments.length-1)];
-            elem.find(".segment-key").attr("placeholder", example[0]);
-            elem.find(".segment-val").attr("placeholder", example[1]);
-        }
-        applyStringSegmentExample($(".segment"));
-        $(".segments .segment:first .close-button").hide();
-        for(var slug in sdks){
-            if(users[slug])
-                $(".dropdown-menu").append('<li><a href="#" id="'+slug+'">'+sdks[slug].name+'</a></li>');
-        }
-        $("#add-segment").click(function(){
-            var segment = $(".segments .segment:first").clone();
-            segment.find(".segment-key").val("");
-            segment.find(".segment-val").val("");
-            segment.find(".segment-action").val("set");
-            segment.find(".close-button").show();
-            applyStringSegmentExample(segment);
-            segment.insertBefore($("#add-segment").parent());
-        });
-        $(".segments").on("click",".close-button", function(e){
-            $(this).parent().remove();
-        });
-        $(".segments").on("change",".segment-action", function(e){
-            var segment = $(this).closest(".segment");
-            if($(this).val() == "increment" || $(this).val() == "multiply" || $(this).val() == "min" || $(this).val() == "max"){
-                segment.find(".segment-val").attr("type", "number");
-                applyNumberSegmentExample(segment);
+        $(document).ready(function () {
+            var params = parseParams(location.search);
+            if (params.sdk && sdks[params.sdk]) {
+                $("#generate-code .dropup").addClass("hidden");
+                $("#generate-code").append('<p class="text-center"><button type="button" class="btn btn-success" id="generate">Generate for ' + sdks[params.sdk].name + '</button></p>');
+                //$("#buttons").append('<a href="users.html?sdk='+params.sdk+' id="next" class="btn btn-default">Next: Add user info &rarr;</a>');
+                $("#back").attr("href", "events.html?sdk=" + params.sdk);
             }
-            else{
-                segment.find(".segment-val").attr("type", "text");
+            new Clipboard('#copy');
+            var exampleStringSegments = [
+                ["twitter", "@johnsmith"],
+                ["selected_theme", "Dark"],
+                ["html_in_emails", "yes"],
+                ["registered", "yes"],
+                ["interests", "hockey"]
+            ];
+            var exampleNumberSegments = [
+                ["highest_score", "100"],
+                ["level", "1"],
+                ["experience", "50"],
+                ["battery", "-10"]
+            ];
+            var sdk;
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            function applyStringSegmentExample(elem) {
+                var example = exampleStringSegments[getRandomInt(0, exampleStringSegments.length - 1)];
+                elem.find(".segment-key").attr("placeholder", example[0]);
+                elem.find(".segment-val").attr("placeholder", example[1]);
+            }
+            function applyNumberSegmentExample(elem) {
+                var example = exampleNumberSegments[getRandomInt(0, exampleNumberSegments.length - 1)];
+                elem.find(".segment-key").attr("placeholder", example[0]);
+                elem.find(".segment-val").attr("placeholder", example[1]);
+            }
+            applyStringSegmentExample($(".segment"));
+            $(".segments .segment:first .close-button").hide();
+            for (var slug in sdks) {
+                if (users[slug])
+                    $(".dropdown-menu").append('<li><a href="#" id="' + slug + '">' + sdks[slug].name + '</a></li>');
+            }
+            $("#add-segment").click(function () {
+                var segment = $(".segments .segment:first").clone();
+                segment.find(".segment-key").val("");
+                segment.find(".segment-val").val("");
+                segment.find(".segment-action").val("set");
+                segment.find(".close-button").show();
                 applyStringSegmentExample(segment);
-            }
-        });
-        
-        function generate(sdk){
-            $( ".alert" ).remove();
-            $("#sdk-repo").attr("href", sdks[sdk].repo);
-            $("#sdk-docs").attr("href", sdks[sdk].docs);
-            $("#sdk-download").attr("href", sdks[sdk].download);
-            
-            var data = {};
-            var hasInfo = false;
-            $(".property").each(function(){
-                if($(this).val() != ""){
-                    hasInfo = true;
-                    if(this.id == "byear")
-                        data[this.id] = parseInt($(this).val());
-                    else
-                        data[this.id] = $(this).val();
+                segment.insertBefore($("#add-segment").parent());
+            });
+            $(".segments").on("click", ".close-button", function (e) {
+                $(this).parent().remove();
+            });
+            $(".segments").on("change", ".segment-action", function (e) {
+                var segment = $(this).closest(".segment");
+                if ($(this).val() == "increment" || $(this).val() == "multiply" || $(this).val() == "min" || $(this).val() == "max") {
+                    segment.find(".segment-val").attr("type", "number");
+                    applyNumberSegmentExample(segment);
+                }
+                else {
+                    segment.find(".segment-val").attr("type", "text");
+                    applyStringSegmentExample(segment);
                 }
             });
-            
-            var hasSegments = false;
-            var segments = {};
-            $(".segment").each(function(){
-                if($(this).find(".segment-key").val() != "" && $(this).find(".segment-val").val() != ""){
-                    hasSegments = true;
-                    segments[$(this).find(".segment-key").val()] = {action:$(this).find(".segment-action").val(), value:$(this).find(".segment-val").val()};
+
+            function generate(sdk) {
+                $(".alert").remove();
+                $("#sdk-repo").attr("href", sdks[sdk].repo);
+                $("#sdk-docs").attr("href", sdks[sdk].docs);
+                $("#sdk-download").attr("href", sdks[sdk].download);
+
+                var data = {};
+                var hasInfo = false;
+                $(".property").each(function () {
+                    if ($(this).val() != "") {
+                        hasInfo = true;
+                        if (this.id == "byear")
+                            data[this.id] = parseInt($(this).val());
+                        else
+                            data[this.id] = $(this).val();
+                    }
+                });
+
+                var hasSegments = false;
+                var segments = {};
+                $(".segment").each(function () {
+                    if ($(this).find(".segment-key").val() != "" && $(this).find(".segment-val").val() != "") {
+                        hasSegments = true;
+                        segments[$(this).find(".segment-key").val()] = { action: $(this).find(".segment-action").val(), value: $(this).find(".segment-val").val() };
+                    }
+                });
+
+                if (hasSegments)
+                    data.custom = segments;
+
+                if (!hasInfo && !hasSegments) {
+                    $("#name").parent().prepend('<div class="alert alert-danger" role="alert">Please provide at least one value</div>');
+                    return;
+                }
+
+                $("#end-code").val(users[sdk](data));
+                $('#end-modal').modal();
+            }
+
+            $(".dropdown-menu li a").click(function () {
+                generate(this.id);
+            });
+
+            $("#generate").click(function () {
+                generate(params.sdk);
+            });
+
+            $("#gotit").click(function () {
+                $('#end-modal').modal('hide');
+            });
+
+            $("#download").click(function () {
+                var data = $("#end-code").val();
+                try {
+                    var blob = new Blob([data], { type: "text/plain;charset=utf-8" });
+                    saveAs(blob, sdk + "-event.txt");
+                } catch (e) {
+                    alert(data);
                 }
             });
-            
-            if(hasSegments)
-                data.custom = segments;
-                
-            if(!hasInfo && !hasSegments){
-                $("#name").parent().prepend('<div class="alert alert-danger" role="alert">Please provide at least one value</div>');
-                return;
-            }
-            
-            $("#end-code").val(users[sdk](data));
-            $('#end-modal').modal();
-        }
-            
-        $(".dropdown-menu li a").click(function(){
-            generate(this.id);
         });
-        
-        $("#generate").click(function(){
-            generate(params.sdk);
-        });
-        
-        $("#gotit").click(function(){
-            $('#end-modal').modal('hide');
-        });
-        
-        $("#download").click(function(){
-            var data = $("#end-code").val();
-            try {
-                var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
-                saveAs(blob, sdk+"-event.txt");
-            } catch (e) {
-                alert(data);
-            }
-        });
-    });
     </script>
-  </body>
+</body>
 </html>

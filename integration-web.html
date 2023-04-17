@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,7 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-    
+
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
 
@@ -25,32 +25,32 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="jumbotron top">
-      <div class="container">
-          <div id="logo">
-              <span class="image"></span>
-              <span class="text">Code Generator</span>
-          </div>
-      </div>
+        <div class="container">
+            <div id="logo">
+                <span class="image"></span>
+                <span class="text">Code Generator</span>
+            </div>
+        </div>
     </div>
     <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-            <div style="overflow: auto">
-                <div class="btn-group" style="float: left">
-                    <a href="integration.html" id="back" class="btn btn-default">&larr; Back</a>
-                    <a href="events.html?sdk=web" id="next" class="btn btn-default">Next: Create Event &rarr;</a>
-                </div>
-                <div id="buttons" class="btn-group" role="group" style="float: right">
+        <div class="row">
+            <div class="col-md-12">
+                <div style="overflow: auto">
+                    <div class="btn-group" style="float: left">
+                        <a href="integration.html" id="back" class="btn btn-default">&larr; Back</a>
+                        <a href="events.html?sdk=web" id="next" class="btn btn-default">Next: Create Event &rarr;</a>
+                    </div>
+                    <div id="buttons" class="btn-group" role="group" style="float: right">
 
+                    </div>
                 </div>
+                <h2 class="text-center">Integrating Web SDK</h2>
             </div>
-            <h2 class="text-center">Integrating Web SDK</h2>
         </div>
-      </div>
         <div class='section configuration'>
             <span class='label'>Provide configuration settings</span>
             <div class="row">
@@ -65,7 +65,8 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="app_key">App Key:</label>
-                        <input type="text" class="form-control" id="app_key" placeholder="f399aa0a6305c2bd51d304ca666418ae8d93d9bc">
+                        <input type="text" class="form-control" id="app_key"
+                            placeholder="f399aa0a6305c2bd51d304ca666418ae8d93d9bc">
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
@@ -75,33 +76,40 @@
             <div class="row server">
                 <div class="col-md-12">
                     <label>
-                        <input type="radio" name='source' id='source-server' value=''> Load from this server (<span></span>)
+                        <input type="radio" name='source' id='source-server' value=''> Load from this server
+                        (<span></span>)
                     </label>
                 </div><!-- /.col-lg-6 -->
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <label>
-                        <input type="radio" name='source' id="cdnjs" value='https://cdnjs.cloudflare.com/ajax/libs/countly-sdk-web/version/countly.min.js'> Load from cdnjs
+                        <input type="radio" name='source' id="cdnjs"
+                            value='https://cdnjs.cloudflare.com/ajax/libs/countly-sdk-web/version/countly.min.js'> Load
+                        from cdnjs
                     </label>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
             <div class="row">
                 <div class="col-md-12">
                     <label>
-                        <input type="radio" name='source' value='https://cdn.jsdelivr.net/npm/countly-sdk-web@latest/lib/countly.min.js'> Load from jsdeliver
+                        <input type="radio" name='source'
+                            value='https://cdn.jsdelivr.net/npm/countly-sdk-web@latest/lib/countly.min.js'> Load from
+                        jsdeliver
                     </label>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
             <div class="row">
                 <div class="col-md-12">
                     <label>
-                        <input type="radio" name='source' value='custom'> Load custom server: <input type='text' id='custom-source' class="form-custom-control" placeholder='http://myserver.com/path/to/countly.min.js'/>
+                        <input type="radio" name='source' value='custom'> Load custom server: <input type='text'
+                            id='custom-source' class="form-custom-control"
+                            placeholder='http://myserver.com/path/to/countly.min.js' />
                     </label>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
         </div>
-      <div class='section features checkbox'>
+        <div class='section features checkbox'>
             <span class='label'>Choose features you want to use</span>
             <div class="row">
                 <div class="col-md-12">
@@ -155,7 +163,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <label>
-                        <input type="checkbox" class='feature' value='collect_from_forms'> Collect user information from forms
+                        <input type="checkbox" class='feature' value='collect_from_forms'> Collect user information from
+                        forms
                     </label>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
@@ -174,8 +183,8 @@
         </div>
         <div class='section advanced'>
             <span class='label'>
-            <span id="dropdown-icon" style="display: inline-block;"></span>
-            <span id="dropdown-icon-2" style="display: none;"></span>
+                <span id="dropdown-icon" style="display: inline-block;"></span>
+                <span id="dropdown-icon-2" style="display: none;"></span>
                 Advanced Configuration</span>
             <div class='advanced-list'>
                 <fieldset>
@@ -184,7 +193,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Provide custom device id (will generate if not provided)</label>
-                                <input type="text" class="form-control" id='device_id' placeholder="someid"/>
+                                <input type="text" class="form-control" id='device_id' placeholder="someid" />
                             </div>
                         </div><!-- /.col-lg-6 -->
                     </div><!-- /.row -->
@@ -199,211 +208,226 @@
                 </fieldset>
                 <fieldset>
                     <legend>Location</legend>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide country code of your user (will try to determine from IP address if not provided)</label>
-                        <input type="text" class="form-control" id='country_code' placeholder="US" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide city of your user (will try to determine from IP address if not provided)</label>
-                        <input type="text" class="form-control" id='city' placeholder="San Francisco" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide IP address of your user (will try to determine automatically, if not provided)</label>
-                        <input type="text" class="form-control" id='ip_address' placeholder="127.0.0.1" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-                    </fieldset>
-                    <fieldset>
-                        <legend>Limits</legend>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide an interval how often to check if there is any data to report and report it in miliseconds</label>
-                        <input type="text" class="form-control" id='interval' placeholder="500" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide maximum amount of queued requests to store if server is unresponsive</label>
-                        <input type="text" class="form-control" id='queue_size' placeholder="1000" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide time in seconds to wait after failed connection to server in seconds</label>
-                        <input type="text" class="form-control" id='fail_timeout' placeholder="60" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide how often, in seconds, should a session be extended</label>
-                        <input type="text" class="form-control" id='session_update' placeholder="60" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Maximum amount of events to send per one batch</label>
-                        <input type="text" class="form-control" id='max_events' placeholder="10" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-             <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Maximum amount of breadcrum logs to store for crash reports</label>
-                        <input type="text" class="form-control" id='max_logs' placeholder="100" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide after how many minutes user should be counted as inactive, if there are no actions, as mouse move, scroll or keypress</label>
-                        <input type="text" class="form-control" id='inactivity_time' placeholder="20" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-                    </fieldset>
-                    <fieldset>
-                        <legend>Other</legend>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide comma separated list of referrers to ignore</label>
-                        <input type="text" class="form-control arr" id='ignore_referrers' placeholder="domain1.com, domain2.com" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-                    </fieldset>
-                    <fieldset>
-                        <legend>Cookies</legend>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Provide how long till cookie session should expire in minutes</label>
-                        <input type="text" class="form-control" id='session_cookie_timeout' placeholder="30" />
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-                     </fieldset>
-                     <fieldset>
-                        <legend>Optionals</legend>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" id='debug' value='true'> Enable Debug logging
-                        </label>
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" id='require_consent' value='true'> Require Consent
-                        </label>
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" id='use_session_cookie' value='true'> Use session cookie to track session
-                        </label>
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" id='force_post' value='true'> Force using POST only
-                        </label>
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" id='ignore_bots' value='false'> Do not ignore bots
-                        </label>
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" id='ignore_prefetch' value='false'> Do not ignore prefetch/prerender requests
-                        </label>
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" id='ignore_visitor' value='false'> Ignore current visitor
-                        </label>
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide country code of your user (will try to determine from IP address if not
+                                    provided)</label>
+                                <input type="text" class="form-control" id='country_code' placeholder="US" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide city of your user (will try to determine from IP address if not
+                                    provided)</label>
+                                <input type="text" class="form-control" id='city' placeholder="San Francisco" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide IP address of your user (will try to determine automatically, if not
+                                    provided)</label>
+                                <input type="text" class="form-control" id='ip_address' placeholder="127.0.0.1" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                </fieldset>
+                <fieldset>
+                    <legend>Limits</legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide an interval how often to check if there is any data to report and report
+                                    it in miliseconds</label>
+                                <input type="text" class="form-control" id='interval' placeholder="500" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide maximum amount of queued requests to store if server is
+                                    unresponsive</label>
+                                <input type="text" class="form-control" id='queue_size' placeholder="1000" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide time in seconds to wait after failed connection to server in
+                                    seconds</label>
+                                <input type="text" class="form-control" id='fail_timeout' placeholder="60" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide how often, in seconds, should a session be extended</label>
+                                <input type="text" class="form-control" id='session_update' placeholder="60" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Maximum amount of events to send per one batch</label>
+                                <input type="text" class="form-control" id='max_events' placeholder="10" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Maximum amount of breadcrum logs to store for crash reports</label>
+                                <input type="text" class="form-control" id='max_logs' placeholder="100" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide after how many minutes user should be counted as inactive, if there are
+                                    no actions, as mouse move, scroll or keypress</label>
+                                <input type="text" class="form-control" id='inactivity_time' placeholder="20" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                </fieldset>
+                <fieldset>
+                    <legend>Other</legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide comma separated list of referrers to ignore</label>
+                                <input type="text" class="form-control arr" id='ignore_referrers'
+                                    placeholder="domain1.com, domain2.com" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                </fieldset>
+                <fieldset>
+                    <legend>Cookies</legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide how long till cookie session should expire in minutes</label>
+                                <input type="text" class="form-control" id='session_cookie_timeout' placeholder="30" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                </fieldset>
+                <fieldset>
+                    <legend>Optionals</legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id='debug' value='true'> Enable Debug logging
+                                </label>
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id='require_consent' value='true'> Require Consent
+                                </label>
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id='use_session_cookie' value='true'> Use session cookie to
+                                    track session
+                                </label>
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id='force_post' value='true'> Force using POST only
+                                </label>
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id='ignore_bots' value='false'> Do not ignore bots
+                                </label>
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id='ignore_prefetch' value='false'> Do not ignore
+                                    prefetch/prerender requests
+                                </label>
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id='ignore_visitor' value='false'> Ignore current visitor
+                                </label>
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
             </div>
         </div>
-                       </fieldset>
+        </fieldset>
         <div class="row">
             <div class="col-md-12">
-                <p class='text-center'><button type="button" class="btn btn-success" id="generate">Generate code</button></p>
+                <p class='text-center'><button type="button" class="btn btn-success" id="generate">Generate
+                        code</button></p>
             </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
 
-      <footer>
-        <p><a href='http://count.ly'>Count.ly</a></p>
-      </footer>
+        <footer>
+            <p><a href='http://count.ly'>Count.ly</a></p>
+        </footer>
     </div> <!-- /container -->
-    
+
     <div class="modal fade" id="end-modal" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Copy this snippet in your website</h4>
-            </div>
-            <div class="modal-body">
-                <p>Insert this snippet somewhere between &lt;head&gt;&lt;/head&gt; tags, make sure it appears on each page</p>
-                <p><textarea id='end-code' class="no-translate" readonly onclick="this.select();"></textarea></p>
-                <p>Insert this snippet somewhere between &lt;body&gt;&lt;/body&gt; tags, to track users with disabled Javascript</p>
-                <p><textarea id='pixel-code' class="no-translate" readonly onclick="this.select();"></textarea></p>
-            </div>
-            <div class="modal-footer">
-                <p class='text-center'>
-                    <button type="button" class="btn btn-success" id="copy" data-clipboard-target="#end-code">Copy</button>&nbsp;
-                    <button type="button" class="btn btn-success" id="download">Download</button>&nbsp;
-                    <button type="button" class="btn btn-primary" id="gotit">Close</button>
-                </p>
-            </div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Copy this snippet in your website</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Insert this snippet somewhere between &lt;head&gt;&lt;/head&gt; tags, make sure it appears on
+                        each page</p>
+                    <p><textarea id='end-code' class="no-translate" readonly onclick="this.select();"></textarea></p>
+                    <p>Insert this snippet somewhere between &lt;body&gt;&lt;/body&gt; tags, to track users with
+                        disabled Javascript</p>
+                    <p><textarea id='pixel-code' class="no-translate" readonly onclick="this.select();"></textarea></p>
+                </div>
+                <div class="modal-footer">
+                    <p class='text-center'>
+                        <button type="button" class="btn btn-success" id="copy"
+                            data-clipboard-target="#end-code">Copy</button>&nbsp;
+                        <button type="button" class="btn btn-success" id="download">Download</button>&nbsp;
+                        <button type="button" class="btn btn-primary" id="gotit">Close</button>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -412,7 +436,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
     <script src="https://global.localizecdn.com/localize.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -424,176 +448,176 @@
     <script src="js/FileSaver.min.js"></script>
     <script src="js/clipboard.min.js"></script>
     <script>
-    $( document ).ready(function() {
-        new Clipboard('#copy');
-        var sdk = sdks.web;
-        $("#cdnjs").val($("#cdnjs").val().replace("/version/", "/"+sdk.version+"/"));
-        $("#buttons").append('<a href="'+sdk.docs+'" target="_blank" class="btn btn-default">Documentation</a>');
-        $("#buttons").append('<a href="'+sdk.download+'" target="_blank" class="btn btn-default">Download</a>');
-        $("#buttons").append('<a href="'+sdk.repo+'" target="_blank" class="btn btn-default">Repository</a>');
-        
-        var params = parseParams(location.search);
-        if(params.server){
-            $(".server span").text(params.server);
-            $("#server-url").val(params.server);
-            $("#source-server").val(stripTrailingSlash(params.server)+"/sdk/web/countly.min.js");
-        }
-        else{
-            $(".server").hide();
-        }
-        
-        if(params.app_key){
-            $("#app_key").val(params.app_key);
-        }
-        
-        if(params.server && params.app_key){
-            $(".configuration").hide();
-        }
-        
-        var template = "<script type='text/javascript'>\n"+
-            "//some default pre init\n"+
-            "var Countly = Countly || {};\n"+
-            "Countly.q = Countly.q || [];\n"+
-            "\n"+
-            "//provide countly initialization parameters\n"+
-            "Countly.app_key = 'YOUR_APP_KEY';\n"+
-            "Countly.url = 'http://yourdomain.com';\n"+
-            "[options]\n"+
-            "\n"+
-            "[features]\n"+
-            "\n"+
-            "//load countly script asynchronously\n"+
-            "(function() {\n"+
-            "   var cly = document.createElement('script'); cly.type = 'text/javascript';\n"+
-            "   cly.async = true;\n"+
-            "   //enter url of script here\n"+
-            "   cly.src = '/path/to/countly.min.js';\n"+
-            "   cly.onload = function(){Countly.init()};\n"+
-            "   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(cly, s);\n"+
-            "})();\n"+
-            "</scri" + "pt>";
-            
-        var pixel_template = "<noscript><img src='http://domain.com/pixel.png?app_key=YOUR_APP_KEY&begin_session=1'/></noscript>";
-            
-        $("#generate").click(function(){
-            $( ".alert" ).remove();
-            var data = {};
-            data.url = $("#server-url").val();
-            
-            if(data.url == ""){
-                $("#server-url").parent().prepend('<div class="alert alert-danger" role="alert">Please provide server URL</div>');
-                $(".configuration").show();
-                return;
-            }
-            
-            if(data.url.indexOf("http") != 0){
-                $("#server-url").parent().prepend('<div class="alert alert-danger" role="alert">Your server URL should start with http:// or https://</div>');
-                $(".configuration").show();
-                return;
-            }
-                
-            data.app_key = $("#app_key").val();
-            
-            if(data.app_key == ""){
-                $("#app_key").parent().prepend('<div class="alert alert-danger" role="alert">Please provide App Key</div>');
-                $(".configuration").show();
-                return;
-            }
-            data.src = $("input:radio[name=source]:checked").val();
-            if(data.src == "custom")
-                data.src = $("#custom-source").val();
-                
-            if(!data.src || data.src == ""){
-                $(".source").prepend('<div class="alert alert-danger" role="alert">Please select at least one source</div>');
-                return;
-            }
-            
-            data.features = $(".feature:checked").map(function(feature){
-                return this.value;
-            }).get();
-            
-            if(data.features.length){
-                data.features = "Countly.q.push(['"+data.features.join("']);\nCountly.q.push(['")+"']);";
-            }
-            else{
-                data.features = "";
-            }
-            
-            data.options = $(".advanced-list input").map(function(el){
-                if(this.type == "text"){
-                    if($(this).hasClass("arr") && this.value.replace(/^\s+|\s+$/gm,'') != ""){
-                        var arr = this.value.split(",");
-                        for(var i = 0; i < arr.length; i++){
-                            arr[i] = arr[i].replace(/^\s+|\s+$/gm,'');
-                        }
-                        return {id:this.id, value:JSON.stringify(arr)};
-                    }
-                    else if(isNaN(this.value))
-                        return {id:this.id, value:'"'+this.value+'"'};
-                    else
-                        return {id:this.id, value:this.value};
-                }
-                else if(this.type == "checkbox" && this.checked)
-                    return {id:this.id, value:this.value};
-                else
-                    return {id:this.id, value:""};
-            }).get().filter(function(el){
-                if(el.value.length && el.value != '""')
-                    return true;
-                return false;
-            }).map(function(el){
-                return el.id+' = '+el.value+';';
-            });
-            
-            if(data.options.length){
-                data.options = "Countly."+data.options.join("\nCountly.")+"\n";
-            }
-            else{
-                data.options = "";
-            }
-            
-            var code = template.replace("http://yourdomain.com", data.url)
-                .replace("YOUR_APP_KEY", data.app_key)
-                .replace("/path/to/countly.min.js", data.src)
-                .replace("[options]\n", data.options)
-                .replace("[features]", data.features);
-            $("#end-code").val(code);
-            
-            var pixel = pixel_template.replace("http://domain.com", data.url)
-                .replace("YOUR_APP_KEY", data.app_key);
-            $("#pixel-code").val(pixel);
-            $('#end-modal').modal();
-        });
-        
-        $("#allfeatures").change(function(){
-            $(".feature").prop('checked', $(this).prop("checked"));
-        });
+        $(document).ready(function () {
+            new Clipboard('#copy');
+            var sdk = sdks.web;
+            $("#cdnjs").val($("#cdnjs").val().replace("/version/", "/" + sdk.version + "/"));
+            $("#buttons").append('<a href="' + sdk.docs + '" target="_blank" class="btn btn-default">Documentation</a>');
+            $("#buttons").append('<a href="' + sdk.download + '" target="_blank" class="btn btn-default">Download</a>');
+            $("#buttons").append('<a href="' + sdk.repo + '" target="_blank" class="btn btn-default">Repository</a>');
 
-        $(".advanced span.label").on('click',function(){
-            var downArrow = document.getElementById('dropdown-icon').style.display; 
-            if (downArrow === 'inline-block') {
-                $(this).parent().find("#dropdown-icon-2").attr('style', 'display: inline-block');
+            var params = parseParams(location.search);
+            if (params.server) {
+                $(".server span").text(params.server);
+                $("#server-url").val(params.server);
+                $("#source-server").val(stripTrailingSlash(params.server) + "/sdk/web/countly.min.js");
             }
             else {
-                $(this).parent().find("#dropdown-icon-2").attr('style', 'display: none');
+                $(".server").hide();
             }
-            $(this).parent().find("#dropdown-icon").toggle();
-        });
-        
-        $("#gotit").click(function(){
-            $('#end-modal').modal('hide');
-        });
-        
-        $("#download").click(function(){
-            var data = $("#end-code").val();
-            try {
-                var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
-                saveAs(blob, "web-sdk.txt");
-            } catch (e) {
-                alert(data);
+
+            if (params.app_key) {
+                $("#app_key").val(params.app_key);
             }
+
+            if (params.server && params.app_key) {
+                $(".configuration").hide();
+            }
+
+            var template = "<script type='text/javascript'>\n" +
+                "//some default pre init\n" +
+                "var Countly = Countly || {};\n" +
+                "Countly.q = Countly.q || [];\n" +
+                "\n" +
+                "//provide countly initialization parameters\n" +
+                "Countly.app_key = 'YOUR_APP_KEY';\n" +
+                "Countly.url = 'http://yourdomain.com';\n" +
+                "[options]\n" +
+                "\n" +
+                "[features]\n" +
+                "\n" +
+                "//load countly script asynchronously\n" +
+                "(function() {\n" +
+                "   var cly = document.createElement('script'); cly.type = 'text/javascript';\n" +
+                "   cly.async = true;\n" +
+                "   //enter url of script here\n" +
+                "   cly.src = '/path/to/countly.min.js';\n" +
+                "   cly.onload = function(){Countly.init()};\n" +
+                "   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(cly, s);\n" +
+                "})();\n" +
+                "</scri" + "pt>";
+
+            var pixel_template = "<noscript><img src='http://domain.com/pixel.png?app_key=YOUR_APP_KEY&begin_session=1'/></noscript>";
+
+            $("#generate").click(function () {
+                $(".alert").remove();
+                var data = {};
+                data.url = $("#server-url").val();
+
+                if (data.url == "") {
+                    $("#server-url").parent().prepend('<div class="alert alert-danger" role="alert">Please provide server URL</div>');
+                    $(".configuration").show();
+                    return;
+                }
+
+                if (data.url.indexOf("http") != 0) {
+                    $("#server-url").parent().prepend('<div class="alert alert-danger" role="alert">Your server URL should start with http:// or https://</div>');
+                    $(".configuration").show();
+                    return;
+                }
+
+                data.app_key = $("#app_key").val();
+
+                if (data.app_key == "") {
+                    $("#app_key").parent().prepend('<div class="alert alert-danger" role="alert">Please provide App Key</div>');
+                    $(".configuration").show();
+                    return;
+                }
+                data.src = $("input:radio[name=source]:checked").val();
+                if (data.src == "custom")
+                    data.src = $("#custom-source").val();
+
+                if (!data.src || data.src == "") {
+                    $(".source").prepend('<div class="alert alert-danger" role="alert">Please select at least one source</div>');
+                    return;
+                }
+
+                data.features = $(".feature:checked").map(function (feature) {
+                    return this.value;
+                }).get();
+
+                if (data.features.length) {
+                    data.features = "Countly.q.push(['" + data.features.join("']);\nCountly.q.push(['") + "']);";
+                }
+                else {
+                    data.features = "";
+                }
+
+                data.options = $(".advanced-list input").map(function (el) {
+                    if (this.type == "text") {
+                        if ($(this).hasClass("arr") && this.value.replace(/^\s+|\s+$/gm, '') != "") {
+                            var arr = this.value.split(",");
+                            for (var i = 0; i < arr.length; i++) {
+                                arr[i] = arr[i].replace(/^\s+|\s+$/gm, '');
+                            }
+                            return { id: this.id, value: JSON.stringify(arr) };
+                        }
+                        else if (isNaN(this.value))
+                            return { id: this.id, value: '"' + this.value + '"' };
+                        else
+                            return { id: this.id, value: this.value };
+                    }
+                    else if (this.type == "checkbox" && this.checked)
+                        return { id: this.id, value: this.value };
+                    else
+                        return { id: this.id, value: "" };
+                }).get().filter(function (el) {
+                    if (el.value.length && el.value != '""')
+                        return true;
+                    return false;
+                }).map(function (el) {
+                    return el.id + ' = ' + el.value + ';';
+                });
+
+                if (data.options.length) {
+                    data.options = "Countly." + data.options.join("\nCountly.") + "\n";
+                }
+                else {
+                    data.options = "";
+                }
+
+                var code = template.replace("http://yourdomain.com", data.url)
+                    .replace("YOUR_APP_KEY", data.app_key)
+                    .replace("/path/to/countly.min.js", data.src)
+                    .replace("[options]\n", data.options)
+                    .replace("[features]", data.features);
+                $("#end-code").val(code);
+
+                var pixel = pixel_template.replace("http://domain.com", data.url)
+                    .replace("YOUR_APP_KEY", data.app_key);
+                $("#pixel-code").val(pixel);
+                $('#end-modal').modal();
+            });
+
+            $("#allfeatures").change(function () {
+                $(".feature").prop('checked', $(this).prop("checked"));
+            });
+
+            $(".advanced span.label").on('click', function () {
+                var downArrow = document.getElementById('dropdown-icon').style.display;
+                if (downArrow === 'inline-block') {
+                    $(this).parent().find("#dropdown-icon-2").attr('style', 'display: inline-block');
+                }
+                else {
+                    $(this).parent().find("#dropdown-icon-2").attr('style', 'display: none');
+                }
+                $(this).parent().find("#dropdown-icon").toggle();
+            });
+
+            $("#gotit").click(function () {
+                $('#end-modal').modal('hide');
+            });
+
+            $("#download").click(function () {
+                var data = $("#end-code").val();
+                try {
+                    var blob = new Blob([data], { type: "text/plain;charset=utf-8" });
+                    saveAs(blob, "web-sdk.txt");
+                } catch (e) {
+                    alert(data);
+                }
+            });
         });
-    });
     </script>
-  </body>
+</body>
 </html>

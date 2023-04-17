@@ -1,94 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="images/favicon.png">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
 
-    <title>Countly Code Generator</title>
+  <title>Countly Code Generator</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-    
-    <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
-    <div class="jumbotron top">
-      <div class="container">
-          <div id="logo">
-              <span class="image"></span>
-              <span class="text">Code Generator</span>
-          </div>
+<body>
+  <div class="jumbotron top">
+    <div class="container">
+      <div id="logo">
+        <span class="image"></span>
+        <span class="text">Code Generator</span>
       </div>
     </div>
+  </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-            <p><a href="index.html" id="back" class="btn btn-default">&larr; Back</a></p>
-            <h2 class="text-center">Which platform do you want to use?</h2>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p><a href="index.html" id="back" class="btn btn-default">&larr; Back</a></p>
+        <h2 class="text-center">Which platform do you want to use?</h2>
       </div>
-      <div id="sdks"></div>
+    </div>
+    <div id="sdks"></div>
 
-      <footer>
-        <p><a href='http://count.ly'>Count.ly</a></p>
-      </footer>
-    </div> <!-- /container -->
+    <footer>
+      <p><a href='http://count.ly'>Count.ly</a></p>
+    </footer>
+  </div> <!-- /container -->
 
 
-    <!-- Bootstrap core JavaScript
+  <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
-    <script src="https://global.localizecdn.com/localize.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
-    <script src="js/sdks.js"></script>
-    <script src="js/common.js"></script>
-    <script>
-    $( document ).ready(function() {
-        var container, sdk, i = 0;
-        for(var slug in sdks){
-            if(sdks[slug].integration){
-                if(i % 4 == 0){
-                    var container = $('<div class="row cly-grid sdks"></div>');
-                    $("#sdks").append(container);
-                }
-                i++;
-                sdk = 
-                    '<div class="col-md-6"><a href="integration-'+slug+'.html"><div class="cly-col"><div class="header">';
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+  <script src="https://global.localizecdn.com/localize.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="js/ie10-viewport-bug-workaround.js"></script>
+  <script src="js/sdks.js"></script>
+  <script src="js/common.js"></script>
+  <script>
+    $(document).ready(function () {
+      var container, sdk, i = 0;
+      for (var slug in sdks) {
+        if (sdks[slug].integration) {
+          if (i % 4 == 0) {
+            var container = $('<div class="row cly-grid sdks"></div>');
+            $("#sdks").append(container);
+          }
+          i++;
+          sdk =
+            '<div class="col-md-6"><a href="integration-' + slug + '.html"><div class="cly-col"><div class="header">';
 
-                if(sdks[slug].image && sdks[slug].image != "") {
-                    sdk += '<div style="background-image: url('+sdks[slug].image+')" class="icon"></div>';
-                }
+          if (sdks[slug].image && sdks[slug].image != "") {
+            sdk += '<div style="background-image: url(' + sdks[slug].image + ')" class="icon"></div>';
+          }
 
-                sdk += '<h2>'+sdks[slug].name+'</h2></div>';
+          sdk += '<h2>' + sdks[slug].name + '</h2></div>';
 
-                sdk += '<p>'+sdks[slug].description+'</p>' +
-                    '<div class="next">Next Step &rarr;</div>' +
-                    '</div></a></div>';
-                container.append(sdk);
-            }
+          sdk += '<p>' + sdks[slug].description + '</p>' +
+            '<div class="next">Next Step &rarr;</div>' +
+            '</div></a></div>';
+          container.append(sdk);
         }
+      }
     });
-    </script>
-  </body>
+  </script>
+</body>
 </html>
