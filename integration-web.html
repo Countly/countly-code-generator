@@ -507,12 +507,14 @@
                 if (data.url == "") {
                     $("#server-url").parent().prepend('<div class="alert alert-danger" role="alert">Please provide server URL</div>');
                     $(".configuration").show();
+                    scrollToElement(".configuration");
                     return;
                 }
 
                 if (data.url.indexOf("http") != 0) {
                     $("#server-url").parent().prepend('<div class="alert alert-danger" role="alert">Your server URL should start with http:// or https://</div>');
                     $(".configuration").show();
+                    scrollToElement(".configuration");
                     return;
                 }
 
@@ -521,6 +523,7 @@
                 if (data.app_key == "") {
                     $("#app_key").parent().prepend('<div class="alert alert-danger" role="alert">Please provide App Key</div>');
                     $(".configuration").show();
+                    scrollToElement(".configuration");
                     return;
                 }
                 data.src = $("input:radio[name=source]:checked").val();
@@ -529,6 +532,7 @@
 
                 if (!data.src || data.src == "") {
                     $(".source").prepend('<div class="alert alert-danger" role="alert">Please select at least one source</div>');
+                    scrollToElement(".source");
                     return;
                 }
 

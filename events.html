@@ -223,6 +223,7 @@
 
                 if (data.key == "") {
                     $("#event-key").parent().prepend('<div class="alert alert-danger" role="alert">Please provide event name</div>');
+                    scrollToElement(".section");
                     return;
                 }
 

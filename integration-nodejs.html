@@ -317,11 +317,13 @@
 
                 if (data.url == "") {
                     $("#server-url").parent().prepend('<div class="alert alert-danger" role="alert">Please provide server URL</div>');
+                    scrollToElement(".configuration");
                     return;
                 }
 
                 if (data.url.indexOf("http") != 0) {
                     $("#server-url").parent().prepend('<div class="alert alert-danger" role="alert">Your server URL should start with http:// or https://</div>');
+                    scrollToElement(".configuration");
                     return;
                 }
 
@@ -329,6 +331,7 @@
 
                 if (data.app_key == "") {
                     $("#app_key").parent().prepend('<div class="alert alert-danger" role="alert">Please provide App Key</div>');
+                    scrollToElement(".configuration");
                     return;
                 }
 

@@ -575,11 +575,13 @@
 
                 if (data.url == "") {
                     $("#server-url").parent().prepend('<div class="alert alert-danger" role="alert">Please provide server URL</div>');
+                    scrollToElement(".configuration");
                     return;
                 }
 
                 if (data.url.indexOf("http") != 0) {
                     $("#server-url").parent().prepend('<div class="alert alert-danger" role="alert">Your server URL should start with http:// or https://</div>');
+                    scrollToElement(".configuration");
                     return;
                 }
 
@@ -591,6 +593,7 @@
 
                 if (data.app_key == "") {
                     $("#app_key").parent().prepend('<div class="alert alert-danger" role="alert">Please provide App Key</div>');
+                    scrollToElement(".configuration");
                     return;
                 }
 
@@ -598,6 +601,7 @@
 
                 if (!data.platform || data.platform == "") {
                     $(".platform").prepend('<div class="alert alert-danger" role="alert">Please select platform</div>');
+                    scrollToElement(".platform");
                     return;
                 }
 
@@ -607,6 +611,7 @@
 
                 if (!data.device_id || data.device_id == "") {
                     $(".device_id").prepend('<div class="alert alert-danger" role="alert">Please select at least way to generate device Id</div>');
+                    scrollToElement(".device_id");
                     return;
                 }
 
