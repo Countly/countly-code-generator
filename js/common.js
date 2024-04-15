@@ -17,6 +17,18 @@ function stripTrailingSlash(str) {
 	return str;
 }
 
+/**
+ * Scrolls to the given element from any where on the page
+ * @param {string} element - element to scroll, example: #elementId, .elementClass, etc.
+ * @param {number} offset - offset to scroll (up), default is 0
+ */
+function scrollToElement(element, offset){
+    var offset = offset || 0;
+    $('html, body').animate({
+        scrollTop: $(element).offset().top - offset
+    }, 500); // 500ms
+}
+
 //some default pre init
 var Countly = Countly || {};
 Countly.q = Countly.q || [];

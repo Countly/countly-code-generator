@@ -316,6 +316,7 @@
 
                 if (!hasInfo && !hasSegments) {
                     $("#name").parent().prepend('<div class="alert alert-danger" role="alert">Please provide at least one value</div>');
+                    scrollToElement(".section");
                     return;
                 }
 
