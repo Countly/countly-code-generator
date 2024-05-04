@@ -228,6 +228,11 @@
                 }
 
                 data.count = parseInt($("#event-count").val()) || 1;
+                if (data.count < 0) {
+                    $("#event-count").parent().prepend('<div class="alert alert-danger" role="alert">Count for event cannot be negative</div>');
+                    scrollToElement(".section");
+                    return;
+                }
 
                 if ($("#event-sum").val() != "") {
                     data.sum = parseFloat($("#event-sum").val());
