@@ -71,6 +71,15 @@
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="app_package">App Package:</label>
+                        <input type="text" class="form-control" id="app_package"
+                            placeholder="com.example.demo.app">
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
         </div>
         <div class='section ide radio'>
             <span class='label'>Choose your environment/IDE</span>
@@ -141,16 +150,6 @@
                         <label for="push_activity">Name of your main activity (the one specified in Android
                             Manifest):</label>
                         <input type="text" class="form-control" id="push_activity" placeholder="MainActivity">
-                    </div>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="push_package">Name of your app package (the one specified in Android
-                            Manifest):</label>
-                        <input type="text" class="form-control" id="push_package"
-                            placeholder="ly.count.android.demo.messaging">
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
@@ -469,6 +468,10 @@ dependencies {
                 $("#app_key").val(params.app_key);
             }
 
+            if(params.app_package) {
+                $("#app_package").val(params.app_package);
+            }
+
             if (params.server && params.app_key) {
                 $(".configuration").hide();
             }
@@ -518,7 +521,7 @@ dependencies {
                     "   </receiver>\n";
 
                 var manifest = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"+
-                    "<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\" package=\"ly.count.android.demo.messaging\">\n"+
+                    "<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\" package=\"PACKAGE_NAME\">\n"+
                         "<uses-permission android:name=\"android.permission.INTERNET\"/>\n" +
                     "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>\n" +
                     "\n";
@@ -528,6 +531,7 @@ dependencies {
                 $(".alert").remove();
                 var data = {};
                 data.url = $("#server-url").val();
+                data.app_package = $("#app_package").val();
 
                 if (data.url == "") {
                     $("#server-url").parent().prepend('<div class="alert alert-danger" role="alert">Please provide server URL</div>');
@@ -550,6 +554,14 @@ dependencies {
                 }
 
                 data.ide = $("input:radio[name=ide]:checked").val();
+
+                if (data.app_package == "") {
+                    $("#app_package").parent().prepend('<div class="alert alert-danger" role="alert">Please provide App Package</div>');
+                    scrollToElement(".configuration");
+                    return;
+                }
+
+                manifest = manifest.replace("PACKAGE_NAME", data.app_package);
 
                 if (!data.ide || data.ide == "") {
                     $(".ide").prepend('<div class="alert alert-danger" role="alert">Please select one tool/IDE you will be using</div>');
@@ -583,19 +595,13 @@ dependencies {
                                 return;
                             }
 
-                            var pack = $("#push_package").val();
-                            if (pack == "") {
-                                $("#push_package").parent().prepend('<div class="alert alert-danger" role="alert">Please provide package name of your app. You can find it in your Android Manifest</div>');
-                                return;
-                            }
-
                             var msgProvider = $("#push_msg_provider").val();
                             if (msgProvider == "") {
                                 msgProvider = "FCM";
                             }
 
                             pushPermission = pushPermission
-                                .replace(new RegExp("ly.count.android.demo.messaging", 'g'), pack);
+                                .replace(new RegExp("ly.count.android.demo.messaging", 'g'), data.app_package);
 
                             manifest = pushPermission + manifest;
 
@@ -618,7 +624,7 @@ dependencies {
 
 
                             data.features += pushFeature;
-                            $(".push-package").removeClass("hidden");
+                            $(".app-package").removeClass("hidden");
                         }
                         else if (features[i] == "view") {
                             data.features += "   config.enableAutomaticViewTracking();\n";
