@@ -337,7 +337,7 @@
                     <div class="tabbable"> <!-- Only required for left/right tabs -->
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#adding" data-toggle="tab">Adding SDK files</a></li>
-                            <li><a href="#activity" data-toggle="tab">Main Activity</a></li>
+                            <li><a href="#application" data-toggle="tab">App (extends Application)</a></li>
                             <li><a href="#manifest" data-toggle="tab">Android Manifest</a></li>
                         </ul>
                         <div class="tab-content">
@@ -398,9 +398,9 @@ dependencies {
                                     </p>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="activity">
+                            <div class="tab-pane" id="application">
                                 <p>Insert this snippet (or modify it to include provided code in same methods) to your
-                                    main activity, which is the first to launch and is specified in your Android
+                                    app, which is the first to launch and is specified in your Android
                                     manifest</p>
                                 <p id='push' class='well'><a
                                         href="https://support.countly.com/hc/en-us/articles/360037754031-Android#h_01HAVQDM5TNGS4ZR4109W4S5TK"
@@ -485,27 +485,13 @@ dependencies {
             });
 
             var template = "@Override\n" +
-                "public void onCreate(Bundle savedInstanceState) {\n" +
-                "   super.onCreate(savedInstanceState);\n" +
+                "public void onCreate() {\n" +
+                "   super.onCreate();\n" +
                 "   \n" +
                 "   CountlyConfig config = new CountlyConfig(this, \"YOUR_SERVER\", \"YOUR_APP_KEY\");\n" +
                 "[options]\n" +
                 "[features]\n" +
                 "   Countly.sharedInstance().init(config);\n" +
-                "}\n" +
-                "\n" +
-                "@Override\n" +
-                "public void onStart()\n" +
-                "{\n" +
-                "   super.onStart();\n" +
-                "   Countly.sharedInstance().onStart(this);\n" +
-                "}\n" +
-                "\n" +
-                "@Override\n" +
-                "public void onStop()\n" +
-                "{\n" +
-                "   Countly.sharedInstance().onStop();\n" +
-                "   super.onStop();\n" +
                 "}\n";
 
             $("#generate").click(function () {
