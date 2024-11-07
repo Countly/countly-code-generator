@@ -223,37 +223,37 @@
                             </div>
                         </div><!-- /.col-lg-6 -->
                     </div><!-- /.row -->
-                    <div class="row">
+                    <div class="row star-rating-option">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Provide the Star Rating dialog title</label>
+                                <label>Provide the Star-Rating dialog title</label>
                                 <input type="text" class="form-control" id='setStarRatingTextTitle'
                                     placeholder="App rating" />
                             </div>
                         </div><!-- /.col-lg-6 -->
                     </div><!-- /.row -->
-                    <div class="row">
+                    <div class="row star-rating-option">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Provide the Star Rating dialog message</label>
+                                <label>Provide the Star-Rating dialog message</label>
                                 <input type="text" class="form-control" id='setStarRatingTextMessage'
                                     placeholder="Please rate this app" />
                             </div>
                         </div><!-- /.col-lg-6 -->
                     </div><!-- /.row -->
-                    <div class="row">
+                    <div class="row star-rating-option">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Provide title for cancel button in Star Rating dialog</label>
+                                <label>Provide title for cancel button in Star-Rating dialog</label>
                                 <input type="text" class="form-control" id='setStarRatingTextDismiss'
                                     placeholder="Cancel" />
                             </div>
                         </div><!-- /.col-lg-6 -->
                     </div><!-- /.row -->
-                    <div class="row">
+                    <div class="row star-rating-option">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Show Star rating dialog after this amount of sessions</label>
+                                <label>Show Star-Rating dialog after this amount of sessions</label>
                                 <input type="text" class="form-control" id='setAutomaticStarRatingSessionLimit'
                                     placeholder="10" />
                             </div>
@@ -266,18 +266,18 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>
-                                    <input type="checkbox" id='setIfStarRatingShownAutomatically' value='false'> Disable
-                                    Asking Star rating completely
+                                    <input type="checkbox" id='setIfStarRatingShownAutomatically' onclick="toggleStarRatingOptions(this)" value='false'> Disable
+                                    Asking Star-Rating completely
                                 </label>
                             </div>
                         </div><!-- /.col-lg-6 -->
                     </div><!-- /.row -->
-                    <div class="row">
+                    <div class="row star-rating-option">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>
                                     <input type="checkbox" id='setStarRatingDisableAskingForEachAppVersion'
-                                        value='false'> Disable Asking Star rating for each version
+                                        value='false'> Disable Asking Star-Rating for each version
                                 </label>
                             </div>
                         </div><!-- /.col-lg-6 -->
@@ -303,7 +303,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Provide the secret salt. Must be same with the one provided on server to prevent
+                                <label>Provide the secret Parameter Tampering Salt. Must be same with the one provided on server to prevent
                                     changing request data</label>
                                 <input type="text" class="form-control" id='setParameterTamperingProtectionSalt'
                                     placeholder="secret" />
@@ -316,7 +316,7 @@
         <div class="row">
             <div class="col-md-12">
                 <p class='text-center'><button type="button" class="btn btn-success" id="generate">Generate
-                        code</button></p>
+                        Code</button></p>
             </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
 
@@ -451,6 +451,16 @@ dependencies {
     <script src="js/FileSaver.min.js"></script>
     <script src="js/clipboard.min.js"></script>
     <script>
+        function toggleStarRatingOptions(checkbox) {
+            const starRatingOptions = document.querySelectorAll('.star-rating-option');
+            starRatingOptions.forEach(option => {
+                if (checkbox.checked) {
+                    option.classList.add('disabled');
+                } else {
+                    option.classList.remove('disabled');
+                }
+            });
+        }
         $(document).ready(function () {
             new Clipboard('.copy');
             var sdk = sdks.android;

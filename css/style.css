@@ -316,3 +316,8 @@ legend {
 
 .advanced-list{display: none;}
 .advanced span.label {cursor:pointer;}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none; /* Prevents interaction */
+}
