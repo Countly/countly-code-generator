@@ -50,7 +50,7 @@ var users = {
             }
         }
         if(script !== ""){
-            script = "HashMap<String, String> userdata = new HashMap<String, String>();\n"+script+"Countly.userData.setUserData(userdata);\n";
+            script = "HashMap<String, Object> userdata = new HashMap<String, Object>();\n"+script+"Countly.sharedInstance().userProfile().setProperties(userdata);\n";
         }
         if(data.custom){
             var map = {
@@ -60,15 +60,15 @@ var users = {
                 multiply: "multiply",
                 max: "saveMax",
                 min: "saveMin",
-                push_unique: "pushUniqueValue",
-                pull: "pullValue"
+                push_unique: "pushUnique",
+                pull: "pull"
             };
             for(i in data.custom){
                 if(data.custom[i].action === "increment" || data.custom[i].action === "multiply" || data.custom[i].action === "min" || data.custom[i].action === "max"){
-                    script += "Countly.userData."+map[data.custom[i].action]+"(\""+i+"\", "+data.custom[i].value+");\n";
+                    script += "Countly.sharedInstance().userProfile()."+map[data.custom[i].action]+"(\""+i+"\", "+data.custom[i].value+");\n";
                 }
                 else{
-                    script += "Countly.userData."+map[data.custom[i].action]+"(\""+i+"\", \""+data.custom[i].value+"\");\n";
+                    script += "Countly.sharedInstance().userProfile()."+map[data.custom[i].action]+"(\""+i+"\", \""+data.custom[i].value+"\");\n";
                 }
             }
         }
