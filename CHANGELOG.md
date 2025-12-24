@@ -1,4 +1,8 @@
-XX.XX.X
+# 1.1
+* Added JSON validator for dp
+* Fixed dp calculator issues
+
+## 1.0
 * For events, warning added for the negative count.
 * Updated Android SDK with the latest methods.
 * Refreshed server URL and app key placeholders.
