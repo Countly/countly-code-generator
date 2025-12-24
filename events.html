@@ -20,6 +20,10 @@
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
 
+    <!-- Syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -134,16 +138,26 @@
                     <h4 class="modal-title text-center">Use this snippet to send an event to server</h4>
                 </div>
                 <div class="modal-body">
-                    <p><textarea id='end-code' class="no-translate" readonly onclick="this.select();"></textarea></p>
+                    <div class="code-shell">
+                        <div class="code-toolbar text-right">
+                            <button type="button" class="btn-copy-icon" id="copy-events"
+                                data-clipboard-target="#end-code" title="Copy to clipboard">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" fill="currentColor" opacity="0.6"/>
+                                    <rect x="3" y="3" width="13" height="13" rx="2" ry="2" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <pre class="code-view"><code id="end-code-highlight" class="language-javascript"></code></pre>
+                        <textarea id='end-code' class="no-translate code-source" readonly></textarea>
+                    </div>
                 </div>
-                <div class="modal-footer">
+                <!-- <div class="modal-footer">
                     <p class='text-center'>
-                        <button type="button" class="btn btn-success" id="copy"
-                            data-clipboard-target="#end-code">Copy</button>&nbsp;
                         <button type="button" class="btn btn-success" id="download">Download</button>&nbsp;
                         <button type="button" class="btn btn-primary" id="gotit">Close</button>
                     </p>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -176,7 +190,7 @@
                 $("#buttons").append('<a href="users.html?sdk=' + params.sdk + '" id="next" class="btn btn-default">Next: Add user info &rarr;</a>');
                 $("#back").attr("href", "integration-" + params.sdk + ".html");
             }
-            new Clipboard('#copy');
+            new Clipboard('#copy-events');
             var exampleSegments = [
                 ["screen", "Main Screen"],
                 ["difficulty", "Hard"],
@@ -255,6 +269,13 @@
                     data.segmentation = segments;
 
                 $("#end-code").val(events[sdk](data));
+
+                if (window.hljs) {
+                    var eventsText = $("#end-code").val();
+                    $("#end-code-highlight").text(eventsText);
+                    hljs.highlightElement(document.getElementById("end-code-highlight"));
+                }
+
                 $('#end-modal').modal();
             }
 

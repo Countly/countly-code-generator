@@ -66,6 +66,19 @@ Localize.initialize({
  
 $( document ).ready(function() {
     $(".advanced span.label").click(function(){
-       $(this).parent().find(".advanced-list").toggle(); 
+       var $section = $(this).closest(".advanced");
+       var $list = $section.find(".advanced-list");
+       var isOpen = $section.hasClass("open");
+
+       if (isOpen) {
+           $list.slideUp(160);
+       } else {
+           $list.slideDown(160);
+       }
+
+       var nowOpen = !isOpen;
+       $section.toggleClass("open", nowOpen);
+       $section.find("#dropdown-icon").toggle(!nowOpen);
+       $section.find("#dropdown-icon-2").toggle(nowOpen);
     });
 });
