@@ -5,13 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="images/favicon.png">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="images/favicon.png">
 
-    <title>Countly Code Generator</title>
-
-    <!-- Bootstrap core CSS -->
+        <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -19,6 +17,10 @@
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -187,15 +189,22 @@
                     <h4 class="modal-title text-center">Use this snippet to add information about user</h4>
                 </div>
                 <div class="modal-body">
-                    <p><textarea id='end-code' class="no-translate" readonly onclick="this.select();"></textarea></p>
-                </div>
-                <div class="modal-footer">
-                    <p class='text-center'>
-                        <button type="button" class="btn btn-success" id="copy"
-                            data-clipboard-target="#end-code">Copy</button>&nbsp;
-                        <button type="button" class="btn btn-success" id="download">Download</button>&nbsp;
-                        <button type="button" class="btn btn-primary" id="gotit">Close</button>
-                    </p>
+                        <div class="code-shell">
+                            <div class="code-toolbar text-right">
+                                <button type="button" class="btn-copy-icon" id="copy-users"
+                                    data-clipboard-target="#end-code" title="Copy to clipboard">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" fill="currentColor" opacity="0.6"/>
+                                        <rect x="3" y="3" width="13" height="13" rx="2" ry="2" fill="currentColor"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre class="code-view"><code id="end-code-highlight" class="language-javascript"></code></pre>
+                            <textarea id='end-code' class="no-translate code-source" readonly></textarea>
+                        </div>
+                        <!-- <p class='text-center'>
+                            <button type="button" class="btn btn-primary" id="gotit">Close</button>
+                        </p> -->
                 </div>
             </div>
         </div>
@@ -223,10 +232,10 @@
             if (params.sdk && sdks[params.sdk]) {
                 $("#generate-code .dropup").addClass("hidden");
                 $("#generate-code").append('<p class="text-center"><button type="button" class="btn btn-success" id="generate">Generate for ' + sdks[params.sdk].name + '</button></p>');
-                //$("#buttons").append('<a href="users.html?sdk='+params.sdk+' id="next" class="btn btn-default">Next: Add user info &rarr;</a>');
+                //"#buttons").append('<a href="users.html?sdk='+params.sdk+' id="next" class="btn btn-default">Next: Add user info &rarr;</a>');
                 $("#back").attr("href", "events.html?sdk=" + params.sdk);
             }
-            new Clipboard('#copy');
+            new Clipboard('#copy-users');
             var exampleStringSegments = [
                 ["twitter", "@johnsmith"],
                 ["selected_theme", "Dark"],
@@ -286,6 +295,7 @@
 
             function generate(sdk) {
                 $(".alert").remove();
+
                 $("#sdk-repo").attr("href", sdks[sdk].repo);
                 $("#sdk-docs").attr("href", sdks[sdk].docs);
                 $("#sdk-download").attr("href", sdks[sdk].download);
@@ -316,10 +326,18 @@
 
                 if (!hasInfo && !hasSegments) {
                     $("#name").parent().prepend('<div class="alert alert-danger" role="alert">Please provide at least one value</div>');
+                    scrollToElement(".section");
                     return;
                 }
 
                 $("#end-code").val(users[sdk](data));
+
+                if (window.hljs) {
+                    var usersText = $("#end-code").val();
+                    $("#end-code-highlight").text(usersText);
+                    hljs.highlightElement(document.getElementById("end-code-highlight"));
+                }
+
                 $('#end-modal').modal();
             }
 
