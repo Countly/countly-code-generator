@@ -1,4 +1,4 @@
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/839defa83f014c0c894636f7b4e3d6a6)](https://www.codacy.com/gh/Countly/countly-code-generator/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Countly/countly-code-generator&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/839defa83f014c0c894636f7b4e3d6a6)](https://app.codacy.com/gh/Countly/countly-code-generator/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 # Countly SDK Code Generator
 
@@ -7,14 +7,14 @@ This application generates Countly SDK code snippets that can be integrated into
 You can reach the code generator from [here](https://countly.github.io/countly-code-generator/).
 
 ## What is Countly?
-[Countly](https://count.ly) is a product analytics solution and innovation enabler that helps teams track product performance and customer journey and behavior across [mobile](https://count.ly/mobile-analytics), [web](http://count.ly/web-analytics),
-and [desktop](https://count.ly/desktop-analytics) applications. [Ensuring privacy by design](https://count.ly/privacy-by-design), Countly allows you to innovate and enhance your products to provide personalized and customized customer experiences, and meet key business and revenue goals.
+[Countly](https://countly.com) is a product analytics solution and innovation enabler that helps teams track product performance and customer journey and behavior across [mobile](https://countly.com/mobile-analytics), [web](https://countly.com/web-analytics),
+and [desktop](https://countly.com/desktop-analytics) applications. [Ensuring privacy by design](https://countly.com/privacy-by-design), Countly allows you to innovate and enhance your products to provide personalized and customized customer experiences, and meet key business and revenue goals.
 
 Track, measure, and take action - all without leaving Countly.
 
 * **Slack user?** [Join our Slack Community](https://slack.count.ly)
 * **Questions or feature requests?** [Post in our Community Forum](https://support.count.ly/hc/en-us/community/topics)
-* **Looking for the Countly Server?** [Countly Community Edition repository](https://github.com/Countly/countly-server)
+* **Looking for the Countly Server?** [Countly Server repository](https://github.com/Countly/countly-server)
 * **Looking for other Countly SDKs?** [An overview of all Countly SDKs for mobile, web and desktop](https://support.count.ly/hc/en-us/articles/360037236571-Downloading-and-Installing-SDKs#officially-supported-sdks)
 
 ## Security

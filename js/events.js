@@ -10,21 +10,21 @@ var events = {
     android: function(data){
         var ret, key;
         if(!data.sum && !data.segmentation){
-            return 'Countly.sharedInstance().recordEvent("'+data.key+'", '+data.count+');';
+            return 'Countly.sharedInstance().events().recordEvent("'+data.key+'", '+data.count+');';
         }
         else if(!data.segmentation){
-            return 'Countly.sharedInstance().recordEvent("'+data.key+'", '+data.count+', '+data.sum+');';
+            return 'Countly.sharedInstance().events().recordEvent("'+data.key+'", '+data.count+', '+data.sum+');';
         }
         else{
-            ret = "HashMap<String, String> segmentation = new HashMap<String, String>();\n";
+            ret = "HashMap<String, Object> segmentation = new HashMap<String, Object>();\n";
             for(key in data.segmentation){
                 ret += 'segmentation.put("'+key+'", "'+data.segmentation[key]+'");\n';
             }
             if(typeof data.sum !== "undefined"){
-                return ret + 'Countly.sharedInstance().recordEvent("'+data.key+'", segmentation, '+data.count+', '+data.sum+');';
+                return ret + 'Countly.sharedInstance().events().recordEvent("'+data.key+'", segmentation, '+data.count+', '+data.sum+');';
             }
             else{
-                return ret + 'Countly.sharedInstance().recordEvent("'+data.key+'", segmentation, '+data.count+');';
+                return ret + 'Countly.sharedInstance().events().recordEvent("'+data.key+'", segmentation, '+data.count+');';
             }
         }
     },
