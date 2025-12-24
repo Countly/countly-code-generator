@@ -1,7 +1,10 @@
-/* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    padding-bottom: 20px;
-    background-color: #F7FAFC;
+    padding-bottom: 24px;
+    background-color: #F3F4F6;
+    color: #1F2933;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .iconstuff
@@ -86,6 +89,111 @@ textarea{
     width: 100%;
     height: 500px;
 }
+
+/* code snippet styling */
+.code,
+textarea.no-translate,
+textarea.code {
+    background-color: #020617;
+    color: #E5E7EB;
+    border-radius: 12px;
+    border: 1px solid #111827;
+    padding: 12px 14px;
+    font-family: "SF Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    box-shadow: 0 18px 40px rgba(15,23,42,0.75);
+    resize: vertical;
+}
+
+.code:focus,
+textarea.no-translate:focus {
+    outline: none;
+    box-shadow: inset 0 0 0 1px #4F46E5, 0 18px 40px rgba(79,70,229,0.55);
+}
+
+.code-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 6px;
+}
+
+.code-toolbar.text-right {
+    justify-content: space-between;
+}
+
+/* highlighted code shells (used on iOS page) */
+.code-shell {
+    margin-top: 10px;
+    border-radius: 12px;
+    background: transparent;
+    box-shadow: 0 18px 40px rgba(15,23,42,0.75);
+    overflow: hidden;
+}
+
+.code-shell .code-toolbar {
+    background: #020617;
+    border-radius: 12px 12px 0 0;
+    padding: 6px 10px;
+    border-bottom: 1px solid #111827;
+    margin-bottom: 0;
+    justify-content: flex-end;
+}
+
+.code-view {
+    margin: 0;
+    background-color: #020617;
+    border-radius: 0 0 12px 12px;
+    border-top: none;
+}
+
+.code-view code {
+    display: block;
+    padding: 12px 14px;
+    font-family: "SF Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.code-source {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.btn-copy-icon {
+    background: transparent;
+    border: none;
+    padding: 4px 6px;
+    border-radius: 999px;
+    color: #9CA3AF;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 120ms ease-out, color 120ms ease-out, transform 80ms ease-out;
+}
+
+.btn-copy-icon:hover {
+    background-color: rgba(148,163,184,0.16);
+    color: #E5E7EB;
+    transform: translateY(-1px);
+}
+
+.btn-copy-icon:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(79,70,229,0.5);
+}
+
+.btn-copy-icon svg {
+    width: 16px;
+    height: 16px;
+}
 .segment{
     position: relative;
 }
@@ -105,16 +213,9 @@ textarea{
 }
 
 .jumbotron {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3d284c+0,623882+100 */
-    background: #191C20; /* Old browsers */
-    background: -moz-linear-gradient(-45deg,  #191C20 0%, #191C20 100%); /* FF3.6-15 */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#191C20), color-stop(100%,#191C20)); /* Chrome4-9,Safari4-5 */
-    background: -webkit-linear-gradient(-45deg,  #191C20 0%,#191C20 100%); /* Chrome10-25,Safari5.1-6 */
-    background: -ms-linear-gradient(-45deg,  #191C20 0%, #191C20 100%); /* Internet Explorer 10+ */
-    background: -o-linear-gradient(-45deg,  #191C20 0%, #191C20 100%); /* Opera 11.10+ */
-    background: linear-gradient(135deg,  #191C20 0%,#191C20 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d284c', endColorstr='#623882',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
+    background: radial-gradient(circle at top left, #1F2937 0%, #0F172A 40%, #020617 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 16px 40px rgba(15,23,42,0.55);
 }
 
 @media screen and (min-width: 768px) {
@@ -125,15 +226,15 @@ textarea{
 }
 
 .jumbotron p {
-    color:#DFD9E3;
+    color:#E5E7EB;
     font-size: 17px;
     text-align: center;
-    letter-spacing: 1px;
-    font-weight: 200;
+    letter-spacing: 0.5px;
+    font-weight: 300;
     max-width: 650px;
     margin: 0 auto;
     margin-top: 20px;
-    line-height: 27px;
+    line-height: 28px;
 }
 
 .jumbotron.top { padding:20px; }
@@ -175,17 +276,20 @@ textarea{
 }
 
 h2 {
-    color:#4D4F5F;
-    font-weight: 200;
+    color:#111827;
+    font-weight: 300;
     margin: 40px 0 30px 0;
 }
 
 .cly-grid .cly-col {
     border: 1px solid #EAEAEA;
-    background-color: #FFF;
+    background-color: #FFFFFF;
     padding:30px;
     margin-bottom: 30px;
     text-align: center;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.06);
+    transition: transform 160ms ease-out, box-shadow 160ms ease-out, border-color 160ms ease-out, background-color 160ms ease-out;
 }
 
 .cly-grid .cly-col h2 {
@@ -196,15 +300,17 @@ h2 {
 
 .cly-grid .cly-col p {
     font-size: 14px;
-    color:#7B7B7B;
-    line-height: 20px;
+    color:#4B5563;
+    line-height: 22px;
     max-width: 700px;
     margin: 0 auto;
 }
 
 .cly-grid .cly-col:hover {
     cursor: pointer;
-    box-shadow: 0 5px 10px rgba(0,0,0,.15);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(15,23,42,0.18);
+    border-color: #D1D5DB;
 }
 
 .cly-grid .cly-col .icon {
@@ -223,9 +329,12 @@ h2 {
 
 
 .cly-grid .cly-col .next {
-    color:#2FA732;
+    color:#22C55E;
     margin-top: 30px;
     font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 #dropdown-icon {
@@ -248,11 +357,57 @@ h2 {
 
 footer p {
     text-align: center;
-    margin: 30px 0 40px 0;
+    margin: 40px 0 40px 0;
 }
 
 footer a {
-    color:#623882 !important;
+    color:#4F46E5 !important;
+}
+
+/* buttons theme */
+.btn {
+    border-radius: 999px;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-width: 1px;
+    transition: background-color 140ms ease-out, color 140ms ease-out, box-shadow 140ms ease-out, border-color 140ms ease-out, transform 80ms ease-out;
+}
+
+.btn:focus,
+.btn:active:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(79,70,229,0.35);
+}
+
+.btn-default {
+    background-color: #FFFFFF;
+    color: #111827;
+    border-color: #D1D5DB;
+    box-shadow: 0 4px 12px rgba(15,23,42,0.06);
+}
+
+.btn-default:hover,
+.btn-default:focus {
+    background-color: #EEF2FF;
+    color: #111827;
+    border-color: #4F46E5;
+    box-shadow: 0 6px 18px rgba(15,23,42,0.12);
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background-color: #22C55E;
+    border-color: #16A34A;
+    color: #FFFFFF;
+    box-shadow: 0 6px 18px rgba(22,163,74,0.35);
+}
+
+.btn-success:hover,
+.btn-success:focus {
+    background-color: #16A34A;
+    border-color: #15803D;
+    box-shadow: 0 8px 24px rgba(21,128,61,0.45);
+    transform: translateY(-1px);
 }
 
 #sdks {
@@ -302,20 +457,56 @@ footer a {
 #countly-link:hover { text-decoration: none; }
 
 fieldset {
-    border: 2px solid #191C20 ;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 15px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(15,23,42,0.04);
 }
 
 legend {
-    padding: 5px;
-    margin: 0px;
+    padding: 0 8px;
+    margin: 0 0 8px 0;
     max-width: max-content;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6B7280;
+    background-color: #EEF2FF;
+    border-radius: 999px;
 }
 
-.advanced-list{display: none;}
-.advanced span.label {cursor:pointer;}
+.section.advanced {
+    margin-top: 24px;
+    border-radius: 16px;
+    border-color: #E5E7EB;
+    background: linear-gradient(135deg, #F9FAFB 0%, #EFF6FF 100%);
+    box-shadow: 0 12px 30px rgba(15,23,42,0.08);
+    padding-top: 20px;
+    overflow: hidden;
+}
+
+.section.advanced.open {
+    border-color: #4F46E5;
+    box-shadow: 0 16px 40px rgba(79,70,229,0.28);
+}
+
+.advanced-list{
+    display: none;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed #D1D5DB;
+}
+
+.advanced span.label {
+    cursor:pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #111827;
+}
 
 .disabled {
     opacity: 0.5;

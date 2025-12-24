@@ -20,6 +20,12 @@
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
 
+    <!-- Syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/objectivec.min.js"></script>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -41,6 +47,8 @@
                 <div style="overflow: auto">
                     <div class="btn-group" style="float: left">
                         <a href="integration.html" id="back" class="btn btn-default">&larr; Back</a>
+                        </div>
+                        <div class="btn-group" style="margin: 0 auto;">
                         <a href="events.html?sdk=ios" id="next" class="btn btn-default">Next: Create Event &rarr;</a>
                     </div>
                     <div id="buttons" class="btn-group" role="group" style="float: right">
@@ -56,7 +64,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for='server-url'>Server URL:</label>
-                        <input type="url" class="form-control" id='server-url' placeholder="https://try.count.ly">
+                        <input type="url" class="form-control" id='server-url' placeholder="https://your.domain.count.ly">
                     </div>
                 </div>
             </div>
@@ -111,14 +119,7 @@
                 <div class="col-md-12">
                     <label>
                         <input type="radio" name='device_id' value='CLYSDKDefault' checked="checked"><span
-                            id="device_id_sdk_default_text"> SDK Default (IDFV)</span>
-                    </label>
-                </div>
-            </div>
-            <div class="row" id="device_id_CLYIDFV">
-                <div class="col-md-12">
-                    <label>
-                        <input type="radio" name='device_id' value='CLYIDFV'> Identifier for Advertising (IDFA)
+                            id="device_id_sdk_default_text"> SDK Default</span>
                     </label>
                 </div>
             </div>
@@ -136,7 +137,7 @@
 
 
 
-        <div class='section features checkbox'>
+        <div class='section features checkbox' id='optional-features-ios'>
             <span class='label'>Choose optional features you want to use</span>
             <div class="row" id="feature_CLYPushNotifications">
                 <div class="col-md-12">
@@ -186,7 +187,7 @@
                 Advanced Configuration</span>
             <div class='advanced-list'>
                 <fieldset>
-                    <legend>General</legend>
+                    <legend>Location</legend>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -210,15 +211,6 @@
                                 <label>Provide city of your user (will try to determine from IP address if not
                                     provided)</label>
                                 <input type="text" class="form-control" id='city' placeholder="San Francisco" />
-                            </div>
-                        </div><!-- /.col-lg-6 -->
-                    </div><!-- /.row -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Provide the secret salt. Must be same with the one provided on server to prevent
-                                    changing request data</label>
-                                <input type="text" class="form-control" id='secretSalt' placeholder="secret" />
                             </div>
                         </div><!-- /.col-lg-6 -->
                     </div><!-- /.row -->
@@ -261,6 +253,15 @@
                 </fieldset>
                 <fieldset>
                     <legend>Other</legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Provide the secret salt. Must be same with the one provided on server to prevent
+                                    changing request data</label>
+                                <input type="text" class="form-control" id='secretSalt' placeholder="secret" />
+                            </div>
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -372,15 +373,6 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>
-                                    <input type="checkbox" id='alwaysUsePOST' value='YES'> Force using POST only
-                                </label>
-                            </div>
-                        </div><!-- /.col-lg-6 -->
-                    </div><!-- /.row -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>
                                     <input type="checkbox" id='enableAppleWatch' value='YES'> Enable Apple Watch support
                                 </label>
                             </div>
@@ -392,24 +384,6 @@
                                 <label>
                                     <input type="checkbox" id='manualSessionHandling' value='YES'> Handle sessions
                                     manually
-                                </label>
-                            </div>
-                        </div><!-- /.col-lg-6 -->
-                    </div><!-- /.row -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>
-                                    <input type="checkbox" id='applyZeroIDFAFix' value='YES'> Apply Zero-IDFA fix
-                                </label>
-                            </div>
-                        </div><!-- /.col-lg-6 -->
-                    </div><!-- /.row -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>
-                                    <input type="checkbox" id='enableAttribution' value='YES'> Enable Attribution
                                 </label>
                             </div>
                         </div><!-- /.col-lg-6 -->
@@ -463,25 +437,43 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="objc">
-                                <p><textarea id='end-code-objc' class="no-translate code" readonly
-                                        onclick="this.select();"></textarea></p>
-                                <p class='text-center'>
-                                    <button type="button" class="btn btn-success" id="copy"
-                                        data-clipboard-target="#end-code-objc">Copy</button>&nbsp;
-                                    <button type="button" class="btn btn-success" id="download">Download</button>&nbsp;
-                                    <button type="button" class="btn btn-primary gotit">Close</button>
-                                </p>
+                        <div class="code-shell">
+                            <div class="code-toolbar text-right">
+                                <button type="button" class="btn-copy-icon" id="copy-objc"
+                                    data-clipboard-target="#end-code-objc" title="Copy to clipboard">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" fill="currentColor" opacity="0.6"/>
+                                        <rect x="3" y="3" width="13" height="13" rx="2" ry="2" fill="currentColor"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre class="code-view"><code id="end-code-objc-highlight" class="language-objectivec"></code></pre>
+                            <textarea id='end-code-objc' class="no-translate code-source" readonly></textarea>
+                        </div>
+                        <!-- <p class='text-center' style="padding-top: 20px;">
+                            <button type="button" class="btn btn-success" id="download">Download</button>&nbsp;
+                            <button type="button" class="btn btn-primary gotit">Close</button>
+                        </p> -->
                             </div>
                             <div class="tab-pane" id="swift">
-                                <p><textarea id='end-code-swift' class="no-translate code" readonly
-                                        onclick="this.select();"></textarea></p>
-                                <p class='text-center'>
-                                    <button type="button" class="btn btn-success" id="copy"
-                                        data-clipboard-target="#end-code-swift">Copy</button>&nbsp;
-                                    <button type="button" class="btn btn-success"
-                                        id="download-swift">Download</button>&nbsp;
-                                    <button type="button" class="btn btn-primary gotit">Close</button>
-                                </p>
+                        <div class="code-shell">
+                            <div class="code-toolbar text-right">
+                                <button type="button" class="btn-copy-icon" id="copy-swift"
+                                    data-clipboard-target="#end-code-swift" title="Copy to clipboard">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" fill="currentColor" opacity="0.6"/>
+                                        <rect x="3" y="3" width="13" height="13" rx="2" ry="2" fill="currentColor"/>
+                                    </svg>
+                            </button>
+                            </div>
+                            <pre class="code-view"><code id="end-code-swift-highlight" class="language-swift"></code></pre>
+                            <textarea id='end-code-swift' class="no-translate code-source" readonly></textarea>
+                        </div>
+                        <!-- <p class='text-center' style="padding-top: 20px;">
+                            <button type="button" class="btn btn-success"
+                                id="download-swift">Download</button>&nbsp;
+                            <button type="button" class="btn btn-primary gotit">Close</button>
+                        </p> -->
                             </div>
                         </div>
                     </div>
@@ -506,7 +498,8 @@
     <script src="js/clipboard.min.js"></script>
     <script>
         $(document).ready(function () {
-            new Clipboard('#copy');
+			new Clipboard('#copy-objc');
+			new Clipboard('#copy-swift');
             var sdk = sdks.ios;
             $("#buttons").append('<a href="' + sdk.docs + '" target="_blank" class="btn btn-default">Documentation</a>');
             $("#buttons").append('<a href="' + sdk.download + '" target="_blank" class="btn btn-default">Download</a>');
@@ -736,6 +729,13 @@
 
                 $("#end-code-objc").val(code);
                 $("#end-code-swift").val(code_swift);
+
+                if (window.hljs) {
+                    $("#end-code-objc-highlight").text(code);
+                    $("#end-code-swift-highlight").text(code_swift);
+                    hljs.highlightElement(document.getElementById("end-code-objc-highlight"));
+                    hljs.highlightElement(document.getElementById("end-code-swift-highlight"));
+                }
                 $('#end-modal').modal();
             });
 
@@ -803,9 +803,10 @@
 
                 platform = $("input:radio[name=platform]:checked").val();
                 if (platform == 'iOS') {
-                    $('#device_id_CLYIDFV').show();
-                    $('#device_id_CLYOpenUDID').show();
-                    $("#device_id_sdk_default_text").text("SDK Default (IDFA)");
+                    $('#device_id_CLYIDFV').hide();
+                    $('#device_id_CLYOpenUDID').hide();
+                    $('#optional-features-ios').show();
+                    
 
                     $('#feature_CLYPushNotifications').show();
                     $('#feature_CLYCrashReporting').show();
@@ -814,14 +815,20 @@
                 else if (platform == 'watchOS') {
                     $('#device_id_CLYIDFV').hide();
                     $('#device_id_CLYOpenUDID').hide();
+                    $('#optional-features-ios').hide();
                 }
                 else if (platform == 'tvOS') {
                     $('#device_id_CLYIDFV').hide();
                     $('#device_id_CLYOpenUDID').hide();
+                    $('#optional-features-ios').hide();
+                    $('#optional-features-ios').hide();
+
                 }
                 else if (platform == 'OSX') {
                     $('#device_id_CLYIDFV').hide();
                     $('#device_id_CLYOpenUDID').show();
+                    $('#optional-features-ios').hide();
+
                 }
             });
 

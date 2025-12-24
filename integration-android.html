@@ -20,6 +20,11 @@
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
 
+    <!-- Syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/groovy.min.js"></script>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -42,6 +47,7 @@
                 <div style="overflow: auto">
                     <div class="btn-group" style="float: left">
                         <a href="integration.html" id="back" class="btn btn-default">&larr; Back</a>
+                        </div><div class="btn-group" style="margin: 0 auto;">
                         <a href="events.html?sdk=android" id="next" class="btn btn-default">Next: Create Event
                             &rarr;</a>
                     </div>
@@ -58,7 +64,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for='server-url'>Server URL:</label>
-                        <input type="url" class="form-control" id='server-url' placeholder="https://your.server.ly">
+                        <input type="url" class="form-control" id='server-url' placeholder="https://your.domain.count.ly">
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div>
@@ -119,13 +125,6 @@
                 <div class="col-md-12">
                     <label>
                         <input type="checkbox" class='feature' value='crash'> Track app crashes
-                    </label>
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <label>
-                        <input type="checkbox" class='feature' value='attribution'> Track campaigns and attribution
                     </label>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
@@ -294,15 +293,6 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>
-                                    <input type="checkbox" id='setHttpPostForced' value='true'> Force using POST only
-                                </label>
-                            </div>
-                        </div><!-- /.col-lg-6 -->
-                    </div><!-- /.row -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
                                 <label>Provide the secret Parameter Tampering Salt. Must be same with the one provided on server to prevent
                                     changing request data</label>
                                 <input type="text" class="form-control" id='setParameterTamperingProtectionSalt'
@@ -346,8 +336,18 @@
                                     <p>Add Maven repository and dependency to your app's level
                                         <strong>build.gradle</strong> file
                                     </p>
-                                    <p><textarea id='gradle-code' class='code' readonly onclick="this.select();">
-buildscript {
+                                    <div class="code-shell">
+                            <div class="code-toolbar text-right">
+                                <button type="button" class="btn-copy-icon copy"
+                                    data-clipboard-target="#gradle-code" title="Copy to clipboard">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" fill="currentColor" opacity="0.6"/>
+                                        <rect x="3" y="3" width="13" height="13" rx="2" ry="2" fill="currentColor"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre class="code-view"><code id="gradle-code-highlight" class="language-groovy"></code></pre>
+                            <textarea id='gradle-code' class='code-source' readonly>buildscript {
     repositories {
         mavenCentral()
     }
@@ -355,15 +355,15 @@ buildscript {
 
 dependencies {
     implementation 'ly.count.android:sdk:version'
-}
-                                </textarea></p>
-                                    <p class='text-center'>
+}</textarea>
+                        </div>
+                                    <!-- <p class='text-center'>
                                         <button type="button" class="btn btn-success copy"
                                             data-clipboard-target="#gradle-code">Copy</button>&nbsp;
                                         <button type="button" class="btn btn-success"
                                             id="download-gradle">Download</button>&nbsp;
                                         <button type="button" class="btn btn-primary gotit">Close</button>
-                                    </p>
+                                    </p> -->
                                 </div>
                                 <div class='eclipse hidden'>
                                     <div class='well'>
@@ -393,9 +393,9 @@ dependencies {
                                             </td>
                                         </tr>
                                     </table>
-                                    <p class='text-center'>
+                                    <!-- <p class='text-center'>
                                         <button type="button" class="btn btn-primary gotit">Close</button>
-                                    </p>
+                                    </p> -->
                                 </div>
                             </div>
                             <div class="tab-pane" id="application">
@@ -406,27 +406,45 @@ dependencies {
                                         href="https://support.countly.com/hc/en-us/articles/360037754031-Android#h_01HAVQDM5TNGS4ZR4109W4S5TK"
                                         target="_blank">More information on setting up push notifications on server</a>
                                 </p>
-                                <p><textarea id='end-code' class='code' readonly onclick="this.select();"></textarea>
-                                </p>
-                                <p class='text-center'>
-                                    <button type="button" class="btn btn-success copy"
-                                        data-clipboard-target="#end-code">Copy</button>&nbsp;
-                                    <button type="button" class="btn btn-success" id="download">Download</button>&nbsp;
-                                    <button type="button" class="btn btn-primary gotit">Close</button>
-                                </p>
+                                <div class="code-shell">
+                            <div class="code-toolbar text-right">
+                                <button type="button" class="btn-copy-icon copy"
+                                    data-clipboard-target="#end-code" title="Copy to clipboard">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" fill="currentColor" opacity="0.6"/>
+                                        <rect x="3" y="3" width="13" height="13" rx="2" ry="2" fill="currentColor"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre class="code-view"><code id="end-code-highlight" class="language-java"></code></pre>
+                            <textarea id='end-code' class='code-source' readonly></textarea>
+                        </div>
+                        <!-- <p class='text-center'>
+                            <button type="button" class="btn btn-success" id="download">Download</button>&nbsp;
+                            <button type="button" class="btn btn-primary gotit">Close</button>
+                        </p> -->
                             </div>
                             <div class="tab-pane" id="manifest">
                                 <p>Insert this snippet to in your <strong>AndroidManifest.xml</strong>, or modify it to
                                     include provided tags in same xmls structure</p>
-                                <p><textarea id='manifest-code' class='code' readonly
-                                        onclick="this.select();"></textarea></p>
-                                <p class='text-center'>
-                                    <button type="button" class="btn btn-success copy"
-                                        data-clipboard-target="#manifest-code">Copy</button>&nbsp;
-                                    <button type="button" class="btn btn-success"
-                                        id="download-manifest">Download</button>&nbsp;
-                                    <button type="button" class="btn btn-primary gotit">Close</button>
-                                </p>
+                                <div class="code-shell">
+                            <div class="code-toolbar text-right">
+                                <button type="button" class="btn-copy-icon copy"
+                                    data-clipboard-target="#manifest-code" title="Copy to clipboard">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" fill="currentColor" opacity="0.6"/>
+                                        <rect x="3" y="3" width="13" height="13" rx="2" ry="2" fill="currentColor"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre class="code-view"><code id="manifest-code-highlight" class="language-xml"></code></pre>
+                            <textarea id='manifest-code' class='code-source' readonly></textarea>
+                        </div>
+                        <!-- <p class='text-center'>
+                            <button type="button" class="btn btn-success"
+                                id="download-manifest">Download</button>&nbsp;
+                            <button type="button" class="btn btn-primary gotit">Close</button>
+                        </p> -->
                             </div>
                         </div>
                     </div>
@@ -503,6 +521,12 @@ dependencies {
                 "[features]\n" +
                 "   Countly.sharedInstance().init(config);\n" +
                 "}\n";
+
+            if (window.hljs) {
+                var gradleText = $("#gradle-code").val();
+                $("#gradle-code-highlight").text(gradleText);
+                hljs.highlightElement(document.getElementById("gradle-code-highlight"));
+            }
 
             $("#generate").click(function () {
                 var pushPermission = 
@@ -705,6 +729,16 @@ dependencies {
 
                 $("#end-code").val(code);
                 $("#manifest-code").val(manifest);
+
+                if (window.hljs) {
+                    var appText = $("#end-code").val();
+                    $("#end-code-highlight").text(appText);
+                    hljs.highlightElement(document.getElementById("end-code-highlight"));
+
+                    var manifestText = $("#manifest-code").val();
+                    $("#manifest-code-highlight").text(manifestText);
+                    hljs.highlightElement(document.getElementById("manifest-code-highlight"));
+                }
                 $('#end-modal').modal();
             });
 
