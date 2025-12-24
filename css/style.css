@@ -76,6 +76,45 @@ textarea{
     font-family:"Courier New", Courier, monospace;
 }
 
+#json {
+    width: 100%;
+    margin: 0;
+    display: block;
+}
+
+.json-status {
+    margin-top: 10px;
+    font-size: 13px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background-color: #F3F4F6;
+    color: #4B5563;
+    transition: background-color 120ms ease-out, color 120ms ease-out, border-color 120ms ease-out;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    display: block;
+}
+
+.json-status.json-valid {
+    background-color: #DEF7EC;
+    border-color: #0E9F6E;
+    color: #03543F;
+}
+
+.json-status.json-invalid {
+    background-color: #FDE8E8;
+    border-color: #F98080;
+    color: #9B1C1C;
+}
+
+.json-status.json-neutral {
+    background-color: #E5E7EB;
+    border-color: #D1D5DB;
+    color: #374151;
+}
+
 #end-code{
     width: 100%;
     height: 500px;
