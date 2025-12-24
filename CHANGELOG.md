@@ -1,3 +1,6 @@
+# 1.2
+* Updated SDK versions to latest
+
 # 1.1
 * Added JSON validator for dp
 * Fixed dp calculator issues
